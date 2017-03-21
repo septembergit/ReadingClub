@@ -3,7 +3,7 @@
 //function myController($scope) {
 //    $scope.items = ["one", "two", "three"];
 //};
-var myController = function ($scope) {
+var myController = ($scope) => {
     $scope.myInput = "Angular!";
 };
 
