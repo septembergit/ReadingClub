@@ -6,7 +6,7 @@
         var vm = this;
         vm.title = '<b>ReadingClub</b>';
         vm.user = {
-            userName: "stoneniqiu",
+            userName: "用户啊",
         };
         vm.list = [
             "第一期   《失控》             -- 上海-stoneniqiu",

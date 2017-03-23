@@ -19,7 +19,7 @@ a {
     color:  #ccc;
 }
 a.navbar-brand{color: #fff !important}
-#bodycontent{ margin-top:80px;}
+.bodycontent{ margin-top:80px;}
 
 .userinfo,.page{ border-radius: 3px;background: white;padding: 20px;padding-bottom: 10px;}
 

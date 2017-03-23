@@ -6,7 +6,7 @@
     function footerNav() {
         return {
             restrict: 'EA',
-            templateUrl: './footer.html'
+            templateUrl: '/common/directive/footer/footer.html'
         };
     }
 })();

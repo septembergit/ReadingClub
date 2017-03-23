@@ -4,7 +4,7 @@
     function config($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-            templateUrl: 'home/home.view.html',
+            templateUrl: 'home/home.html',
             controller: 'homeCtrl',
             controllerAs: 'vm'
         }).when('/about', {
@@ -26,13 +26,13 @@
             controllerAs: 'vm'
         })
         .when('/register', {
-            templateUrl: '/auth/register/register.view.html',
+            templateUrl: '/auth/register/register.html',
             caseInsensitiveMatch: true,
             controller: 'registerCtrl',
             controllerAs: 'vm'
         })
         .when('/login', {
-            templateUrl: '/auth/login/login.view.html',
+            templateUrl: '/auth/login/login.html',
             controller: 'loginCtrl',
             controllerAs: 'vm',
             caseInsensitiveMatch: true,

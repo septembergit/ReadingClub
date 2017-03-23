@@ -47,8 +47,8 @@
     <Compile Include="app_client\bookModal\bookModal.controller.js" />
     <Compile Include="app_client\books\books.controller.js" />
     <Compile Include="app_client\common\directive\footer\footer.directive.js" />
-    <Compile Include="app_client\common\directive\navigation\navigation.controller.js" />
-    <Compile Include="app_client\common\directive\navigation\navigation.directive.js" />
+    <Compile Include="app_client\common\directive\navigation\header.controller.js" />
+    <Compile Include="app_client\common\directive\navigation\header.directive.js" />
     <Compile Include="app_client\common\directive\ratingStars\ratingStars.directive.js" />
     <Compile Include="app_client\common\filters\formatDate.filter.js" />
     <Compile Include="app_client\common\services\authentication.service.js" />
@@ -126,8 +126,8 @@
     <Compile Include="public\plupload-2.1.8\js\plupload.dev.js" />
     <Compile Include="public\plupload-2.1.8\js\plupload.full.min.js" />
     <Compile Include="public\plupload-2.1.8\js\plupload.min.js" />
-    <Content Include="app_client\auth\login\login.view.html" />
-    <Content Include="app_client\auth\register\register.view.html" />
+    <Content Include="app_client\auth\login\login.html" />
+    <Content Include="app_client\auth\register\register.html" />
     <Content Include="app_client\bookDetail\bookDetail.html" />
     <Content Include="app_client\bookModal\bookModal.html" />
     <Content Include="app_client\books\books.html" />
@@ -135,7 +135,7 @@
     <Content Include="app_client\common\directive\navigation\navigation.html" />
     <Content Include="app_client\common\directive\ratingStars\ratingStars.template.html" />
     <Content Include="app_client\about\about.html" />
-    <Content Include="app_client\home\home.view.html" />
+    <Content Include="app_client\home\home.html" />
     <Content Include="app_client\index.html" />
     <Content Include="app_client\lib\angular-sanitize.min.js.map" />
     <Content Include="app_server\views\bookCreate.jade" />
@@ -178,7 +178,7 @@
     <Content Include="public\plupload-2.1.8\js\jquery.ui.plupload\img\plupload.png" />
     <Content Include="public\plupload-2.1.8\js\Moxie.swf" />
     <Content Include="public\plupload-2.1.8\js\Moxie.xap" />
-    <Content Include="public\stylesheets\style.css" />
+    <Content Include="public\stylesheets\app.css" />
     <Content Include="README.md" />
     <Content Include="app_server\views\index.jade" />
     <Content Include="app_server\views\layout.jade" />

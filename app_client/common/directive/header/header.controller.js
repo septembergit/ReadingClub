@@ -1,8 +1,8 @@
 ﻿(function() {
     angular.module("readApp")
-        .controller('navigationCtrl', navigationCtrl);
-    navigationCtrl.$inject = ['$location', 'authentication'];
-    function navigationCtrl($location, authentication) {
+        .controller('headerCtrl', headerCtrl);
+    headerCtrl.$inject = ['$location', 'authentication'];
+    function headerCtrl($location, authentication) {
         var vm = this;
         vm.currentPath = $location.path();
 
@@ -12,6 +12,5 @@
             authentication.logout();
             $location.path('/');
         };
-
     };
 })()

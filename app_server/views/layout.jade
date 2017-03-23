@@ -4,7 +4,7 @@ html(ng-app='readApp')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title= title
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/app.css')
     script(src='/angular/angular.min.js')
     script(src='/lib/angular-route.min.js')
     script(src='/angular/readApp.min.js')
@@ -32,7 +32,7 @@ html(ng-app='readApp')
           a(href='/Register') 注册
          li
           a(href='/Login') 登录
-    #bodycontent.container
+    .bodycontent.container
      div(ng-view)
       block content
 

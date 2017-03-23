@@ -11,7 +11,6 @@ function homeCtrl(topicData,user) {
         vm.message = data.length > 0 ? "" : "暂无数据";
         vm.data = data;
     }).error(function (e) {
-        console.log(e);
         vm.message = "Sorry, something's gone wrong ";
     });
     vm.user = user;
