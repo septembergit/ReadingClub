@@ -37,6 +37,6 @@ function booksData($http,authentication) {
 
 function userData() {
     return {
-        userName: "stoneniqiu",
+        userName: "用户readdata",
     };
 }

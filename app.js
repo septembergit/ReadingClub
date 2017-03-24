@@ -43,7 +43,7 @@ fs.writeFile('public/angular/readApp.min.js', uglified.code, function (err) {
     if (err) {
         console.log(err);
     } else {
-        console.log('脚本生产并保存成功: readApp.min.js');
+        console.log('脚本生产并保存成功');
     }
 });
 

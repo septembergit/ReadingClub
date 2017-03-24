@@ -6,7 +6,7 @@ var topics = [
         visitedCount: 80,
         commentCount: 2,
         createdOn: '2016/7/05 21:32',
-        author: 'stoneniqiu',
+        author: 'author',
         img: 'http://upload.jianshu.io/users/upload_avatars/133630/d5370e672fd4.png?imageMogr/thumbnail/90x90/quality/100'
     },
     {
