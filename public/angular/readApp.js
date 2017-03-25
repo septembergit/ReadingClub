@@ -29,9 +29,9 @@ var topics = [
     }];
 
 var topicData = function ($http) {
-  return $http.get('/api/topics');  
+    return $http.get('/api/topics');
 };
- 
+
 //定义一个homeController
 var homeController = function ($scope, topicData) {
     $scope.message = "loading...";
@@ -42,17 +42,17 @@ var homeController = function ($scope, topicData) {
     }).error(function (e) {
         console.log(e);
         $scope.message = "Sorry, something's gone wrong ";
-     });
+    });
 };
 
 function formdate() {
-    return function(dateStr) {
-        var date = new Date(dateStr);
-        var d = date.getDate();
-        var monthNames = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-        var m = monthNames[date.getMonth()];
-        var y = date.getFullYear();
-        var output = y + '-' + m + '-' + d;
+    return function (dateStr) {
+        var date = new Date(dateStr),
+            d = date.getDate(),
+            monthNames = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+            m = monthNames[date.getMonth()],
+            y = date.getFullYear(),
+            output = y + '-' + m + '-' + d;
         return output;
     };
 };
@@ -60,7 +60,7 @@ function formdate() {
 var ratingStars = function () {
     return {
         scope: {
-            thisRating : '=rating'
+            thisRating: '=rating'
         },
         templateUrl: '/angular/rating-stars.html'
     };
@@ -68,6 +68,6 @@ var ratingStars = function () {
 angular.module('readApp')
     .controller('homeController', homeController)
     .filter('formdate', formdate)
-    .directive('ratingStars', ratingStars)    
+    .directive('ratingStars', ratingStars)
     .service('topicData', topicData);
  

@@ -1,6 +1,6 @@
 ﻿body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background: gainsboro;
+    /*background: gainsboro;*/
 }
 
 .row {
@@ -28,13 +28,6 @@ a.navbar-brand {
 
 .bodycontent {
     margin-top: 80px;
-}
-
-.userinfo, .page {
-    border-radius: 3px;
-    background: white;
-    padding: 20px;
-    padding-bottom: 10px;
 }
 
 /*books*/
@@ -138,20 +131,44 @@ a.navbar-brand {
     }
 }
 
-footer {
-    position: relative;
-    text-align: center;
-    bottom: 50px;
+/*导航*/
+.container .user .user-menu:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 0px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid red;
 }
 
+/*footer*/
+
 /*注册登录*/
-.bodycontent .btn-register,
-.bodycontent .btn-login {
+.login-txt,
+.register-txt {
+    font-size: 36px;
+    font-weight: 500;
+    color: #212121;
+}
+
+.login-or-register {
+    heigt: 50px;
+    line-height: 50px;
+}
+.login-or-register a{
+    cursor: pointer;
+}
+
+.btn-register,
+.btn-login {
     height: 40px;
 }
 
-.bodycontent .btn-register:hover,
-.bodycontent .btn-login:hover {
+.btn-register:hover,
+.btn-login:hover {
     cursor: pointer;
 }
 

@@ -1,20 +1,29 @@
-﻿<header-nav></header-nav>
-<div class="bodycontent container">
-    <div class="row">
-        <div class="col-md-9 page">
-            <div class="row topictype"><a href="/" class="label label-info">全部</a><a href="/">读书</a><a href="/">书评</a><a href="/">求书</a><a href="/">求索</a></div>
-            <div class="error">{{ vm.message }}</div>
-            <div class="row topiclist" data-ng-repeat='topic in vm.data'>
-                <img data-ng-src='{{topic.img}}'><span class="count"><i class="coment">{{topic.commentCount}}</i><i>/</i><i>{{topic.visitedCount}}</i></span>
-                <span class="label label-info">{{topic.type}}</span><a href="/">{{topic.title}}</a>
-                <span class="pull-right">{{topic.createdOn | formatDate}}</span><a href="/" class="pull-right author">{{topic.author}}</a>
+﻿<main-header></main-header>
+<div class="row">
+    <div class="col-md-9 col-xs-12">
+        <div class="box box-info">
+            <div class="box-header topictype">
+                <a href="/" class="label label-info">全部</a>
+                <a href="/" class="label label-info">读书</a>
+                <a href="/" class="label label-info">书评</a>
+                <a href="/" class="label label-info">求书</a>
+                <a href="/" class="label label-info">求索</a>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="userinfo">
-                <p>{{vm.user.userName}}</p>
+            <div class="box-body">
+                <div class="error">{{ vm.message }}</div>
+                <div class="row topiclist" data-ng-repeat='topic in vm.data'>
+                    <img data-ng-src='{{topic.img}}'><span class="count"><i class="coment">{{topic.commentCount}}</i><i>/</i><i>{{topic.visitedCount}}</i></span>
+                    <span class="label label-info">{{topic.type}}</span><a href="/">{{topic.title}}</a>
+                    <span class="pull-right">{{topic.createdOn | formatDate}}</span><a href="/"
+                                                                                       class="pull-right author">{{topic.author}}</a>
+                </div>
             </div>
         </div>
     </div>
+    <div class="col-md-3 col-xs-12">
+        <div class="box box-info">
+            <p>{{vm.user.userName}}</p>
+        </div>
+    </div>
 </div>
-<footer-nav></footer-nav>
+<main-footer></main-footer>
