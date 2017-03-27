@@ -15,7 +15,7 @@ mongoose.connect(dbURI);
 //});
 
 
-// Á¬½ÓÊÂ¼ş
+// ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 mongoose.connection.on('connected', function () {
     console.log('Mongoose connected to ' + dbURI);
 });
@@ -26,7 +26,8 @@ mongoose.connection.on('disconnected', function () {
     console.log('Mongoose disconnected');
 });
 
-// µ±Ó¦ÓÃÖØÆô»òÖÕÖ¹µÄÊ±ºò ¹Ø±ÕÁ¬½Ó
+// ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½Ê±ï¿½ï¿½ ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½
+//å½“åº”ç”¨é‡å¯æˆ–ç»ˆæ­¢çš„æ—¶å€™å…³é—­è¿æ¥
 gracefulShutdown = function (msg, callback) {
     mongoose.connection.close(function () {
         console.log('Mongoose disconnected through ' + msg);
@@ -34,14 +35,16 @@ gracefulShutdown = function (msg, callback) {
     });
 };
 
-// nodemon ÖØÆô Ã²ËÆÃ»ÓÃ
+// nodemon ï¿½ï¿½ï¿½ï¿½ Ã²ï¿½ï¿½Ã»ï¿½ï¿½
+//å¦‚æœæ˜¯nodemoné‡å¯ï¼Œéœ€è¦ç›‘å¬SIGUSR2äº‹ä»¶
 process.once('SIGUSR2', function () {
     gracefulShutdown('nodemon restart', function () {
         process.kill(process.pid, 'SIGUSR2');
     });
 });
 
-// Ó¦ÓÃÖÕÖ¹
+// Ó¦ï¿½ï¿½ï¿½ï¿½Ö¹
+//åº”ç”¨ç»ˆæ­¢éœ€è¦ç›‘å¬nodejsçš„è¿›ç¨‹çš„SIGTERMäº‹ä»¶
 process.on('SIGINT', function () {
     gracefulShutdown('app termination', function () {
         process.exit(0);

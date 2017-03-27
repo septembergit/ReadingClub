@@ -3,14 +3,17 @@
         .controller('headerCtrl', headerCtrl);
     headerCtrl.$inject = ['$location', 'authentication'];
     function headerCtrl($location, authentication) {
-        var vm = this;
-        vm.currentPath = $location.path();
+        var that = this;
+        that.currentPath = $location.path();
 
-        vm.isLoggedIn = authentication.isLoggedIn();
-        vm.currentUser = authentication.currentUser();
-        vm.logout = function () {
+        that.isLoggedIn = authentication.isLoggedIn();
+        that.currentUser = authentication.currentUser();
+        that.logout = function () {
             authentication.logout();
             $location.path('/');
+        };
+        that.witchLi = function () {
+            console.log(window.event.terget.text);
         };
     };
 })()

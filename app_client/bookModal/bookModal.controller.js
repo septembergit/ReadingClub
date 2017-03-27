@@ -31,7 +31,6 @@
             }).success(function(data) {
                 console.log("success!");
                 vm.modal.close(data);
-                //alert(1);
             }).error(function(data) {
                 vm.formError = "添加失败，请再试一次";
             });
