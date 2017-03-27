@@ -1,11 +1,12 @@
 ﻿angular
-.module('readApp')
-.controller('homeCtrl', homeCtrl);
+    .module('readApp')
+    .controller('homeCtrl', homeCtrl);
 
- 
-homeCtrl.$inject = ['topicData','userData'];
-function homeCtrl(topicData,user) {
+
+homeCtrl.$inject = ['topicData', 'userData'];
+function homeCtrl(topicData, user) {
     var vm = this;
+    vm.user = user;
     vm.message = "loading...";
     topicData.success(function (data) {
         vm.message = data.length > 0 ? "" : "暂无数据";
@@ -13,5 +14,4 @@ function homeCtrl(topicData,user) {
     }).error(function (e) {
         vm.message = "Sorry, something's gone wrong ";
     });
-    vm.user = user;
 }
