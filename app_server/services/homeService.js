@@ -1,7 +1,7 @@
-﻿var mongoose = require('mongoose');
-var db = require('../../app_api/models/db.js');
-var Bookmodel = mongoose.model('Book');
-var Topicmodel = mongoose.model('Topic');
+﻿var mongoose = require('mongoose'),
+    db = require('../../app_api/models/db.js'),
+    Bookmodel = mongoose.model('Book'),
+    Topicmodel = mongoose.model('Topic');
 
 var jsonResult = function (status, content) {
     return {status: status, content: content};
@@ -24,8 +24,8 @@ module.exports.bookReadOne = function (id, callback) {
         }
         callback(jsonResult(200, book));
     });
-
 };
+
 module.exports.allBooks = function (callback) {
     Bookmodel.find().exec(function (err, books) {
         if (err) {
@@ -38,13 +38,14 @@ module.exports.allBooks = function (callback) {
         }
         callback(jsonResult(200, books));
     });
-}
+};
+
 module.exports.createBook = function (book, callback) {
     var t = new Bookmodel(book);
     t.save(function (err) {
         callback(err);
     });
-}
+};
 
 module.exports.allTopics = function (callback) {
     Topicmodel.find().exec(function (err, topics) {
@@ -58,14 +59,14 @@ module.exports.allTopics = function (callback) {
         }
         callback(jsonResult(200, topics));
     });
-}
+};
 
 module.exports.createTopic = function (topic, callback) {
     var t = new Topicmodel(topic);
     t.save(function (err) {
         callback(err);
     });
-}
+};
 
 
 var books = [
@@ -182,6 +183,7 @@ module.exports.bookCreate = function (req, res) {
     });
 
 };
+
 module.exports.bookDelete = function (req, res) {
     Bookmodel.findOneAndRemove({title: "test"}, function (err) {
         if (err) {

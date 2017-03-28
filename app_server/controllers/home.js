@@ -147,7 +147,7 @@ module.exports.uploadImg = function (req, res) {
             var avatarName = (new Date()).getTime() + '.' + extName;
             var newPath = form.uploadDir + avatarName;
             
-            fs.renameSync(files[key].path, newPath); //重命名
+            fs.renameSync(files[key].path, newPath);          // 重命名
             return res.json("/upload/temp/"+ avatarName);
         }
     });

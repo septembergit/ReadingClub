@@ -1,5 +1,5 @@
-﻿var mongoose = require('mongoose');
-var TopicModel = mongoose.model('Topic');
+﻿var mongoose = require('mongoose'),
+    TopicModel = mongoose.model('Topic');
 
 var sendJSONresponse = function (res, status, content) {
     res.status(status);

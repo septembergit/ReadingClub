@@ -1,27 +1,27 @@
-var mongoose = require('mongoose');
-var crypto = require('crypto');
-var jwt = require('jsonwebtoken');
+var mongoose = require('mongoose'),
+    crypto = require('crypto'),
+    jwt = require('jsonwebtoken');
 
 var bookSchema = new mongoose.Schema({
-    title: { type: String, required: true },
+    title: {type: String, required: true},
     rating: {
         type: Number,
         required: true,
         min: 0,
         max: 5
     },
-    info: { type: String, required: true },
+    info: {type: String, required: true},
     img: String,
     tags: [String],
-    brief: { type: String, required: true },
+    brief: {type: String, required: true},
     ISBN: String,
     username: String,
-    userId:String
+    userId: String
 });
 
 var userSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, unique: true, required: true },
+    name: {type: String, required: true},
+    email: {type: String, unique: true, required: true},
     hash: String,
     salt: String,
     createdOn: {
@@ -34,27 +34,26 @@ var userSchema = new mongoose.Schema({
 });
 
 
-userSchema.methods.setPassword = function(password) {
+userSchema.methods.setPassword = function (password) {
     this.salt = crypto.randomBytes(16).toString('hex');
-    //1000´ú±íµü´ú´ÎÊý 64´ú±í³¤¶È
-    this.hash = crypto.pbkdf2Sync(password, this.salt,1000,64).toString('hex');
+    //1000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 64ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
 };
 
-userSchema.methods.validPassword = function(password) {
+userSchema.methods.validPassword = function (password) {
     var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
     return this.hash === hash;
 };
-userSchema.methods.generateJwt = function() {
+userSchema.methods.generateJwt = function () {
     var expiry = new Date();
     expiry.setDate(expiry.getDate() + 7);
     return jwt.sign({
         _id: this._id,
         email: this.email,
         name: this.name,
-        exp:parseInt(expiry.getTime()/1000)}, process.env.JWT_SECRET);
+        exp: parseInt(expiry.getTime() / 1000)
+    }, process.env.JWT_SECRET);
 };
-
-
 
 
 var commentSchema = new mongoose.Schema({
@@ -65,11 +64,12 @@ var commentSchema = new mongoose.Schema({
     },
     content: String
 });
+
 var topicSchema = new mongoose.Schema({
     title: String,
     type: String,
-    visitedCount: { type: Number, default: 0 },
-    commentCount: { type: Number, default: 0 },
+    visitedCount: {type: Number, default: 0},
+    commentCount: {type: Number, default: 0},
     createdOn: {
         type: Date,
         default: Date.now
@@ -78,12 +78,10 @@ var topicSchema = new mongoose.Schema({
     author: String,
     content: String,
     comments: [commentSchema],
-    deleted: { type: Boolean, default: false },
-    top: { type: Boolean, default: false }, // ÖÃ¶¥Ìû
-    good: { type: Boolean, default: false }, // ¾«»ªÌû
+    deleted: {type: Boolean, default: false},
+    top: {type: Boolean, default: false}, // ï¿½Ã¶ï¿½ï¿½ï¿½
+    good: {type: Boolean, default: false}, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 });
-
-
 
 mongoose.model('Book', bookSchema);
 mongoose.model('Topic', topicSchema);
