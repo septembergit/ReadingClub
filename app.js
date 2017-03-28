@@ -1,17 +1,16 @@
 ﻿require('dotenv').load();
-var express = require('express');
-var app = express();
+var express = require('express'),
+    app = express();
 
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
-var routesApi = require('./app_api/routes/index');
-
-var uglifyJs = require("uglifyjs");
-var fs = require('fs');
+var path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+// routesSer = require('./app_server/routes/index');
+    routesApi = require('./app_api/routes/index'),
+    uglifyJs = require("uglifyjs"),
+    fs = require('fs');
 
 var appClientFiles = [
     'app_client/app.js',

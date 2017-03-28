@@ -8,7 +8,6 @@ var jsonResult = function (status, content) {
 };
 
 module.exports.bookReadOne = function (id, callback) {
-    console.log('Finding book details', id);
     if (!id) {
         console.log('No bookid specified');
         return jsonResult(404, {"message": "No bookid specified"});

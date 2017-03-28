@@ -1,10 +1,10 @@
 ﻿var request = require('request');
 
 var apiOptions = {
-    server : "http://localhost:3000"
+    server: "http://localhost:3000"
 };
 
-function info (res, status) {
+function info(res, status) {
     var title, content;
     if (status === 404) {
         title = "404, 页面没有找到";
@@ -18,15 +18,15 @@ function info (res, status) {
     }
     res.status(status);
     res.render('info', {
-        title : title,
-        content : content,
+        title: title,
+        content: content,
         status: status,
     });
 };
 
 module.exports.books = function (req, res) {
-    var requestOptions, path;
-    path = "/api/books";
+    var requestOptions,
+        path = "/api/books";
     requestOptions = {
         url: apiOptions.server + path,
         method: "GET",
@@ -34,20 +34,20 @@ module.exports.books = function (req, res) {
     };
     request(requestOptions, function (err, response, body) {
         if (response.statusCode == 200) {
-            res.render('books', { title: 'Books', books: body });
+            res.render('books', {title: 'Books', books: body});
         } else {
-            res.render('error', { message: err.message, error: err });
+            res.render('error', {message: err.message, error: err});
         }
     });
 };
 
 module.exports.bookcreateview = function (req, res) {
-    res.render('bookCreate', { title: '新增推荐图书' });
+    res.render('bookCreate', {title: '新增推荐图书'});
 };
 
 module.exports.doBookCreate = function (req, res) {
-    var requestOptions, path, postdata;
-    path = "/api/book";
+    var requestOptions, postdata,
+        path = "/api/book";
     postdata = {
         title: req.body.title,
         info: req.body.info,
@@ -55,7 +55,7 @@ module.exports.doBookCreate = function (req, res) {
         brief: req.body.brief,
         tags: req.body.tags,
         img: req.body.img,
-        rating:req.body.rating,
+        rating: req.body.rating,
     };
     requestOptions = {
         url: apiOptions.server + path,
@@ -65,21 +65,21 @@ module.exports.doBookCreate = function (req, res) {
     request(requestOptions, function (err, response, body) {
         console.log("body.name", body.name, response.statusCode);
         if (response.statusCode === 201) {
-            res.redirect("/detail/"+body._id);
-        } 
+            res.redirect("/detail/" + body._id);
+        }
         else if (response.statusCode == 400 && body.name && body.name == "ValidationError") {
-            res.render('bookCreate', { title: '新增推荐图书', error:"val"});
+            res.render('bookCreate', {title: '新增推荐图书', error: "val"});
         }
         else {
-            console.log("body.name",body.name);
+            console.log("body.name", body.name);
             info(res, response.statusCode);
         }
     });
 };
 
 module.exports.detail = function (req, res) {
-    var requestOptions, path;
-    path = "/api/book/" + req.params.id;
+    var requestOptions,
+        path = "/api/book/" + req.params.id;
     requestOptions = {
         url: apiOptions.server + path,
         method: "GET",
@@ -87,8 +87,8 @@ module.exports.detail = function (req, res) {
     };
     request(requestOptions, function (err, response, body) {
         if (response.statusCode == 200) {
-            res.render('detail', { title: body.title, book: body });
-        } 
+            res.render('detail', {title: body.title, book: body});
+        }
         else {
             info(res, response.statusCode);
         }
@@ -96,8 +96,8 @@ module.exports.detail = function (req, res) {
 };
 
 module.exports.delete = function (req, res) {
-    var requestOptions, path;
-    path = "/api/book/" + req.params.id;
+    var requestOptions,
+        path = "/api/book/" + req.params.id;
     requestOptions = {
         url: apiOptions.server + path,
         method: "delete",
@@ -106,56 +106,55 @@ module.exports.delete = function (req, res) {
     request(requestOptions, function (err, response, body) {
         if (response.statusCode == 204) {
             res.json(1);
-        } 
+        }
         else {
             res.json(0);
         }
     });
 };
 
-var fs = require('fs');
-var formidable = require('formidable');
+var fs = require('fs'),
+    formidable = require('formidable');
 module.exports.uploadImg = function (req, res) {
-  var form = new formidable.IncomingForm();   //创建上传表单
-      form.encoding = 'utf-8';        //设置编辑
-      form.uploadDir = './../public/upload/temp/';     //设置上传目录
-      form.keepExtensions = true;     //保留后缀
-      form.maxFieldsSize = 3 * 1024 * 1024;   //文件大小
+    var form = new formidable.IncomingForm();   //创建上传表单
+    form.encoding = 'utf-8';        //设置编辑
+    form.uploadDir = './../public/upload/temp/';     //设置上传目录
+    form.keepExtensions = true;     //保留后缀
+    form.maxFieldsSize = 3 * 1024 * 1024;   //文件大小
 
-    form.parse(req, function(err, fields, files) {
+    form.parse(req, function (err, fields, files) {
         console.log(files);
         if (err) {
             console.log(err);
-          return res.json(0);        
+            return res.json(0);
         }
         for (var key in files) {
-            console.log(files[key].path);
             var extName = ''; //后缀名
             switch (key.type) {
-            case 'image/pjpeg':
-                extName = 'jpg';
-                break;
-            case 'image/jpeg':
-                extName = 'jpg';
-                break;
-            case 'image/png':
-            case 'image/x-png':
-            default:
-                extName = 'png';
-                break;
+                case 'image/pjpeg':
+                    extName = 'jpg';
+                    break;
+                case 'image/jpeg':
+                    extName = 'jpg';
+                    break;
+                case 'image/png':
+                case 'image/x-png':
+                default:
+                    extName = 'png';
+                    break;
             }
-            var avatarName = (new Date()).getTime() + '.' + extName;
-            var newPath = form.uploadDir + avatarName;
-            
+            var avatarName = (new Date()).getTime() + '.' + extName,
+                newPath = form.uploadDir + avatarName;
+
             fs.renameSync(files[key].path, newPath);          // 重命名
-            return res.json("/upload/temp/"+ avatarName);
+            return res.json("/upload/temp/" + avatarName);
         }
     });
- 
+
 };
 
 module.exports.about = function (req, res) {
-    res.render('about', { title: 'About' });
+    res.render('about', {title: 'About'});
 };
 
 
