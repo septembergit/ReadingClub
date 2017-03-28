@@ -1,19 +1,10 @@
-
 var mongoose = require('mongoose');
 
 var dbURI = 'mongodb://localhost/RClub';
-//var dbURI = 'mongodb://reader:loveReading@ds021343.mlab.com:21343/readingdb';
+
 mongoose.connect(dbURI);
 
-//var dbURIlog = 'mongodb://localhost/RClublog';
-//var logDB = mongoose.createConnection(dbURIlog);
-//logDB.on('connected', function () {
-//    console.log('Mongoose connected to ' + dbURIlog);
-//});
-//logDB.close(function () {
-//    console.log('Mongoose log disconnected');
-//});
-// Á¬½ÓÊÂ¼þ
+// ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 mongoose.connection.on('connected', function () {
     console.log('Mongoose connected to ' + dbURI);
 });
@@ -24,7 +15,7 @@ mongoose.connection.on('disconnected', function () {
     console.log('Mongoose disconnected');
 });
 
-// µ±Ó¦ÓÃÖØÆô»òÖÕÖ¹µÄÊ±ºò ¹Ø±ÕÁ¬½Ó
+// ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½Ê±ï¿½ï¿½ ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½
 gracefulShutdown = function (msg, callback) {
     mongoose.connection.close(function () {
         console.log('Mongoose disconnected through ' + msg);
@@ -32,14 +23,14 @@ gracefulShutdown = function (msg, callback) {
     });
 };
 
-// nodemon ÖØÆô Ã²ËÆÃ»ÓÃ
+// nodemon ï¿½ï¿½ï¿½ï¿½ Ã²ï¿½ï¿½Ã»ï¿½ï¿½
 process.once('SIGUSR2', function () {
     gracefulShutdown('nodemon restart', function () {
         process.kill(process.pid, 'SIGUSR2');
     });
 });
 
-// Ó¦ÓÃÖÕÖ¹
+// Ó¦ï¿½ï¿½ï¿½ï¿½Ö¹
 process.on('SIGINT', function () {
     gracefulShutdown('app termination', function () {
         process.exit(0);

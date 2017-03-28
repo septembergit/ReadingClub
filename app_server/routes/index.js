@@ -1,5 +1,5 @@
 ﻿var express = require('express');
-var router = express.Router();
+var router = express.Router();     //express的路由需要一个一个区配置
 var homeController = require('../controllers/home');
 var ctrlOthers = require('../controllers/other');
 

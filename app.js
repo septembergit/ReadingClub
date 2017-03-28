@@ -5,15 +5,15 @@ var app = express();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');     //解析Cookie
-var bodyParser = require('body-parser');         //node.js中间件,用于处理JSON,Raw,Text和URL编码的数据
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 
 var routesSer = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
 
 // view engine setup
-app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'app_server', 'views'));  // __dirname代表根目录
+app.set('view engine', 'jade');       // 默认的视图引擎是jade
 
 var uglifyJs = require("uglifyjs");
 var fs = require('fs');
@@ -36,7 +36,7 @@ var appClientFiles = [
     'app_client/auth/login/login.controller.js',
 ];
 
-var uglified = uglifyJs.minify(appClientFiles, { compress : false });
+var uglified = uglifyJs.minify(appClientFiles, {compress: false});
 
 fs.writeFile('public/angular/readApp.min.js', uglified.code, function (err) {
     if (err) {
@@ -47,22 +47,20 @@ fs.writeFile('public/angular/readApp.min.js', uglified.code, function (err) {
 });
 
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(require('stylus').middleware(path.join(__dirname, 'public')));
-
-app.use(express.static(path.join(__dirname, 'public')));         //设置静态文件路径
+// 注册一系列中间件
+app.use(logger('dev'));        // 日志,在开发环境下用彩色输出响应状态,会显示请求方式,响应时间和大小
+app.use(bodyParser.json());    // 解析json
+app.use(bodyParser.urlencoded({extended: false}));     // 解析form请求
+app.use(cookieParser());       //解析cookie
+app.use(require('stylus').middleware(path.join(__dirname, 'public')));  // 使用stylus做css预编译
+app.use(express.static(path.join(__dirname, 'public')));         // 设置静态文件路径
 app.use(express.static(path.join(__dirname, 'app_client')));
 
 var passport = require('passport');
 require('./app_api/config/passport');
 
 app.use(passport.initialize());
-app.use('/', routesSer);            //释放
+app.use('/', routesSer);
 app.use('/api', routesApi);
 
 app.use(function (req, res) {
@@ -77,12 +75,13 @@ app.use(function (req, res, next) {
 });
 
 // error handlers
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     if (err.name == 'UnauthorizedError') {
         res.status(401);
-        res.json({ message: err.name + ":" + err.message });
+        res.json({message: err.name + ":" + err.message});
     }
 });
+
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
