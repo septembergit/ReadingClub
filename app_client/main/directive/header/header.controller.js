@@ -13,6 +13,5 @@ function headerCtrl($location, authentication) {
         $location.path('/');
     };
     that.witchLi = function () {
-        console.log(window.event.terget.text);
     };
 };
