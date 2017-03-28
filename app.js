@@ -8,7 +8,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routesSer = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
 
 var uglifyJs = require("uglifyjs");
@@ -56,7 +55,7 @@ var passport = require('passport');
 require('./app_api/config/passport');
 
 app.use(passport.initialize());
-app.use('/', routesSer);
+// app.use('/', routesSer);
 app.use('/api', routesApi);
 
 app.use(function (req, res) {

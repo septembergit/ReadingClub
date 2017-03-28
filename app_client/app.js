@@ -1,6 +1,6 @@
 ﻿var app = angular.module('readApp', ['ngRoute', 'ngSanitize', 'ui.bootstrap']);
 
-function config($routeProvider, $locationProvider) {
+function config($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'home/home.html',
@@ -38,6 +38,5 @@ function config($routeProvider, $locationProvider) {
             caseInsensitiveMatch: true,
         })
         .otherwise({redirectTo: '/'});    // It's the default
-    $locationProvider.html5Mode(true);
 }
-app.config(['$routeProvider', '$locationProvider', config]);
+app.config(['$routeProvider', config]);
