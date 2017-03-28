@@ -11,10 +11,6 @@ var bodyParser = require('body-parser');
 var routesSer = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
 
-// view engine setup
-app.set('views', path.join(__dirname, 'app_server', 'views'));  // __dirname代表根目录
-app.set('view engine', 'jade');       // 默认的视图引擎是jade
-
 var uglifyJs = require("uglifyjs");
 var fs = require('fs');
 
