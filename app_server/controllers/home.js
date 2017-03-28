@@ -4,10 +4,6 @@
 var apiOptions = {
     server : "http://localhost:3000"
 };
-//if (process.env.NODE_ENV === 'production') {
-//    apiOptions.server = "https://stoneniqiu-mean.herokuapp.com/ ";
-//}
-
 
 function info (res, status) {
     var title, content;
@@ -27,26 +23,6 @@ function info (res, status) {
         content : content,
         status: status,
     });
-};
-
-
-
-module.exports.index = function (req, res) {
-    //var requestOptions, path;
-    //path = "/api/topics";
-    //requestOptions = {
-    //    url: apiOptions.server + path,
-    //    method: "GET",
-    //    json: {},
-    //}
-    //request(requestOptions, function (err, response, body) {
-    //    if (response.statusCode == 200) {
-    //        res.render('index', { title: 'Index', topics: body });
-    //    } else {
-    //        res.render('error', { message: err.message, error: err });
-    //    }
-    //});
-    res.render('index', { title: 'Index' });
 };
 
 module.exports.books = function (req, res) {
@@ -69,6 +45,7 @@ module.exports.books = function (req, res) {
 module.exports.bookcreateview = function (req, res) {
     res.render('bookCreate', { title: '新增推荐图书' });
 };
+
 module.exports.doBookCreate = function (req, res) {
     var requestOptions, path, postdata;
     path = "/api/book";
@@ -136,6 +113,7 @@ module.exports.delete = function (req, res) {
         }
     });
 };
+
 var fs = require('fs');
 var formidable = require('formidable');
 module.exports.uploadImg = function (req, res) {
@@ -176,9 +154,6 @@ module.exports.uploadImg = function (req, res) {
     });
  
 };
-
-
-
 
 module.exports.about = function (req, res) {
     res.render('about', { title: 'About' });

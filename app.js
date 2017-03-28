@@ -1,16 +1,15 @@
 ﻿require('dotenv').load();
 var express = require('express');
+var app = express();
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');     //解析Cookie
+var bodyParser = require('body-parser');         //node.js中间件,用于处理JSON,Raw,Text和URL编码的数据
 
-var routes = require('./app_server/routes/index');
+var routesSer = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
-
-var app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
@@ -56,14 +55,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));         //设置静态文件路径
 app.use(express.static(path.join(__dirname, 'app_client')));
 
 var passport = require('passport');
 require('./app_api/config/passport');
 
 app.use(passport.initialize());
-//app.use('/', routes);
+app.use('/', routesSer);            //释放
 app.use('/api', routesApi);
 
 app.use(function (req, res) {
