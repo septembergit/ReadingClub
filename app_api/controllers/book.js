@@ -91,6 +91,8 @@ module.exports.bookReadOne = function (req, res) {
 
 };
 
+
+//
 module.exports.bookUpdateOne = function (req, res) {
     var bookid = req.params.bookid;
     if (!bookid) {
@@ -128,6 +130,7 @@ module.exports.bookUpdateOne = function (req, res) {
 
 };
 
+// 删除书籍
 module.exports.bookDeleteOne = function (req, res) {
     var bookid = req.params.bookid;
     if (bookid) {
@@ -146,18 +149,17 @@ module.exports.bookDeleteOne = function (req, res) {
     }
 };
 
-
-var fs = require('fs');
-var formidable = require('formidable');
+// 图片上传
+var fs = require('fs'),
+    formidable = require('formidable');
 module.exports.uploadImg = function (req, res) {
-    var form = new formidable.IncomingForm();
-    form.encoding = 'utf-8';
-    form.uploadDir = './../public/upload/temp/';
-    form.keepExtensions = true;
-    form.maxFieldsSize = 3 * 1024 * 1024;
+    var form = new formidable.IncomingForm();        // 创建上传表单
+    form.encoding = 'utf-8';                         // 设置编辑
+    form.uploadDir = './../public/upload/temp/';     // 设置上传目录
+    form.keepExtensions = true;                      // 保留后缀
+    form.maxFieldsSize = 3 * 1024 * 1024;            // 文件大小
 
     form.parse(req, function (err, fields, files) {
-        console.log(files);
         if (err) {
             sendJSONresponse(res, 404, 0);
         }
@@ -177,8 +179,8 @@ module.exports.uploadImg = function (req, res) {
                     extName = 'png';
                     break;
             }
-            var avatarName = (new Date()).getTime() + '.' + extName;
-            var newPath = form.uploadDir + avatarName;
+            var avatarName = (new Date()).getTime() + '.' + extName,
+                newPath = form.uploadDir + avatarName;
 
             fs.renameSync(files[key].path, newPath);
             sendJSONresponse(res, 200, "/upload/temp/" + avatarName);
