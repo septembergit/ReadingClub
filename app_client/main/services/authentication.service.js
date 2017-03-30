@@ -1,25 +1,31 @@
 ﻿angular
     .module('readApp')
     .service('authentication', authentication);
-
 authentication.$inject = ['$window', '$http'];
+
 function authentication($window, $http) {
     var saveToken = function (token) {
         $window.localStorage['read-token'] = token;
     };
+
     var getToken = function () {
         return $window.localStorage['read-token'];
     };
-    var register = function (user) {
-        return $http.post('/api/register', user).success(function (data) {
-            saveToken(data.token);
-        });
+
+    var register = function (params) {
+        return $http.post('/api/register', params)
+            .success(function (data) {
+                saveToken(data.token);
+            });
     };
-    var login = function (user) {
-        return $http.post('/api/login', user).success(function (data) {
-            saveToken(data.token);
-        });
+
+    var login = function (params) {
+        return $http.post('/api/login', params)
+            .success(function (data) {
+                saveToken(data.token);
+            });
     };
+
     var logout = function () {
         $window.localStorage.removeItem('read-token');
     };
@@ -33,16 +39,18 @@ function authentication($window, $http) {
             return false;
         }
     };
+
     var currentUser = function () {
         if (isLoggedIn()) {
-            var token = getToken();
-            var payload = JSON.parse($window.atob(token.split('.')[1]));
+            var token = getToken(),
+                payload = JSON.parse($window.atob(token.split('.')[1]));
             return {
                 email: payload.email,
                 name: payload.name,
             };
         }
     };
+
     return {
         saveToken: saveToken,
         getToken: getToken,

@@ -34,7 +34,7 @@
     <Compile Include="app.js" />
     <Compile Include="app_api\config\passport.js" />
     <Compile Include="app_api\controllers\authentication.js" />
-    <Compile Include="app_api\controllers\book.js" />
+    <Compile Include="app_api\controllers\handleBook.js" />
     <Compile Include="app_api\controllers\topic.js" />
     <Compile Include="app_api\models\books.js" />
     <Compile Include="app_api\models\db.js" />

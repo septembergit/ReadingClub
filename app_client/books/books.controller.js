@@ -2,6 +2,7 @@
     .module('readApp')
     .controller('booksCtrl', booksCtrl);
 booksCtrl.$inject = ['booksData', '$modal', '$location', 'authentication'];
+
 function booksCtrl(booksData, $modal, $location, authentication) {
     var vm = this;
     vm.message = "loading...";

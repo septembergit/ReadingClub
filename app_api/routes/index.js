@@ -6,7 +6,7 @@ var express = require('express'),
         userProperty: 'payload'
     });
 
-var bookCtrl = require('../controllers/book'),
+var bookCtrl = require('../controllers/handleBook'),
     topicCtrl = require('../controllers/topic'),
     ctrlAuth = require('../controllers/authentication');
 

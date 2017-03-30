@@ -1,18 +1,18 @@
 ﻿angular.module('readApp')
     .controller('registerCtrl', registerCtrl);
 registerCtrl.$inject = ['$location', 'authentication'];
+
 function registerCtrl($location, authentication) {
     var vm = this;
-    vm.credentials = {
+    vm.params = {
         name: "",
         email: '',
         password: ''
     };
-
     vm.returnPage = $location.search().page || '/';
     vm.onSubmit = function () {
         vm.formError = "";
-        if (!vm.credentials.name || !vm.credentials.email || !vm.credentials.password) {
+        if (!vm.params.name || !vm.params.email || !vm.params.password) {
             vm.formError = "需要填完所有字段!";
             return false;
         } else {
@@ -21,7 +21,7 @@ function registerCtrl($location, authentication) {
     };
     vm.doRegister = function () {
         vm.formError = "";
-        authentication.register(vm.credentials).error(function (err) {
+        authentication.register(vm.params).error(function (err) {
             vm.formError = err;
         }).then(function () {
             $location.search('page', null);
