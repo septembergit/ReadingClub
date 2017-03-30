@@ -156,7 +156,8 @@ a.navbar-brand {
     heigt: 50px;
     line-height: 50px;
 }
-.login-or-register a{
+
+.login-or-register a {
     cursor: pointer;
 }
 
@@ -170,3 +171,33 @@ a.navbar-brand {
     cursor: pointer;
 }
 
+/*form表单*/
+.rc-form-item {
+    line-height: 30px;
+    display: flex;
+    margin: 8px 0;
+}
+
+.rc-form-item .item-name {
+    font-weight: bold;
+    width: 150px;
+    text-align: right;
+    flex: none;
+}
+.rc-form-item .item-name span{
+    color: red;
+}
+.rc-form-item .item-value {
+    width: 67%;
+}
+
+/*弹窗框*/
+.modal-content{
+    top: 50px;
+    margin: auto;
+    width: 66%;
+}
+.modal-header .close {
+    margin-top: 0;
+    line-height: 1.42857143;
+}

@@ -2,25 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26dbb8b4-a041-4584-91f5-08237261a1da" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app_api/controllers/book.js" afterPath="$PROJECT_DIR$/app_api/controllers/handleBook.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app_client/main/directive/ratingStars/ratingStars.template.html" afterPath="$PROJECT_DIR$/app_client/main/directive/ratingStars/ratingStars.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadingClub.njsproj" afterPath="$PROJECT_DIR$/ReadingClub.njsproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_api/routes/index.js" afterPath="$PROJECT_DIR$/app_api/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/about/about.controller.js" afterPath="$PROJECT_DIR$/app_client/about/about.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/about/about.html" afterPath="$PROJECT_DIR$/app_client/about/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/auth/login/login.controller.js" afterPath="$PROJECT_DIR$/app_client/auth/login/login.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/auth/login/login.html" afterPath="$PROJECT_DIR$/app_client/auth/login/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/auth/register/register.controller.js" afterPath="$PROJECT_DIR$/app_client/auth/register/register.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/auth/register/register.html" afterPath="$PROJECT_DIR$/app_client/auth/register/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/bookDetail/bookDetail.controller.js" afterPath="$PROJECT_DIR$/app_client/bookDetail/bookDetail.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/bookModal/bookModal.controller.js" afterPath="$PROJECT_DIR$/app_client/bookModal/bookModal.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/bookModal/bookModal.html" afterPath="$PROJECT_DIR$/app_client/bookModal/bookModal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/books/books.controller.js" afterPath="$PROJECT_DIR$/app_client/books/books.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/home/home.controller.js" afterPath="$PROJECT_DIR$/app_client/home/home.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/main/directive/header/header.controller.js" afterPath="$PROJECT_DIR$/app_client/main/directive/header/header.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/main/directive/ratingStars/ratingStars.directive.js" afterPath="$PROJECT_DIR$/app_client/main/directive/ratingStars/ratingStars.directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/main/services/ReadData.service.js" afterPath="$PROJECT_DIR$/app_client/main/services/ReadData.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/main/services/authentication.service.js" afterPath="$PROJECT_DIR$/app_client/main/services/authentication.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/books/books.html" afterPath="$PROJECT_DIR$/app_client/books/books.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/home/home.html" afterPath="$PROJECT_DIR$/app_client/home/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/angular/readApp.min.js" afterPath="$PROJECT_DIR$/public/angular/readApp.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/bootstrap/css/app.css" afterPath="$PROJECT_DIR$/public/bootstrap/css/app.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,21 +27,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app_server/routes/index.js">
+      <file leaf-file-name="books.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_client/books/books.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+            <state relative-caret-position="504">
+              <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app_server/controllers/home.js">
+      <file leaf-file-name="books.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_client/books/books.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="149" column="58" lean-forward="true" selection-start-line="149" selection-start-column="58" selection-end-line="149" selection-end-column="58" />
+            <state relative-caret-position="231">
+              <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="35" column="3" lean-forward="true" selection-start-line="33" selection-start-column="2" selection-end-line="35" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -64,32 +63,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>app.use</find>
-      <find>multer</find>
-      <find>express.static</find>
-      <find>routes</find>
-      <find>require('mongodb')</find>
-      <find>localhost</find>
-      <find>明朝</find>
-      <find>_dirname</find>
-      <find>fs</find>
-      <find>routesApi</find>
-      <find>appClientFiles</find>
-      <find>/&gt;</find>
-      <find>ng-controll</find>
-      <find>home</find>
-      <find>topicData</find>
-      <find>$loca</find>
-      <find>topics</find>
-      <find>User</find>
-      <find>app_server</find>
-      <find>//</find>
       <find>/models</find>
       <find>/books</find>
       <find>/books'</find>
@@ -100,6 +80,26 @@
       <find>onSubmit</find>
       <find>isLoggedIn</find>
       <find>credentials</find>
+      <find>登录后推荐书籍</find>
+      <find>currentPath</find>
+      <find>.getElementById</find>
+      <find>label</find>
+      <find>control-label</find>
+      <find>modal-title</find>
+      <find>form-g</find>
+      <find>&lt;div&gt;</find>
+      <find>as vm</find>
+      <find>modal</find>
+      <find>onSu</find>
+      <find>modal-header</find>
+      <find>addReview</find>
+      <find>style</find>
+      <find>$modalInstance</find>
+      <find>viewData</find>
+      <find>vm.modal.cl</find>
+      <find>close</find>
+      <find>booksData</find>
+      <find>cancel</find>
     </findStrings>
     <replaceStrings>
       <replace>vm</replace>
@@ -112,8 +112,6 @@
       <replace>params</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$/public/bootstrap</dir>
-      <dir>$PROJECT_DIR$/public</dir>
       <dir>$PROJECT_DIR$/views</dir>
       <dir>$PROJECT_DIR$/node_modules</dir>
       <dir>$PROJECT_DIR$/public/bootstrap/css</dir>
@@ -121,6 +119,8 @@
       <dir>$PROJECT_DIR$/app_server</dir>
       <dir>$PROJECT_DIR$/app_api</dir>
       <dir>$PROJECT_DIR$/app_client</dir>
+      <dir>$PROJECT_DIR$/public/bootstrap</dir>
+      <dir>$PROJECT_DIR$/public</dir>
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
@@ -130,10 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app_client/main/directive/footer/footer.html" />
-        <option value="$PROJECT_DIR$/public/bootstrap/css/app.css" />
-        <option value="$PROJECT_DIR$/app_client/main/directive/header/header.js" />
-        <option value="$PROJECT_DIR$/app_client/main/directive/tabs/tabs.html" />
         <option value="$PROJECT_DIR$/app_client/main/directive/header/header.directive.js" />
         <option value="$PROJECT_DIR$/app_client/main/directive/tabs/tabs.box.js" />
         <option value="$PROJECT_DIR$/app_client/main/directive/tabs/tabs.pane.js" />
@@ -141,17 +137,13 @@
         <option value="$PROJECT_DIR$/app_client/main/directive/tabs/tabs.box.html" />
         <option value="$PROJECT_DIR$/app_client/main/directive/tabs/tabs.box.directive.js" />
         <option value="$PROJECT_DIR$/app_client/main/directive/tabs/tabs.box.controller.js" />
-        <option value="$PROJECT_DIR$/app_client/bookModal/bookModal.controller.js" />
         <option value="$PROJECT_DIR$/app_client/main/directive/header/header.html" />
-        <option value="$PROJECT_DIR$/app_client/home/home.html" />
         <option value="$PROJECT_DIR$/data/db.js" />
         <option value="$PROJECT_DIR$/app_server/views/books.jade" />
         <option value="$PROJECT_DIR$/app_server/views/layout.jade" />
         <option value="$PROJECT_DIR$/app_client/bookDetail/bookDetail.html" />
-        <option value="$PROJECT_DIR$/app_client/bookModal/bookModal.html" />
         <option value="$PROJECT_DIR$/public/angular/readApp.js" />
         <option value="$PROJECT_DIR$/app_client/index.html" />
-        <option value="$PROJECT_DIR$/app_client/app.js" />
         <option value="$PROJECT_DIR$/app_server/controllers/home.js" />
         <option value="$PROJECT_DIR$/app_server/services/homeService.js" />
         <option value="$PROJECT_DIR$/app_server/routes/index.js" />
@@ -177,10 +169,18 @@
         <option value="$PROJECT_DIR$/app_client/main/services/authentication.service.js" />
         <option value="$PROJECT_DIR$/app_client/main/directive/header/header.controller.js" />
         <option value="$PROJECT_DIR$/app_client/main/directive/ratingStars/ratingStars.directive.js" />
-        <option value="$PROJECT_DIR$/app_client/books/books.controller.js" />
         <option value="$PROJECT_DIR$/app_client/bookDetail/bookDetail.controller.js" />
         <option value="$PROJECT_DIR$/app_api/routes/index.js" />
         <option value="$PROJECT_DIR$/ReadingClub.njsproj" />
+        <option value="$PROJECT_DIR$/app_client/books/books.html" />
+        <option value="$PROJECT_DIR$/app_client/main/services/$_uiModal.css" />
+        <option value="$PROJECT_DIR$/app_client/main/services/$_uiModal.js" />
+        <option value="$PROJECT_DIR$/public/bootstrap/css/app.css" />
+        <option value="$PROJECT_DIR$/app_client/bookModal/bookModal.controller.js" />
+        <option value="$PROJECT_DIR$/app_client/bookModal/bookModal.html" />
+        <option value="$PROJECT_DIR$/app_client/app.js" />
+        <option value="$PROJECT_DIR$/app_client/home/home.html" />
+        <option value="$PROJECT_DIR$/app_client/books/books.controller.js" />
       </list>
     </option>
   </component>
@@ -244,11 +244,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -262,29 +258,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app_server" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReadingClub" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReadingClub" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="bootstrap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -298,29 +276,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app_api" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReadingClub" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReadingClub" />
+              <option name="myItemId" value="bootstrap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -334,11 +298,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="app_client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -352,11 +312,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app_api" />
+              <option name="myItemId" value="app_client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReadingClub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReadingClub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="books" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -380,6 +358,7 @@
     <property name="SearchEverywhereHistoryKey" value="webpack&#9;null&#9;null&#10;webp&#9;null&#9;null" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="FullScreen" value="true" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -463,12 +442,12 @@
       <option name="presentableId" value="Default" />
       <updated>1490002710398</updated>
       <workItem from="1490002712269" duration="5434000" />
-      <workItem from="1490857979140" duration="5810000" />
+      <workItem from="1490857979140" duration="14902000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65311000" />
+    <option name="totallyTimeSpent" value="74403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -476,6 +455,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2484375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46347943" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -504,23 +484,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app_server/views/layout.jade" />
-    <entry file="file://$PROJECT_DIR$/app_server/views/_includes/rating.jade" />
-    <entry file="file://$PROJECT_DIR$/app_client/lib/angular-sanitize.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/bookDetail/bookDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="7" column="50" lean-forward="false" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/angular/rating-stars.html" />
     <entry file="file://$PROJECT_DIR$/public/angular/readApp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -539,6 +502,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -633,14 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/auth/login/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="13" column="95" lean-forward="false" selection-start-line="13" selection-start-column="95" selection-end-line="13" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app_client/auth/register/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -653,14 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="14" column="66" lean-forward="false" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/auth/login/login.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -697,22 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/home/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="55" lean-forward="false" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="39" column="61" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app_client/main/directive/ratingStars/ratingStars.directive.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -733,46 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="56" lean-forward="false" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/bookModal/bookModal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/bookModal/bookModal.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/main/services/ReadData.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="29" column="6" lean-forward="false" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/books/books.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/books/books.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -867,8 +759,120 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app_server/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+        <state relative-caret-position="273">
+          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/main/services/ReadData.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="6" lean-forward="false" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/main/services/$_uiModal.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/main/services/$_uiModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bootstrap/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="5982" column="12" lean-forward="true" selection-start-line="5982" selection-start-column="12" selection-end-line="5982" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bootstrap/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="190" column="14" lean-forward="false" selection-start-line="190" selection-start-column="14" selection-end-line="190" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/auth/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/auth/login/login.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/bookModal/bookModal.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/bookModal/bookModal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/home/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/books/books.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/books/books.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="3" lean-forward="true" selection-start-line="33" selection-start-column="2" selection-end-line="35" selection-end-column="3" />
           <folding />
         </state>
       </provider>

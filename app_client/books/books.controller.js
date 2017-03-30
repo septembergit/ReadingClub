@@ -9,8 +9,7 @@ function booksCtrl(booksData, $modal, $location, authentication) {
     booksData.getBooks.success(function (data) {
         vm.message = data.length > 0 ? "" : "暂无数据";
         vm.books = data;
-    }).error(function (e) {
-        console.log(e);
+    }).error(function () {
         vm.message = "Sorry, something's gone wrong ";
     });
     vm.user = authentication.currentUser();
