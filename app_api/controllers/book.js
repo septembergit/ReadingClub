@@ -1,7 +1,11 @@
 require('../models/db.js');
 var mongoose = require('mongoose'),
     BookModel = mongoose.model('Book'),
-    User = mongoose.model('User');
+    User = mongoose.model('User'),
+    sendJSONresponse = function (res, status, content) {
+        res.status(status);
+        res.json(content);
+    };
 
 var getAuthor = function (req, res, callback) {
     if (req.payload && req.payload.email) {
@@ -26,12 +30,6 @@ var getAuthor = function (req, res, callback) {
     }
 
 };
-
-var sendJSONresponse = function (res, status, content) {
-    res.status(status);
-    res.json(content);
-};
-
 
 module.exports.books = function (req, res) {
     BookModel.find().exec(function (err, books) {
@@ -153,11 +151,11 @@ module.exports.bookDeleteOne = function (req, res) {
 var fs = require('fs');
 var formidable = require('formidable');
 module.exports.uploadImg = function (req, res) {
-    var form = new formidable.IncomingForm();   //�����ϴ���
-    form.encoding = 'utf-8';        //���ñ༭
-    form.uploadDir = './../public/upload/temp/';     //�����ϴ�Ŀ¼
-    form.keepExtensions = true;     //������׺
-    form.maxFieldsSize = 3 * 1024 * 1024;   //�ļ���С
+    var form = new formidable.IncomingForm();
+    form.encoding = 'utf-8';
+    form.uploadDir = './../public/upload/temp/';
+    form.keepExtensions = true;
+    form.maxFieldsSize = 3 * 1024 * 1024;
 
     form.parse(req, function (err, fields, files) {
         console.log(files);
@@ -166,7 +164,7 @@ module.exports.uploadImg = function (req, res) {
         }
         for (var key in files) {
             console.log(files[key].path);
-            var extName = ''; //��׺��
+            var extName = '';
             switch (key.type) {
                 case 'image/pjpeg':
                     extName = 'jpg';
@@ -183,7 +181,7 @@ module.exports.uploadImg = function (req, res) {
             var avatarName = (new Date()).getTime() + '.' + extName;
             var newPath = form.uploadDir + avatarName;
 
-            fs.renameSync(files[key].path, newPath); //������
+            fs.renameSync(files[key].path, newPath);
 
             sendJSONresponse(res, 200, "/upload/temp/" + avatarName);
 

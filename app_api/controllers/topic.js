@@ -1,13 +1,12 @@
 ﻿var mongoose = require('mongoose'),
-    TopicModel = mongoose.model('Topic');
+    TopicModel = mongoose.model('Topic'),
+    sendJSONresponse = function (res, status, content) {
+        res.status(status);
+        res.json(content);
+    };
 
-var sendJSONresponse = function (res, status, content) {
-    res.status(status);
-    res.json(content);
-};
-
-module.exports.topics = function(req, res) {
-    TopicModel.find().exec(function(err, topic) {
+module.exports.topics = function (req, res) {
+    TopicModel.find().exec(function (err, topic) {
         if (err) {
             console.log(err);
             sendJSONresponse(res, 400, err);

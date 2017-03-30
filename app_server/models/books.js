@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+// 在Mongoose中定义一个document的对象称为schema
 var bookSchema = new mongoose.Schema({
     title: String,
     rating: {
@@ -29,18 +30,19 @@ var userSchema = new mongoose.Schema({
 });
 
 var commentSchema = new mongoose.Schema({
-    user: userSchema,
+    user: userSchema,               // 一个schema可以包含另外的schema或者数组
     createdOn: {
         type: Date,
         default: Date.now
     },
     content: String
 });
+
 var topicSchema = new mongoose.Schema({
     title: String,
     type: String,
-    visitedCount: { type: Number, default: 0 },
-    commentCount: { type: Number, default: 0 },
+    visitedCount: {type: Number, default: 0},
+    commentCount: {type: Number, default: 0},
     createdOn: {
         type: Date,
         default: Date.now
@@ -49,13 +51,12 @@ var topicSchema = new mongoose.Schema({
     author: String,
     content: String,
     comments: [commentSchema],
-    deleted: { type: Boolean, default: false },
-    top: { type: Boolean, default: false }, // �ö���
-    good: { type: Boolean, default: false }, // ������
+    deleted: {type: Boolean, default: false},
+    top: {type: Boolean, default: false},
+    good: {type: Boolean, default: false},
 });
 
-
-
+// 注册使其具备操作数据库的能力
 mongoose.model('Book', bookSchema);
 mongoose.model('Topic', topicSchema);
 

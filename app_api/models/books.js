@@ -79,8 +79,8 @@ var topicSchema = new mongoose.Schema({
     content: String,
     comments: [commentSchema],
     deleted: {type: Boolean, default: false},
-    top: {type: Boolean, default: false}, // �ö���
-    good: {type: Boolean, default: false}, // ������
+    top: {type: Boolean, default: false},
+    good: {type: Boolean, default: false},
 });
 
 mongoose.model('Book', bookSchema);

@@ -2,9 +2,9 @@ var express = require('express'),
     router = express.Router(),
     jwt = require('express-jwt'),
     auth = jwt({
-    secret: process.env.JWT_SECRET,
-    userProperty: 'payload'
-});
+        secret: process.env.JWT_SECRET,
+        userProperty: 'payload'
+    });
 
 var bookCtrl = require('../controllers/book'),
     topicCtrl = require('../controllers/topic'),
