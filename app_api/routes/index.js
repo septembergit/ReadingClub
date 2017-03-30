@@ -10,6 +10,7 @@ var bookCtrl = require('../controllers/book'),
     topicCtrl = require('../controllers/topic'),
     ctrlAuth = require('../controllers/authentication');
 
+// 根据路由地址决定脚本去响应客户端请求
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 router.get('/books', bookCtrl.books);

@@ -28,7 +28,6 @@ var getAuthor = function (req, res, callback) {
         });
         return;
     }
-
 };
 
 module.exports.books = function (req, res) {
@@ -182,10 +181,7 @@ module.exports.uploadImg = function (req, res) {
             var newPath = form.uploadDir + avatarName;
 
             fs.renameSync(files[key].path, newPath);
-
             sendJSONresponse(res, 200, "/upload/temp/" + avatarName);
-
         }
     });
-
 };
