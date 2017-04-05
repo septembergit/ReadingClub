@@ -1,7 +1,7 @@
 ﻿angular
     .module('readApp')
     .controller('bookDetailCtrl', bookDetailCtrl);
-bookDetailCtrl.$inject = ['$routeParams', 'booksData', 'userData'];
+bookDetailCtrl.$inject = ['$routeParams', 'booksData'];
 
 function bookDetailCtrl($routeParams, booksData, user) {
     var vm = this;

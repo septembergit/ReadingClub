@@ -3,7 +3,7 @@
     .controller('homeCtrl', homeCtrl);
 
 
-homeCtrl.$inject = ['topicData', 'userData'];
+homeCtrl.$inject = ['topicData'];
 function homeCtrl(topicData, user) {
     var vm = this;
     vm.user = user;
