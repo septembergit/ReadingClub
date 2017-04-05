@@ -1,7 +1,8 @@
 ﻿angular
     .module('readApp')
     .service('topicData', topicData)
-    .service('booksData', booksData);
+    .service('booksData', booksData)
+    .service('userData', userData);
 
 topicData.$inject = ['$http'];
 booksData.$inject = ['$http', 'authentication'];
@@ -34,3 +35,9 @@ function booksData($http, authentication) {
         removeBookById: removeBookById
     };
 };
+
+function userData() {
+    return {
+        userName: "用户readdata",
+    };
+}
