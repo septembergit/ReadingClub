@@ -1,3 +1,4 @@
+require('./books.js');
 var mongoose = require('mongoose'),
     dbURI = 'mongodb://localhost/RClub';
 mongoose.connect(dbURI);
@@ -41,5 +42,3 @@ process.on('SIGTERM', function () {
         process.exit(0);
     });
 });
-
-require('./books.js');
