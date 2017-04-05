@@ -1,8 +1,9 @@
 var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
     crypto = require('crypto'),
     jwt = require('jsonwebtoken');
 
-var bookSchema = new mongoose.Schema({
+var bookSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -28,7 +29,7 @@ var bookSchema = new mongoose.Schema({
     userId: String
 });
 
-var userSchema = new mongoose.Schema({
+var userSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -60,6 +61,7 @@ userSchema.methods.validPassword = function (password) {
     var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
     return this.hash === hash;
 };
+
 userSchema.methods.generateJwt = function () {
     var expiry = new Date();
     expiry.setDate(expiry.getDate() + 7);
@@ -71,7 +73,7 @@ userSchema.methods.generateJwt = function () {
     }, process.env.JWT_SECRET);
 };
 
-var commentSchema = new mongoose.Schema({
+var commentSchema = new Schema({
     user: userSchema,
     createdOn: {
         type: Date,
@@ -80,7 +82,7 @@ var commentSchema = new mongoose.Schema({
     content: String
 });
 
-var topicSchema = new mongoose.Schema({
+var topicSchema = new Schema({
     title: String,
     type: String,
     visitedCount: {
@@ -98,7 +100,7 @@ var topicSchema = new mongoose.Schema({
     img: String,
     author: String,
     content: String,
-    comments: [commentSchema],         // // 一个schema可以包含另外的schema或者数组
+    comments: [commentSchema],         // 一个schema可以包含另外的schema或者数组
     deleted: {
         type: Boolean,
         default: false

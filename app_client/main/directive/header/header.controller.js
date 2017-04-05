@@ -4,6 +4,7 @@
 headerCtrl.$inject = ['$location', 'authentication'];
 
 function headerCtrl($location, authentication) {
+    console.log(authentication);
     var that = this;
     that.currentPath = $location.path();
     that.isLoggedIn = authentication.isLoggedIn();

@@ -5,7 +5,6 @@ var express = require('express'),
         secret: process.env.JWT_SECRET,
         userProperty: 'payload'
     });
-
 var bookCtrl = require('../controllers/handleBook'),
     topicCtrl = require('../controllers/topic'),
     ctrlAuth = require('../controllers/authentication');

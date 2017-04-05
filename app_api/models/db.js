@@ -1,14 +1,14 @@
-require('./books.js');
+require('./schemas.js');
 var mongoose = require('mongoose'),
     dbURI = 'mongodb://localhost/RClub';
-mongoose.connect(dbURI);
+mongoose.connect(dbURI);    // 连接本地数据库
 
 // mongoose连接状态
 mongoose.connection.on('connected', function () {
     console.log('Mongoose connected to ' + dbURI);
 });
 mongoose.connection.on('error', function (err) {
-    console.log('Mongoose connection error: ' + err);
+    console.log('Mongoose connection errorsssssssssss: ' + err);
 });
 mongoose.connection.on('disconnected', function () {
     console.log('Mongoose disconnected');
