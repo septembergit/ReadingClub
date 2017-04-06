@@ -1,7 +1,7 @@
 require('../models/db.js');
 var mongoose = require('mongoose'),
-    BookModel = mongoose.model('Book'),
-    UserModel = mongoose.model('User'),
+    BookModel = mongoose.model('BookCollection'),
+    UserModel = mongoose.model('UserCollection'),
     sendJSONresponse = function (res, status, content) {
         res.status(status);
         res.json(content);

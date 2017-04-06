@@ -1,11 +1,10 @@
 ﻿angular
     .module('readApp')
     .controller('bookDetailCtrl', bookDetailCtrl);
-bookDetailCtrl.$inject = ['$routeParams', 'booksData', 'userData'];
+bookDetailCtrl.$inject = ['$routeParams', 'booksData'];
 
-function bookDetailCtrl($routeParams, booksData, user) {
+function bookDetailCtrl($routeParams, booksData) {
     var vm = this;
-    vm.user = user;
     var bookid = $routeParams.bookid;
     booksData.getbookById(bookid).success(function (data) {
         vm.book = data;

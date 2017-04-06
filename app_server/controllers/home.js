@@ -1,8 +1,8 @@
 ﻿// 配置数据路径
 var request = require('request'),
     apiOptions = {
-    server: "http://localhost:3000"
-};
+        server: "http://localhost:3000"
+    };
 
 function info(res, status) {
     var title, content;

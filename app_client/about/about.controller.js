@@ -4,9 +4,6 @@
 function aboutCtrl() {
     var vm = this;
     vm.title = '<b>ReadingClub</b>';
-    vm.user = {
-        userName: "用户关于",
-    };
     vm.bookList = [
         "第一期   《失控》             -- 上海-aaaaaaa",
         "第二期   《代码整洁之道》     -- 上海-aaaaaaa",

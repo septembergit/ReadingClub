@@ -35,6 +35,10 @@ var userSchema = new Schema({
         type: String,
         required: true
     },
+    password: {      // 测试添加
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         unique: true,
@@ -80,7 +84,10 @@ var commentSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    content: String
+    content: {
+        type: String,
+        required: true
+    }
 });
 
 var topicSchema = new Schema({
@@ -116,7 +123,8 @@ var topicSchema = new Schema({
     }
 });
 
-mongoose.model('Book', bookSchema);
-mongoose.model('Topic', topicSchema);
-mongoose.model('User', userSchema);
+mongoose.model('BookCollection', bookSchema);    // BookCollection为数据库中集合（表）的名称
+mongoose.model('TopicCollection', topicSchema);
+mongoose.model('UserCollection', userSchema);
+mongoose.model('CommentCollection', commentSchema);
 

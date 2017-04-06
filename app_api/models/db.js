@@ -1,17 +1,17 @@
 require('./schemas.js');
 var mongoose = require('mongoose'),
-    dbURI = 'mongodb://localhost/RClub';
-mongoose.connect(dbURI);    // 连接本地数据库
+    db = mongoose.connection,       // 连接状态
+    dbURI = 'mongodb://localhost/test';
+mongoose.connect(dbURI);           // 连接数据库
 
-// mongoose连接状态
-mongoose.connection.on('connected', function () {
-    console.log('Mongoose connected to ' + dbURI);
+db.on('open', function () {
+    console.log('数据库连接成功！' + dbURI);
 });
-mongoose.connection.on('error', function (err) {
-    console.log('Mongoose connection error: ' + err);
+db.on('error', function (err) {
+    console.log('数据库连接出现了一些错误:' + err);
 });
-mongoose.connection.on('disconnected', function () {
-    console.log('Mongoose disconnected');
+db.on('disconnected', function () {
+    console.log('数据库连接失败！');
 });
 
 // 当应用重启或终止的时候关闭连接
@@ -32,13 +32,6 @@ process.once('SIGUSR2', function () {
 // 应用终止需要监听nodejs的进程的SIGTERM事件
 process.on('SIGINT', function () {
     gracefulShutdown('app termination', function () {
-        process.exit(0);
-    });
-});
-
-// For Heroku app termination
-process.on('SIGTERM', function () {
-    gracefulShutdown('Heroku app shutdown', function () {
         process.exit(0);
     });
 });

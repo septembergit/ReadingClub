@@ -1,6 +1,6 @@
 ﻿var passport = require('passport'),
     mongoose = require('mongoose'),
-    UserModel = mongoose.model('User'),
+    UserModel = mongoose.model('UserCollection'),      // 创建模型，可以用它来操作数据库中的UserData集合（表）
     sendJSONresponse = function (res, status, content) {     // 包含返回的数据和http状态码
         res.status(status);
         res.json(content);
