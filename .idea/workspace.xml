@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26dbb8b4-a041-4584-91f5-08237261a1da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/angular/readApp.min.js" afterPath="$PROJECT_DIR$/public/angular/readApp.min.js" />
-    </list>
+    <list default="true" id="26dbb8b4-a041-4584-91f5-08237261a1da" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -476,12 +473,12 @@
       <workItem from="1491375204205" duration="4436000" />
       <workItem from="1491391408708" duration="1368000" />
       <workItem from="1491393731332" duration="684000" />
-      <workItem from="1491440731396" duration="1018000" />
+      <workItem from="1491440731396" duration="1058000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82853000" />
+    <option name="totallyTimeSpent" value="82893000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
