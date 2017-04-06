@@ -1,6 +1,6 @@
 ﻿var passport = require('passport'),
     mongoose = require('mongoose'),
-    User = mongoose.model('User'),
+    UserModel = mongoose.model('User'),
     sendJSONresponse = function (res, status, content) {     // 包含返回的数据和http状态码
         res.status(status);
         res.json(content);
@@ -11,7 +11,7 @@ module.exports.register = function (req, res) {
         sendJSONresponse(res, 400, {message: "请完成所有字段"});
         return;
     }
-    var user = new User();
+    var user = new UserModel();
     user.name = req.body.name;
     user.email = req.body.email;
     user.setPassword(req.body.password);

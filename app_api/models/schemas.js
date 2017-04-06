@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
     crypto = require('crypto'),
     jwt = require('jsonwebtoken');
 
+// 在Mongoose中定义一个document的对象称为schema
 var bookSchema = new Schema({
     title: {
         type: String,

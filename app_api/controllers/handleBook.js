@@ -1,7 +1,7 @@
 require('../models/db.js');
 var mongoose = require('mongoose'),
     BookModel = mongoose.model('Book'),
-    User = mongoose.model('User'),
+    UserModel = mongoose.model('User'),
     sendJSONresponse = function (res, status, content) {
         res.status(status);
         res.json(content);
@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
 
 var getAuthor = function (req, res, callback) {
     if (req.payload && req.payload.email) {
-        User.findOne({email: req.payload.email})
+        UserModel.findOne({email: req.payload.email})
             .exec(function (err, user) {
                 if (!user) {
                     sendJSONresponse(res, 404, {message: "User not found"});

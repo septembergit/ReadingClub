@@ -1,6 +1,6 @@
-﻿var request = require('request');
-
-var apiOptions = {
+﻿// 配置数据路径
+var request = require('request'),
+    apiOptions = {
     server: "http://localhost:3000"
 };
 
@@ -63,7 +63,6 @@ module.exports.doBookCreate = function (req, res) {
         json: postdata,
     };
     request(requestOptions, function (err, response, body) {
-        console.log("body.name", body.name, response.statusCode);
         if (response.statusCode === 201) {
             res.redirect("/detail/" + body._id);
         }
@@ -71,7 +70,6 @@ module.exports.doBookCreate = function (req, res) {
             res.render('bookCreate', {title: '新增推荐图书', error: "val"});
         }
         else {
-            console.log("body.name", body.name);
             info(res, response.statusCode);
         }
     });
@@ -123,9 +121,7 @@ module.exports.uploadImg = function (req, res) {
     form.maxFieldsSize = 3 * 1024 * 1024;   //文件大小
 
     form.parse(req, function (err, fields, files) {
-        console.log(files);
         if (err) {
-            console.log(err);
             return res.json(0);
         }
         for (var key in files) {
