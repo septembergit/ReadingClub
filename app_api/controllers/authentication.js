@@ -1,11 +1,11 @@
 ﻿var passport = require('passport'),
     mongoose = require('mongoose'),
-    UserModel = mongoose.model('UserCollection'),      // 创建模型，可以用它来操作数据库中的UserData集合（表）
+    UserModel = mongoose.model('UserCollection'),      // 创建模型，可以用它来操作数据库中的UserCollection集合（表）
     sendJSONresponse = function (res, status, content) {     // 包含返回的数据和http状态码
         res.status(status);
         res.json(content);
     };
-
+// console.log(UserModel);
 module.exports.register = function (req, res) {
     if (!req.body.name || !req.body.email || !req.body.password) {
         sendJSONresponse(res, 400, {message: "请完成所有字段"});
@@ -27,7 +27,9 @@ module.exports.register = function (req, res) {
     });
 };
 
+// 第二步，数据库进行验证
 module.exports.login = function (req, res) {
+    console.log('测试一下看是否进来了这个方法 登录');
     if (!req.body.email || !req.body.password) {
         sendJSONresponse(res, 400, {message: '请输入邮箱和密码!'});
         return;

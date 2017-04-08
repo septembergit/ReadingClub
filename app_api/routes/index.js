@@ -7,18 +7,16 @@ var express = require('express'),
     });
 var bookCtrl = require('../controllers/handleBook'),
     topicCtrl = require('../controllers/topic'),
-    ctrlAuth = require('../controllers/authentication');
+    authCtrl = require('../controllers/authentication');
 
 // 根据路由地址决定脚本去响应客户端请求
-router.post('/register', ctrlAuth.register);
-router.post('/login', ctrlAuth.login);
+router.post('/register', authCtrl.register);
+router.post('/login', authCtrl.login);
 router.get('/books', bookCtrl.books);
 router.post('/book', auth, bookCtrl.bookCreate);
 router.get('/book/:bookid', bookCtrl.bookReadOne);
 router.put('/books/:bookid', auth, bookCtrl.bookUpdateOne);
 router.delete('/book/:bookid', auth, bookCtrl.bookDeleteOne);
-
-// topics
 router.get('/topics', topicCtrl.topics);
 router.post('/uploadImg', bookCtrl.uploadImg);
 

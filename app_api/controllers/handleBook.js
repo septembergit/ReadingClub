@@ -59,7 +59,6 @@ module.exports.bookCreate = function (req, res) {
                 console.log(err);
                 sendJSONresponse(res, 400, err);
             } else {
-                console.log("�����鼮:", book);
                 sendJSONresponse(res, 201, book);
             }
         });
@@ -137,7 +136,6 @@ module.exports.bookDeleteOne = function (req, res) {
         BookModel.findByIdAndRemove(bookid)
             .exec(function (err) {
                 if (err) {
-                    console.log(err);
                     sendJSONresponse(res, 404, err);
                     return;
                 }

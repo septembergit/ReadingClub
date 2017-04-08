@@ -2,6 +2,7 @@
     .controller('loginCtrl', loginCtrl);
 loginCtrl.$inject = ['$location', 'authentication'];
 
+// 第一步，先进行前端的验证
 function loginCtrl($location, authentication) {
     var vm = this;
     vm.params = {

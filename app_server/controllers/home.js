@@ -1,7 +1,7 @@
 ﻿// 配置数据路径
 var request = require('request'),
     apiOptions = {
-        server: "http://localhost:3000"
+        server: "http://localhost:27017"        // 到底该是3000还是27017
     };
 
 function info(res, status) {

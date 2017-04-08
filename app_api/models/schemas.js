@@ -50,7 +50,10 @@ var userSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    img: String,
+    img: {
+        type: String,
+        default: '../../public/imgs/user.jpg'
+    },
     ip: String,
     mobile: String
 });
