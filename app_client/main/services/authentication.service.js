@@ -22,7 +22,6 @@ function authentication($window, $http) {
     var login = function (params) {
         return $http.post('/api/login', params)
             .success(function (data) {
-                console.log(data);
                 saveToken(data.token);
             });
     };

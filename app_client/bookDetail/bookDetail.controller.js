@@ -4,9 +4,11 @@
 bookDetailCtrl.$inject = ['$routeParams', 'booksData'];
 
 function bookDetailCtrl($routeParams, booksData) {
-    var vm = this;
-    var bookid = $routeParams.bookid;
-    booksData.getbookById(bookid).success(function (data) {
+    var vm = this,
+        bookId = $routeParams.bookid;
+    vm.message = 'Loading...';
+    booksData.getbookById().success(function (data) {
+        vm.message = data.length > 0 ? "" : "暂无数据";
         vm.book = data;
     }).error(function () {
         vm.message = "Sorry, something's gone wrong ";

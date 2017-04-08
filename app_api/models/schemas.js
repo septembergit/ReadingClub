@@ -26,6 +26,7 @@ var bookSchema = new Schema({
         required: true
     },
     ISBN: String,
+    comments: [String],
     username: String,
     userId: String
 });

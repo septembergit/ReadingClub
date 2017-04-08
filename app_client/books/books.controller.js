@@ -17,6 +17,7 @@ function booksCtrl(booksData, $modal, $location, authentication) {
     vm.isLoggedIn = authentication.isLoggedIn();
     vm.currentPath = $location.path();
 
+    // 新增推荐读物
     vm.popupForm = function () {
         var modalInstance = $modal.open({
             templateUrl: '../bookModal/bookModal.html',
@@ -34,6 +35,7 @@ function booksCtrl(booksData, $modal, $location, authentication) {
         });
     };
 
+    // 删除某一个读物
     vm.removeBook = function (id) {
         if (confirm("确定删除？")) {
             booksData.removeBookById(id).success(function () {
