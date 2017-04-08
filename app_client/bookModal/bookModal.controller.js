@@ -21,7 +21,7 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
             return false;
         } else {
             vm.doAddBook(vm.formData);
-            return false;
+            vm.modal.cancel();
         }
     };
     vm.doAddBook = function (params) {

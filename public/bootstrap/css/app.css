@@ -2,7 +2,9 @@
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     /*background: gainsboro;*/
 }
-
+a{
+    cursor: pointer;
+}
 .row {
     margin-left: 0;
     margin-right: 0;
@@ -180,7 +182,7 @@ a.navbar-brand {
 
 .rc-form-item .item-name {
     font-weight: bold;
-    width: 150px;
+    width: 100px;
     text-align: right;
     flex: none;
 }
@@ -193,9 +195,8 @@ a.navbar-brand {
 
 /*弹窗框*/
 .modal-content{
-    top: 50px;
     margin: auto;
-    width: 66%;
+    width: 100%;
 }
 .modal-header .close {
     margin-top: 0;

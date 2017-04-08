@@ -7,8 +7,8 @@
                 <li class=""><a href="/#books">读物</a></li>
                 <li class=""><a href="/#about">关于</a></li>
                 <li class="" ng-if="!navvm.isLoggedIn"><a href="/#login?page={{ navvm.currentPath }}">登录</a></li>
-                <li ng-if="navvm.isLoggedIn" class="dropdown user user-menu">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Hi, {{navvm.currentUser.name }}
+                <li class="dropdown user user-menu">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Hi, {{navvm.currentUser.name}}
                         <i class="fa fa-angle-down" style="margin-left: 5px;"></i>
                     </a>
                     <ul class="dropdown-menu" role="menu">
