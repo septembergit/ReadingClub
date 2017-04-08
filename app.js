@@ -69,7 +69,7 @@ app.use(function (req, res, next) {
 });
 
 // error handlers
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
     if (err.name == 'UnauthorizedError') {
         res.status(401);
         res.json({message: err.name + ":" + err.message});

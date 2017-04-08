@@ -5,7 +5,7 @@ booksCtrl.$inject = ['booksData', '$modal', '$location', 'authentication'];
 
 function booksCtrl(booksData, $modal, $location, authentication) {
     var vm = this;
-    vm.books = booksData.getBooks;        // 测试假数据
+    vm.books = booksData.getBooks();        // 测试假数据
     // vm.message = "loading...";
     // booksData.getBooks.success(function (data) {
     //     vm.message = data.length > 0 ? "" : "暂无数据";

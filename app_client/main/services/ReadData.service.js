@@ -29,25 +29,26 @@ function booksData($http, authentication) {
 
     //所有读物的展示
     // var getBooks = $http.get('/api/books');
-    var getBooks = [{
-        img: '',
-        _id: 1111111111111111,
-        title: '深入浅出 Node.js',
-        info: '朴灵 / 人民邮电出版社 / 2013-2-1 / CNY69.00',
-        rating: 3,
-        tags: ['node', '深入浅出'],
-        brief: 'nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn',
-        IBSN: '',
-        comments: ['不错不错', '很好的一本书']
-    }, {
-        img: '',
-        _id: 2,
-        title: '程序员修炼之道',
-        info: '马维达',
-        rating: 5,
-        tags: ['程序人生', '软件开发']
-    }];
-
+    var getBooks = function (){
+        return [{
+            img: '',
+            _id: 1111111111111111,
+            title: '深入浅出 Node.js',
+            info: '朴灵 / 人民邮电出版社 / 2013-2-1 / CNY69.00',
+            rating: 3,
+            tags: ['node', '深入浅出'],
+            brief: 'nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn',
+            IBSN: '',
+            comments: ['不错不错', '很好的一本书']
+        }, {
+            img: '',
+            _id: 2,
+            title: '程序员修炼之道',
+            info: '马维达',
+            rating: 5,
+            tags: ['程序人生', '软件开发']
+        }];
+    };
     // 查看某一本读物的详情
     var getbookById = function () {
         return {
