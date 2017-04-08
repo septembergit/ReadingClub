@@ -1,7 +1,7 @@
 require('./schemas.js');
 var mongoose = require('mongoose'),
     db = mongoose.connection,       // 连接状态
-    dbURI = 'mongodb://localhost/test';
+    dbURI = 'mongodb://localhost:27017/test';
 mongoose.connect(dbURI);           // 连接数据库
 
 db.on('open', function () {

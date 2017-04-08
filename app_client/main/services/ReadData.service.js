@@ -66,16 +66,16 @@ function booksData($http, authentication) {
         // });
     };
     var addBook = function (data) {
-        return $http.post("/api/book", data, {
-            headers: {
-                Authorization: 'Bearer ' + authentication.getToken()
-            }
-        });
+        // return $http.post("/api/book", data, {
+        //     headers: {
+        //         Authorization: 'Bearer ' + authentication.getToken()
+        //     }
+        // });
     };
     var removeBookById = function (bookid) {
-        return $http.delete('/api/book/' + bookid, {
-            Authorization: 'Bearer ' + authentication.getToken()
-        });
+        // return $http.delete('/api/book/' + bookid, {
+        //     Authorization: 'Bearer ' + authentication.getToken()
+        // });
     };
     return {
         getBooks: getBooks,

@@ -8,6 +8,7 @@ function bookDetailCtrl($routeParams, booksData) {
         bookId = $routeParams.bookid;
     vm.message = 'Loading...';
     booksData.getbookById().success(function (data) {
+        console.log(data);
         vm.message = data.length > 0 ? "" : "暂无数据";
         vm.book = data;
     }).error(function () {
