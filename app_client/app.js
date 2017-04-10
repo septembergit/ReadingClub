@@ -14,7 +14,7 @@ function config($routeProvider) {
             controllerAs: 'vm'
         })
         .when('/personal', {
-            templateUrl: '/personal/personal.html',
+            templateUrl: 'personal/personal.html',
             controller: 'personalCtrl',
             controllerAs: 'vm',
             caseInsensitiveMatch: true,

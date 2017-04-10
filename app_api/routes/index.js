@@ -1,5 +1,4 @@
 var express = require('express'),
-    router = express.Router(),
     jwt = require('express-jwt'),
     auth = jwt({
         secret: process.env.JWT_SECRET,
@@ -8,6 +7,7 @@ var express = require('express'),
 var bookCtrl = require('../controllers/handleBook'),
     topicCtrl = require('../controllers/topic'),
     authCtrl = require('../controllers/authentication');
+const router = express.Router();
 
 // 根据路由地址决定脚本去响应客户端请求
 router.post('/register', authCtrl.register);

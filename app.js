@@ -7,7 +7,6 @@ var path = require('path'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-// routesSer = require('./app_server/routes/index');
     routesApi = require('./app_api/routes/index'),
     uglifyJs = require("uglifyjs"),
     fs = require('fs');
@@ -22,7 +21,8 @@ var appClientFiles = [
     'app_client/main/directive/footer/footer.directive.js',
     'app_client/main/directive/header/header.directive.js',
     'app_client/main/directive/header/header.controller.js',
-    'app_client/about/about.controller.js',
+    'app_client/discuss/discuss.controller.js',
+    'app_client/personal/personal.controller.js',
     'app_client/books/books.controller.js',
     'app_client/bookDetail/bookDetail.controller.js',
     'app_client/bookModal/bookModal.controller.js',
@@ -31,7 +31,6 @@ var appClientFiles = [
 ];
 
 var uglified = uglifyJs.minify(appClientFiles, {compress: false});
-
 fs.writeFile('public/angular/readApp.min.js', uglified.code, function (err) {
     if (err) {
         console.log(err);
@@ -49,17 +48,14 @@ app.use(cookieParser());       //解析cookie
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));  // 使用stylus做css预编译
 app.use(express.static(path.join(__dirname, 'public')));         // 设置静态文件路径
 app.use(express.static(path.join(__dirname, 'app_client')));
-
-var passport = require('passport');
-require('./app_api/config/passport');
-
-app.use(passport.initialize());
-// app.use('/', routesSer);
-app.use('/api', routesApi);
-
 app.use(function (req, res) {
     res.sendfile(path.join(__dirname, 'app_client', 'index.html'));
 });
+
+var passport = require('passport');
+require('./app_api/config/passport');
+app.use(passport.initialize());
+app.use('/api', routesApi);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

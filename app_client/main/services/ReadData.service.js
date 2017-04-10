@@ -6,6 +6,7 @@
 
 topicData.$inject = ['$http'];
 booksData.$inject = ['$http', 'authentication'];
+talksData.$inject = ['$http'];
 
 function topicData($http) {
     // return $http.get('/api/topics');
@@ -15,14 +16,14 @@ function topicData($http) {
         visitedCount: 2,
         commentCount: 1,
         img: '',
-        user: '子不语'
+        _user: '子不语'
     }, {
         title: '《心理罪》',
         type: '读书',
         visitedCount: 2,
         commentCount: 1,
         img: '',
-        user: '吾不知'
+        _user: '吾不知'
     }];
 };
 
@@ -87,7 +88,7 @@ function booksData($http, authentication) {
     };
 };
 
-function talksData(){
+function talksData($http){
     var getTalks = function (){
         return [{
             title: '深入浅出 Node.js',

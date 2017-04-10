@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     dbURI = 'mongodb://localhost:27017/test';
 mongoose.connect(dbURI);           // 连接数据库
 
-db.on('open', function () {
+db.on('connect', function () {
     console.log('数据库连接成功！' + dbURI);
 });
 db.on('error', function (err) {
