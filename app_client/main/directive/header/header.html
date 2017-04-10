@@ -8,7 +8,7 @@
                 <li class=""><a href="#/discuss">想说</a></li>
                 <li class="" ng-if="vm.isLoggedIn"><a href="#/personal">我读</a></li>
                 <li class="" ng-if="!vm.isLoggedIn"><a href="/#login?page={{nav.currentPath}}">登录</a></li>
-                <li class="dropdown user user-menu">
+                <li class="dropdown user user-menu" ng-if="vm.isLoggedIn">
                     <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;height: 50px;">
                         Hi，<span class="hidden-xs">{{:: vm.currentUser.name}}</span>
                         <i class="fa fa-angle-down" style="margin-left: 5px;"></i>

@@ -7,15 +7,15 @@
             </div>
             <div class="box-body">
                 <div class="error">{{vm.message }}</div>
-                <div class="booklist" ng-repeat="book in vm.books|orderBy:'rating':true">
+                <div class="booklist" ng-repeat="item in vm.talksList">
                     <p>
-                        <a href="#/book/{{book._id}}">{{book.title}}</a>
-                        <span class="close" ng-click="vm.removeBook(book._id)" data-id="{{book._id}}">&times;</span>
+                        <a>{{item.title}}</a>
+                        <span class="close" ng-click="" data-id="{{item._id}}">&times;</span>
                     </p>
-                    <p>{{book.info}}</p>
-                    <p rating-stars rating="book.rating"></p>
+                    <p>{{item.info}}</p>
+                    <p rating-stars rating="item.rating"></p>
                     <p class="tags">
-                        <span ng-repeat="tag in book.tags">{{tag}}</span>
+                        <span ng-repeat="tag in item.tags">{{tag}}</span>
                     </p>
                 </div>
             </div>
