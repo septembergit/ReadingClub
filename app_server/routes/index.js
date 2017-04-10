@@ -5,7 +5,7 @@ var express = require('express'),
 
 //根据路由地址决定脚本去响应客户端请求
 router.get('/', ctrlOthers.angularApp);
-router.get('/about', homeController.about);
+router.get('/discuss', homeController.discuss);
 router.get('/books', homeController.books);
 router.get('/book/create', homeController.bookcreateview);
 router.post('/book/create', homeController.doBookCreate);

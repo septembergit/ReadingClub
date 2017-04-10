@@ -4,18 +4,18 @@
 headerCtrl.$inject = ['$location', 'authentication'];
 
 function headerCtrl($location, authentication) {
-    var that = this;
-    that.currentUser = {     // 测试假数据
+    var vm = this;
+    vm.currentUser = {     // 测试假数据
         email: 'test@163.com',
         name: 'test'
     };
-    that.currentPath = $location.path();
-    // that.isLoggedIn = authentication.isLoggedIn();
-    // that.currentUser = authentication.currentUser();
-    that.logout = function () {
+    vm.currentPath = $location.path();
+    // vm.isLoggedIn = authentication.isLoggedIn();
+    // vm.currentUser = authentication.currentUser();
+    vm.logout = function () {
         authentication.logout();
         $location.path('/');
     };
-    that.witchLi = function () {
+    vm.witchLi = function () {
     };
 };

@@ -3,8 +3,7 @@
     .directive('mainHeader', function () {
         return {
             restrict: 'EA',
-            templateUrl: '/main/directive/header/header.html',
-            controller: 'headerCtrl as navvm'
+            templateUrl: '/main/directive/header/header.html'
         };
     });
 

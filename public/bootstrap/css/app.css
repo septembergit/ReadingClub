@@ -2,9 +2,11 @@
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     /*background: gainsboro;*/
 }
-a{
+
+a {
     cursor: pointer;
 }
+
 .row {
     margin-left: 0;
     margin-right: 0;
@@ -134,11 +136,31 @@ a.navbar-brand {
 }
 
 /*导航*/
-.container .user .user-menu:after {
-    content: '';
+.container .user-menu .dropdown-menu {
+    width: 212px;
+    right: 10px !important;
+    top: 55px;
+    padding: 20px;
+    border-radius: 4px;
+    color: #212121;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+.container .rc-btn {
+    display: block;
+    height: 28px;
+    line-height: 28px;
+    background: #48BE76;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+}
+
+.container .user-menu .dropdown-menu:after {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    content: '';
+    left: 150px;
+    top: -7px;
     width: 0px;
     height: 0px;
     border-left: 8px solid transparent;
@@ -186,18 +208,21 @@ a.navbar-brand {
     text-align: right;
     flex: none;
 }
-.rc-form-item .item-name span{
+
+.rc-form-item .item-name span {
     color: red;
 }
+
 .rc-form-item .item-value {
     width: 67%;
 }
 
 /*弹窗框*/
-.modal-content{
+.modal-content {
     margin: auto;
     width: 100%;
 }
+
 .modal-header .close {
     margin-top: 0;
     line-height: 1.42857143;

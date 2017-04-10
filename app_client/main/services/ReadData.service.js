@@ -1,7 +1,8 @@
 ﻿angular
     .module('readApp')
     .service('topicData', topicData)
-    .service('booksData', booksData);
+    .service('booksData', booksData)
+    .service('talksData', talksData);
 
 topicData.$inject = ['$http'];
 booksData.$inject = ['$http', 'authentication'];
@@ -29,7 +30,7 @@ function booksData($http, authentication) {
 
     //所有读物的展示
     // var getBooks = $http.get('/api/books');
-    var getBooks = function (){
+    var getBooks = function () {
         return [{
             img: '',
             _id: 1111111111111111,
@@ -85,3 +86,19 @@ function booksData($http, authentication) {
         removeBookById: removeBookById
     };
 };
+
+function talksData(){
+    var getTalks = function (){
+        return [{
+            title: '深入浅出 Node.js',
+            info: '朴灵 / 人民邮电出版社 / 2013-2-1 / CNY69.00',
+            rating: 3,
+            tags: ['node', '深入浅出']
+        }, {
+            title: '程序员修炼之道',
+            info: '马维达',
+            rating: 5,
+            tags: ['程序人生', '软件开发']
+        }];
+    };
+}

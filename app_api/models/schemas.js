@@ -127,8 +127,14 @@ var topicSchema = new Schema({
     }
 });
 
+var talkSchema = new Schema({
+
+});
+
 mongoose.model('BookCollection', bookSchema);    // BookCollection为数据库中集合（表）的名称
 mongoose.model('TopicCollection', topicSchema);
 mongoose.model('UserCollection', userSchema);
 mongoose.model('CommentCollection', commentSchema);
+mongoose.model('TalkCollection', talkSchema);
+
 
