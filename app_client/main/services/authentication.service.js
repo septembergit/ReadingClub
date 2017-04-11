@@ -11,7 +11,6 @@ function authentication($window, $http) {
     var getToken = function () {
         return $window.localStorage['read-token'];
     };
-
     var register = function (params) {
         return $http.post('/api/register', params)
             .success(function (data) {

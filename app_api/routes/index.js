@@ -1,5 +1,5 @@
 var express = require('express'),
-    jwt = require('express-jwt'),
+    jwt = require('express-jwt'),         // 保护/api的每个调用
     auth = jwt({
         secret: process.env.JWT_SECRET,
         userProperty: 'payload'

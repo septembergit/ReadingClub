@@ -1,11 +1,10 @@
 ﻿<main-header></main-header>
 <div class="row">
-    <div class="col-md-12 col-xs-12 page bookdetail">
+    <div class="col-md-12 col-xs-12">
         <div class="box box-primary">
             <div class="box-header">
                 <div class="error">{{vm.message}}</div>
                 <h3 class="box-title">{{vm.book.title}}</h3>
-                <a class="pull-right">我要评论</a>
             </div>
             <div class="box-body">
                 <div class="row">
@@ -25,7 +24,15 @@
                     <h4>内容简介:</h4>
                     <p class="brief">{{vm.book.brief}}</p>
                 </div>
-                <div class="row" ng-if="vm.book.comments" ng-repeat="item in vm.book.comments">
+            </div>
+        </div>
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">相关评论</h3>
+                <a class="pull-right">我要评论</a>
+            </div>
+            <div class="box-body">
+                <div class="row booklist" ng-if="vm.book.comments" ng-repeat="item in vm.book.comments">
                     <span>{{::item}}</span>
                 </div>
             </div>

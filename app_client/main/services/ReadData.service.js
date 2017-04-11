@@ -14,7 +14,7 @@ function topicData($http) {
 
 function booksData($http, authentication) {
     var getBooks = $http.get('/api/books');
-    var getbookById = function () {        // 查看某一本读物的详情
+    var getbookById = function (param) {        // 查看某一本读物的详情
         $http.post('/api/books', param).success(function (data) {
             return data;
         });
@@ -41,17 +41,7 @@ function booksData($http, authentication) {
 
 function talksData($http) {
     var getTalks = function () {
-        return [{
-            title: '深入浅出 PHP',
-            info: '朴灵 / 人民邮电出版社 / 2013-2-1 / CNY69.00',
-            rating: 3,
-            tags: ['node', '深入浅出']
-        }, {
-            title: '程序员修炼之道',
-            info: '马维达',
-            rating: 5,
-            tags: ['程序人生', '软件开发']
-        }];
+
     };
     var removeDisById = function (id) {
 

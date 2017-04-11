@@ -5,7 +5,7 @@
         res.status(status);
         res.json(content);
     };
-// console.log(UserModel);
+
 module.exports.register = function (req, res) {
     if (!req.body.name || !req.body.email || !req.body.password) {
         sendJSONresponse(res, 400, {message: "请完成所有字段"});
