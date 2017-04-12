@@ -1,18 +1,20 @@
 require('./schemas.js');
-var mongoose = require('mongoose'),
-    db = mongoose.connection,       // 连接状态
-    dbURI = 'mongodb://localhost:27017/test';
-mongoose.connect(dbURI);           // 连接数据库
+var mongoose = require('mongoose');
 
-db.on('connect', function () {
-    console.log('数据库连接成功！' + dbURI);
-});
-db.on('error', function (err) {
-    console.log('数据库连接出现了一些错误:' + err);
-});
-db.on('disconnected', function () {
-    console.log('数据库连接失败！');
-});
+var start = function (dbUri) {
+    var db = mongoose.connection;
+    mongoose.connect(dbUri);           // 连接数据库
+    // mongoose.Promise = global.Promise;
+    db.on('connected', function () {
+        console.log('数据库连接成功！' + dbUri);
+    });
+    db.on('error', function (err) {
+        console.log('数据库连接出现了一些错误:' + err);
+    });
+    db.on('disconnected', function () {
+        console.log('数据库连接失败！');
+    });
+}
 
 // 当应用重启或终止的时候关闭连接
 gracefulShutdown = function (msg, callback) {
@@ -35,3 +37,7 @@ process.on('SIGINT', function () {
         process.exit(0);
     });
 });
+
+module.exports = {
+    start: start
+}

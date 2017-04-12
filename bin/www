@@ -3,9 +3,12 @@
 
 var debug = require('debug')('ReadingClub');
 var app = require('../app');
+var mongoConn = require('../app_api/models/db');
+var dbUri = 'mongodb://localhost:27017/test';
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8888);
 
 var server = app.listen(app.get('port'), function() {
+    mongoConn.start(dbUri);
     debug('Express server listening on port ' + server.address().port);
 });
