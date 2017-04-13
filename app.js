@@ -21,6 +21,7 @@ var appClientFiles = [
     'app_client/main/directive/footer/footer.directive.js',
     'app_client/main/directive/header/header.directive.js',
     'app_client/main/directive/header/header.controller.js',
+    'app_client/main/directive/editor/editor.directive.js',
     'app_client/main/directive/editor/editor.controller.js',
     'app_client/discuss/discuss.controller.js',
     'app_client/personal/personal.controller.js',
@@ -56,7 +57,7 @@ app.use(function (req, res) {
 var passport = require('passport');
 require('./app_api/config/passport');
 app.use(passport.initialize());
-app.use('/api', routesApi);           // 将匹配以'/api'开头的路径
+app.use('/api', routesApi);           // 所有以'api/xx'开始的请求将由routesApi来路由
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

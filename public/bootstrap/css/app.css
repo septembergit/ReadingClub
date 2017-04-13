@@ -235,12 +235,27 @@ a.navbar-brand {
 }
 
 /*文本编辑器*/
+.btn-group {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 3px;
+}
+
+.btn-group:first-child {
+    margin-left: 0;
+}
+
+.btn-group .btn {
+    color: #212121;
+    border: 1px solid #eee;
+}
+
 .editControls {
     padding: 5px 0;
 }
 
 .editText {
-    width: 66%;
+    width: 67%;
     height: 200px;
     resize: vertical;
     overflow: auto;

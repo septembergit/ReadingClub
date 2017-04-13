@@ -1,7 +1,7 @@
 ﻿// 配置数据路径
 var request = require('request'),
     apiOptions = {
-        server: "http://localhost:27017"        // 到底该是3000还是27017
+        server: "http://localhost:8888"
     };
 
 function info(res, status) {
@@ -21,6 +21,23 @@ function info(res, status) {
         title: title,
         content: content,
         status: status,
+    });
+};
+
+module.exports.topics = function (req, res) {
+    var requestOptions,
+        path = "/api/topics";
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "GET",
+        json: {},
+    }
+    request(requestOptions, function (err, response, body) {
+        if (response.statusCode == 200) {
+            res.render('index', {title: 'Index', topics: body});
+        } else {
+            res.render('error', {message: err.message, error: err});
+        }
     });
 };
 
@@ -46,7 +63,8 @@ module.exports.bookcreateview = function (req, res) {
 };
 
 module.exports.doBookCreate = function (req, res) {
-    var requestOptions, postdata,
+    var requestOptions,
+        postdata,
         path = "/api/book";
     postdata = {
         title: req.body.title,

@@ -17,9 +17,16 @@ router.post('/book', auth, bookCtrl.bookCreate);
 router.get('/book/:bookid', bookCtrl.bookReadOne);
 router.put('/books/:bookid', auth, bookCtrl.bookUpdateOne);
 router.delete('/book/:bookid', auth, bookCtrl.bookDeleteOne);
-router.get('/topics', topicCtrl.topics);
+// router.get('/topics', topicCtrl.topics);
 router.post('/uploadImg', bookCtrl.uploadImg);
-
+router.get('/topics', function () {
+    console.log('接收到了get请求！');
+    return {
+        'title': '《明朝》',
+        'type': '读书',
+        '_user': '子不语'
+    };
+});
 module.exports = router;
 
 
