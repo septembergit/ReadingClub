@@ -1,5 +1,5 @@
 var express = require('express'),
-    jwt = require('express-jwt'),         // 保护/api的每个调用
+    jwt = require('express-jwt'),         // 保护'/api'的每个调用
     auth = jwt({
         secret: process.env.JWT_SECRET,
         userProperty: 'payload'
@@ -9,7 +9,7 @@ var bookCtrl = require('../controllers/handleBook'),
     authCtrl = require('../controllers/authentication');
 const router = express.Router();
 
-// 根据路由地址决定脚本去响应客户端请求
+// 匹配路由,根据路由地址决定脚本去响应客户端请求
 router.post('/register', authCtrl.register);
 router.post('/login', authCtrl.login);
 router.get('/books', bookCtrl.books);

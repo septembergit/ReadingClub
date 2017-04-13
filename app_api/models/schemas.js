@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
     jwt = require('jsonwebtoken');
 
 // 在Mongoose中定义一个document的对象称为schema
+// 第三部验证，数据保存的时候
 var bookSchema = new Schema({
     title: {
         type: String,

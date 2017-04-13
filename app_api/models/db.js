@@ -2,7 +2,7 @@ require('./schemas.js');
 var mongoose = require('mongoose');
 
 var start = function (dbUri) {
-    var db = mongoose.connection;
+    var db = mongoose.connection;      // 连接状态
     mongoose.connect(dbUri);           // 连接数据库
     // mongoose.Promise = global.Promise;
     db.on('connected', function () {

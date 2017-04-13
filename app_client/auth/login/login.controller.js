@@ -2,7 +2,7 @@
     .controller('loginCtrl', loginCtrl);
 loginCtrl.$inject = ['$location', 'authentication'];
 
-// 第一步，先进行前端的验证
+// 第一步验证，前端提交之前
 function loginCtrl($location, authentication) {
     var vm = this;
     vm.params = {

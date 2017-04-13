@@ -6,6 +6,7 @@
     };
 
 module.exports.topics = function (req, res) {
+    cnsole.log(TopicModel);
     TopicModel.find().exec(function (err, topic) {
         if (err) {
             sendJSONresponse(res, 400, err);

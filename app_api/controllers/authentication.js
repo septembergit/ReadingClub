@@ -27,7 +27,7 @@ module.exports.register = function (req, res) {
     });
 };
 
-// 第二步，数据库进行验证
+// 第二步验证,数据保存之前
 module.exports.login = function (req, res) {
     console.log('测试一下看是否进来了这个方法 登录');
     if (!req.body.email || !req.body.password) {

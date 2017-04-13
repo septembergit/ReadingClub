@@ -55,7 +55,7 @@ app.use(function (req, res) {
 var passport = require('passport');
 require('./app_api/config/passport');
 app.use(passport.initialize());
-app.use('/api', routesApi);
+app.use('/api', routesApi);           // 将匹配以'/api'开头的路径
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
