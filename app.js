@@ -21,6 +21,7 @@ var appClientFiles = [
     'app_client/main/directive/footer/footer.directive.js',
     'app_client/main/directive/header/header.directive.js',
     'app_client/main/directive/header/header.controller.js',
+    'app_client/main/directive/editor/editor.controller.js',
     'app_client/discuss/discuss.controller.js',
     'app_client/personal/personal.controller.js',
     'app_client/books/books.controller.js',
