@@ -129,7 +129,30 @@ var topicSchema = new Schema({
 });
 
 var talkSchema = new Schema({
-
+    User: {
+        type: String,
+        required: true
+    },
+    title: {
+        type: String,
+        required: true
+    },
+    type: {
+        type: String,
+        required: true
+    },
+    content: {
+        type: String,
+        required: true
+    },
+    img: {
+        type: String,
+        required: true
+    },
+    brief: {
+        type: String,
+        required: true
+    }
 });
 
 mongoose.model('BookCollection', bookSchema);    // BookCollection为数据库中集合（表）的名称

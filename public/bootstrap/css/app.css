@@ -5,6 +5,11 @@
 
 a {
     cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .row {
@@ -248,6 +253,10 @@ a.navbar-brand {
 .btn-group .btn {
     color: #212121;
     border: 1px solid #eee;
+}
+
+.btn-group .btn:hover {
+    background: #e7e7e7;
 }
 
 .editControls {

@@ -6,11 +6,11 @@
     };
 
 module.exports.topics = function (req, res) {
-    TopicModel.find().exec(function (err, topic) {
+    TopicModel.find({}, function (err, topic) {
         if (err) {
             sendJSONresponse(res, 400, err);
             return;
         }
-        sendJSONresponse(res, 200, topic);
+        res.statusCode(200).send(topic);
     });
 };

@@ -40,9 +40,7 @@ function booksData($http, authentication) {
 };
 
 function talksData($http) {
-    var getTalks = function () {
-        return $http.get('/api/talks');
-    };
+    var getTalks = $http.get('/api/talks');
     var removeDisById = function (id) {
 
     };
