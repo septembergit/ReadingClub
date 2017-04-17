@@ -81,6 +81,30 @@ a.navbar-brand {
     line-height: 25px
 }
 
+/*talks*/
+.talksList {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+}
+
+.talksList .col-md-2 {
+    padding: 0;
+}
+
+.talksList .col-md-2 img {
+    box-shadow: 0 0 5px;
+}
+
+.talksList .glyphicon-star, .bookdetail .glyphicon-star, .topiclist .glyphicon-star {
+    color: gold
+}
+
+.talksList .glyphicon-star-empty, .bookdetail .glyphicon-star-empty, .topiclist .glyphicon-star-empty {
+    color: gray
+}
+
 /*index*/
 .topiclist {
     margin: 20px 0;
@@ -121,7 +145,7 @@ a.navbar-brand {
     margin-right: 10px;
 }
 
-.topictype a {
+.topictype a, .personaltype a {
     font-size: medium;
     margin-right: 10px;
     display: inline-block;

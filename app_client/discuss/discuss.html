@@ -7,7 +7,7 @@
             </div>
             <div class="box-body">
                 <div class="error">{{vm.message}}</div>
-                <div class="row booklist" ng-repeat="item in vm.talksList">
+                <div class="row talksList" ng-repeat="item in vm.talksList track by $index">
                     <div class="col-md-2">
                         <img ng-src='{{item.img}}'>
                     </div>

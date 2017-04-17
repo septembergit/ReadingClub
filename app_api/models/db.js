@@ -1,12 +1,12 @@
 require('./schemas.js');
 var mongoose = require('mongoose');
 
-var start = function (dbUri) {
+var start = function (dbUrl) {
     var db = mongoose.connection;      // 连接状态
-    mongoose.connect(dbUri);           // 连接数据库
+    mongoose.connect(dbUrl);           // 连接数据库
     // mongoose.Promise = global.Promise;
     db.on('connected', function () {
-        console.log('数据库连接成功！' + dbUri);
+        console.log('数据库连接成功！' + dbUrl);
     });
     db.on('error', function (err) {
         console.log('数据库连接出现了一些错误:' + err);

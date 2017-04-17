@@ -29,12 +29,13 @@
         <div class="box box-primary">
             <div class="box-header">
                 <h3 class="box-title">相关评论</h3>
-                <a class="pull-right">我要评论</a>
+                <span class="pull-right" ng-click="vm.toComment()"><i class="chat"></i>我要评论</span>
             </div>
             <div class="box-body">
                 <div class="row booklist" ng-if="vm.book.comments" ng-repeat="item in vm.book.comments">
                     <span>{{::item}}</span>
                 </div>
+                <main-edit-textarea ng-if="vm.isComment"></main-edit-textarea>
             </div>
         </div>
     </div>

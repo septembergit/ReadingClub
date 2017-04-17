@@ -9,7 +9,7 @@ var bookCtrl = require('../controllers/handleBook'),
     talkCtrl = require('../controllers/talk'),
     authCtrl = require('../controllers/authentication');
 const router = express.Router();
-
+console.log('1');
 // 匹配路由,根据路由地址决定脚本去响应客户端请求
 router.post('/register', authCtrl.register);
 router.post('/login', authCtrl.login);
@@ -18,7 +18,7 @@ router.post('/book', auth, bookCtrl.bookCreate);
 router.get('/book/:bookid', bookCtrl.bookReadOne);
 router.put('/books/:bookid', auth, bookCtrl.bookUpdateOne);
 router.delete('/book/:bookid', auth, bookCtrl.bookDeleteOne);
-router.get('/topics', topicCtrl.topics);
+router.get('/topics', topicCtrl.getTopics);
 router.get('/talks', talkCtrl.talks);
 router.post('/uploadImg', bookCtrl.uploadImg);
 

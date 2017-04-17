@@ -4,8 +4,9 @@
         res.status(status);
         res.json(content);
     };
-
-module.exports.topics = function (req, res) {
+console.log('2');
+function getTopics(req, res) {
+    console.log(req, '111');
     TopicModel.find({}, function (err, topic) {
         if (err) {
             sendJSONresponse(res, 400, err);
@@ -14,3 +15,7 @@ module.exports.topics = function (req, res) {
         res.statusCode(200).send(topic);
     });
 };
+
+module.exports = {
+    getTopics: getTopics
+}

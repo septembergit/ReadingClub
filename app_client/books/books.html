@@ -2,9 +2,12 @@
 <div class="row">
     <div class="col-md-9 col-xs-12">
         <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Welcome</h3>
+            </div>
             <div class="box-body">
-                <div class="error">{{vm.message }}</div>
-                <div class="row booklist" ng-repeat="book in vm.books|orderBy:'rating':true">
+                <div class="error">{{vm.message}}</div>
+                <div class="row booklist" ng-repeat="book in vm.books track by $index|orderBy:'rating':true">
                     <div class="col-md-2">
                         <img data-ng-src='{{book.img}}'>
                     </div>
@@ -16,7 +19,7 @@
                         <p>{{book.info}}</p>
                         <p rating-stars rating="book.rating"></p>
                         <p class="tags">
-                            <span ng-repeat="tag in book.tags">{{tag}}</span>
+                            <span ng-repeat="tag in book.tags track by $index">{{tag}}</span>
                         </p>
                     </div>
                 </div>

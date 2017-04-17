@@ -4,11 +4,11 @@
 var debug = require('debug')('ReadingClub'),
     app = require('../app'),
     mongoConn = require('../app_api/models/db'),
-    dbUri = 'mongodb://localhost:27017/test';
+    dbUrl = 'mongodb://localhost:27017/test';
 
 app.set('port', process.env.PORT || 8888);
 
 var server = app.listen(app.get('port'), function () {
-    mongoConn.start(dbUri);
+    mongoConn.start(dbUrl);
     debug('Express server listening on port ' + server.address().port);
 });
