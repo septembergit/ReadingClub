@@ -4,7 +4,7 @@
         res.status(status);
         res.json(content);
     };
-console.log('2');
+
 function getTopics(req, res) {
     console.log(req, '111');
     TopicModel.find({}, function (err, topic) {

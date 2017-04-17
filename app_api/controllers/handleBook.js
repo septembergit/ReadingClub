@@ -30,7 +30,7 @@ var getAuthor = function (req, res, callback) {
     }
 };
 
-module.exports.books = function (req, res) {
+module.exports.getBooks = function (req, res) {
     BookModel.find().exec(function (err, books) {
         if (err) {
             console.log(err);
@@ -91,7 +91,6 @@ module.exports.bookReadOne = function (req, res) {
 };
 
 
-//
 module.exports.bookUpdateOne = function (req, res) {
     var bookid = req.params.bookid;
     if (!bookid) {

@@ -4,7 +4,6 @@ var mongoose = require('mongoose');
 var start = function (dbUrl) {
     var db = mongoose.connection;      // 连接状态
     mongoose.connect(dbUrl);           // 连接数据库
-    // mongoose.Promise = global.Promise;
     db.on('connected', function () {
         console.log('数据库连接成功！' + dbUrl);
     });

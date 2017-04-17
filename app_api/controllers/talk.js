@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
         res.json(content);
     };
 
-module.exports.talks = function (req, res) {
+module.exports.getTalks = function (req, res) {
     TalkModel.find({}, function (err, talk) {
         if (err) {
             sendJSONresponse(res, 400, err);
