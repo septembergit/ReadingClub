@@ -38,6 +38,10 @@ a.navbar-brand {
 .bodycontent {
     margin-top: 80px;
 }
+.error{
+    color: red;
+    text-align: center;
+}
 
 /*books*/
 .booklist {

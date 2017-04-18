@@ -152,13 +152,19 @@ var talkSchema = new Schema({
     brief: {
         type: String,
         required: true
-    }
+    },
+    createdOn: {
+        type: Date,
+        default: Date.now
+    },
 });
 
-mongoose.model('BookCollection', bookSchema);    // BookCollection为数据库中集合（表）的名称
-mongoose.model('TopicCollection', topicSchema);
-mongoose.model('UserCollection', userSchema);
-mongoose.model('CommentCollection', commentSchema);
-mongoose.model('TalkCollection', talkSchema);
+module.exports = {
+    bookSchema: bookSchema,
+    topicSchema: topicSchema,
+    userSchema: userSchema,
+    commentSchema: commentSchema,
+    talkSchema: talkSchema
+}
 
 

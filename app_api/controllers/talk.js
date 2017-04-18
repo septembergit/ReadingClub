@@ -1,16 +1,18 @@
-var mongoose = require('mongoose'),
-    TalkModel = mongoose.model('TalkCollection'),
+require('../models/db');
+var _require = require('../models/schemas'),
+    mongoose = require('mongoose'),
+    TalkModel = mongoose.model('TalkCollection', _require.talkSchema),
     sendJSONresponse = function (res, status, content) {
         res.status(status);
         res.json(content);
     };
 
 module.exports.getTalks = function (req, res) {
-    TalkModel.find({}, function (err, talk) {
+    TalkModel.find({}, function (err, talks) {
         if (err) {
             sendJSONresponse(res, 400, err);
-            return;
+        } else {
+            sendJSONresponse(res, 200, talks);
         }
-        res.statusCode(200).send(talk);
-    });
+    })
 };

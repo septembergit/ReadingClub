@@ -8,7 +8,7 @@ function booksCtrl(booksData, $modal, $location, authentication) {
     vm.message = "loading...";
     booksData.getBooks.success(function (data) {
         vm.message = data.length > 0 ? "" : "暂无数据";
-        vm.books = data;
+        vm.bookList = data;
     }).error(function () {
         vm.message = "Sorry, something's gone wrong ";
     });
@@ -30,7 +30,7 @@ function booksCtrl(booksData, $modal, $location, authentication) {
             }
         });
         modalInstance.result.then(function (data) {
-            vm.books.push(data);
+            vm.bookList.push(data);
         });
     };
 
@@ -38,9 +38,9 @@ function booksCtrl(booksData, $modal, $location, authentication) {
     vm.removeBook = function (id) {
         if (confirm("确定删除？")) {
             booksData.removeBookById(id).success(function () {
-                for (var i = 0; i < vm.books.length; i++) {
-                    if (vm.books[i]._id == id) {
-                        vm.books.splice(vm.books.indexOf(vm.books[i]), 1);
+                for (var i = 0; i < vm.bookList.length; i++) {
+                    if (vm.bookList[i]._id == id) {
+                        vm.bookList.splice(vm.bookList.indexOf(vm.bookList[i]), 1);
                     }
                 }
             });

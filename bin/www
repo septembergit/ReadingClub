@@ -1,14 +1,9 @@
 ﻿#!/usr/bin/env node
-// 项目的入口文件，配置web服务端接口与一些监听事件
+var debug = require('debug')('ReadingClub');
+var app = require('../app');
 
-var debug = require('debug')('ReadingClub'),
-    app = require('../app'),
-    mongoConn = require('../app_api/models/db'),
-    dbUrl = 'mongodb://localhost:27017/test';
+app.set('port', process.env.PORT || 3000);
 
-app.set('port', process.env.PORT || 8888);
-
-var server = app.listen(app.get('port'), function () {
-    mongoConn.start(dbUrl);
+var server = app.listen(app.get('port'), function() {
     debug('Express server listening on port ' + server.address().port);
 });

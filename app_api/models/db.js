@@ -1,19 +1,19 @@
 require('./schemas.js');
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    db = mongoose.connection,       // 连接状态
+    dbUrl = 'mongodb://localhost/test';
+mongoose.connect(dbUrl);      // 连接数据库
+mongoose.Promise = global.Promise;      // resolve the promise problem
 
-var start = function (dbUrl) {
-    var db = mongoose.connection;      // 连接状态
-    mongoose.connect(dbUrl);           // 连接数据库
-    db.on('connected', function () {
-        console.log('数据库连接成功！' + dbUrl);
-    });
-    db.on('error', function (err) {
-        console.log('数据库连接出现了一些错误:' + err);
-    });
-    db.on('disconnected', function () {
-        console.log('数据库连接失败！');
-    });
-}
+db.on('connected', function () {
+    console.log('Mongoose connected to ' + dbUrl);
+});
+db.on('error', function (err) {
+    console.log('Mongoose connection error: ' + err);
+});
+db.on('disconnected', function () {
+    console.log('Mongoose disconnected');
+});
 
 // 当应用重启或终止的时候关闭连接
 gracefulShutdown = function (msg, callback) {
@@ -37,6 +37,9 @@ process.on('SIGINT', function () {
     });
 });
 
-module.exports = {
-    start: start
-}
+// For Heroku app termination
+process.on('SIGTERM', function () {
+    gracefulShutdown('Heroku app shutdown', function () {
+        process.exit(0);
+    });
+});

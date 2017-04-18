@@ -17,5 +17,6 @@ passport.use(new LocalStrategy({
             return done(null, false, {message: '密码错误!'});
         }
         return done(null, user);
+
     });
 }))

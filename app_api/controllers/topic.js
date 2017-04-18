@@ -1,21 +1,18 @@
-﻿var mongoose = require('mongoose'),
-    TopicModel = mongoose.model('TopicCollection'),
+﻿require('../models/db');
+var _require = require('../models/schemas'),
+    mongoose = require('mongoose'),
+    TopicModel = mongoose.model('TopicCollection', _require.topicSchema),
     sendJSONresponse = function (res, status, content) {
         res.status(status);
         res.json(content);
     };
 
-function getTopics(req, res) {
-    console.log(req, '111');
-    TopicModel.find({}, function (err, topic) {
+module.exports.getTopics = function (req, res, next) {
+    TopicModel.find({}, function (err, topics) {
         if (err) {
             sendJSONresponse(res, 400, err);
-            return;
+        } else {
+            sendJSONresponse(res, 200, topics);
         }
-        res.statusCode(200).send(topic);
-    });
+    })
 };
-
-module.exports = {
-    getTopics: getTopics
-}
