@@ -14,10 +14,8 @@ function topicData($http) {
 
 function booksData($http, authentication) {
     var getBooks = $http.get('/api/books');
-    var getbookById = function (param) {        // 查看某一本读物的详情
-        $http.post('/api/books', param).success(function (data) {
-            return data;
-        });
+    var getbookById = function (param) {
+        return $http.get('/api/book/' + param);
     };
     var addBook = function (data) {
         return $http.post("/api/book", data, {

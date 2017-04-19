@@ -2,7 +2,11 @@ require('../models/db');
 var _require = require('../models/schemas'),
     mongoose = require('mongoose'),
     BookModel = mongoose.model('BookCollection', _require.bookSchema),
-    UserModel = mongoose.model('UserCollection', _require.userSchema);
+    UserModel = mongoose.model('UserCollection', _require.userSchema),
+    sendJSONresponse = function (res, status, content) {
+        res.status(status);
+        res.json(content);
+    };
 var getAuthor = function (req, res, callback) {
     if (req.payload && req.payload.email) {
         UserModel.findOne({email: req.payload.email})
@@ -26,14 +30,8 @@ var getAuthor = function (req, res, callback) {
 
 };
 
-var sendJSONresponse = function (res, status, content) {
-    res.status(status);
-    res.json(content);
-};
-
-
 module.exports.getBooks = function (req, res) {
-    BookModel.find().exec(function (err, books) {
+    BookModel.find({}, function (err, books) {
         if (err) {
             sendJSONresponse(res, 400, err);
             return;
@@ -42,7 +40,7 @@ module.exports.getBooks = function (req, res) {
     });
 };
 
-module.exports.bookCreate = function (req, res) {
+module.exports.CreateOneBook = function (req, res) {
     getAuthor(req, res, function (req, res, user) {
         console.log("imgurl:", req.body.img);
         BookModel.create({
@@ -57,25 +55,23 @@ module.exports.bookCreate = function (req, res) {
             userId: user._id
         }, function (err, book) {
             if (err) {
-                console.log(err);
                 sendJSONresponse(res, 400, err);
             } else {
-                console.log("�����鼮:", book);
                 sendJSONresponse(res, 201, book);
             }
         });
     });
 };
 
-module.exports.bookReadOne = function (req, res) {
-    var bookid = req.params.bookid;
-    if (!bookid) {
+module.exports.getOneBook = function (req, res) {
+    var bookId = req.params.bookid;
+    if (!bookId) {
         sendJSONresponse(res, 404, {
             "message": "Not found, bookid is required"
         });
         return;
     }
-    BookModel.findById(bookid).exec(function (err, book) {
+    BookModel.findById(bookId).exec(function (err, book) {
         if (!book) {
             sendJSONresponse(res, 404, {
                 "message": "bookid not found"
@@ -85,14 +81,12 @@ module.exports.bookReadOne = function (req, res) {
             sendJSONresponse(res, 400, err);
             return;
         }
-        console.log(book);
         sendJSONresponse(res, 200, book);
 
     });
-
 };
 
-module.exports.bookUpdateOne = function (req, res) {
+module.exports.UpdateOneBook = function (req, res) {
     var bookid = req.params.bookid;
     if (!bookid) {
         sendJSONresponse(res, 404, {
@@ -129,7 +123,7 @@ module.exports.bookUpdateOne = function (req, res) {
 
 };
 
-module.exports.bookDeleteOne = function (req, res) {
+module.exports.DeleteOneBook = function (req, res) {
     var bookid = req.params.bookid;
     if (bookid) {
         BookModel.findByIdAndRemove(bookid)
@@ -148,14 +142,14 @@ module.exports.bookDeleteOne = function (req, res) {
 };
 
 
-var fs = require('fs');
-var formidable = require('formidable');
+var fs = require('fs'),
+    formidable = require('formidable');
 module.exports.uploadImg = function (req, res) {
-    var form = new formidable.IncomingForm();   //�����ϴ���
-    form.encoding = 'utf-8';        //���ñ༭
-    form.uploadDir = './../public/upload/temp/';     //�����ϴ�Ŀ¼
-    form.keepExtensions = true;     //������׺
-    form.maxFieldsSize = 3 * 1024 * 1024;   //�ļ���С
+    var form = new formidable.IncomingForm();
+    form.encoding = 'utf-8';
+    form.uploadDir = './../public/upload/temp/';
+    form.keepExtensions = true;
+    form.maxFieldsSize = 3 * 1024 * 1024;
 
     form.parse(req, function (err, fields, files) {
         console.log(files);
@@ -164,7 +158,7 @@ module.exports.uploadImg = function (req, res) {
         }
         for (var key in files) {
             console.log(files[key].path);
-            var extName = ''; //��׺��
+            var extName = '';
             switch (key.type) {
                 case 'image/pjpeg':
                     extName = 'jpg';

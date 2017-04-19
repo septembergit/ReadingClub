@@ -12,7 +12,6 @@ var express = require('express'),
 
 var appClientFiles = [
     'app_client/app.js',
-    'app_client/home/home.controller.js',
     'app_client/main/services/ReadData.service.js',
     'app_client/main/services/authentication.service.js',
     'app_client/main/filters/formatDate.filter.js',
@@ -22,6 +21,7 @@ var appClientFiles = [
     'app_client/main/directive/header/header.controller.js',
     'app_client/main/directive/editor/editor.directive.js',
     'app_client/main/directive/editor/editor.controller.js',
+    'app_client/home/home.controller.js',
     'app_client/discuss/discuss.controller.js',
     'app_client/personal/personal.controller.js',
     'app_client/books/books.controller.js',

@@ -4,35 +4,35 @@
         <div class="box box-primary">
             <div class="box-header">
                 <div class="error">{{vm.message}}</div>
-                <h3 class="box-title">{{vm.book.title}}</h3>
+                <h3 class="box-title">{{vm.oneBookInfo.title}}</h3>
             </div>
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-2">
-                        <img ng-src='{{vm.book.img}}'>
+                        <img ng-src='{{vm.oneBookInfo.img}}'>
                     </div>
                     <div class="col-md-10">
-                        <p>{{vm.book.info}}</p>
-                        <p rating-stars rating="vm.book.rating"></p>
+                        <p>{{vm.oneBookInfo.info}}</p>
+                        <p rating-stars rating="vm.oneBookInfo.rating"></p>
                         <p class="tags">
-                            <span ng-repeat="tag in vm.book.tags">{{tag}}</span>
+                            <span ng-repeat="tag in vm.oneBookInfo.tags">{{tag}}</span>
                         </p>
-                        <p>ISBN:{{vm.book.ISBN}}</p>
+                        <p>ISBN:{{vm.oneBookInfo.ISBN}}</p>
                     </div>
                 </div>
                 <div class="row">
                     <h4>内容简介:</h4>
-                    <p class="brief">{{vm.book.brief}}</p>
+                    <p class="brief">{{vm.oneBookInfo.brief}}</p>
                 </div>
             </div>
         </div>
         <div class="box box-primary">
             <div class="box-header">
                 <h3 class="box-title">相关评论</h3>
-                <span class="pull-right" ng-click="vm.toComment()"><i class="chat"></i>我要评论</span>
+                <span style="color: #337ab7;cursor: pointer;" class="pull-right" ng-click="vm.toComment()"><i class="chat"></i>我要评论</a>
             </div>
             <div class="box-body">
-                <div class="row booklist" ng-if="vm.book.comments" ng-repeat="item in vm.book.comments">
+                <div class="row booklist" ng-if="vm.oneBookInfo.comments" ng-repeat="item in vm.oneBookInfo.comments">
                     <span>{{::item}}</span>
                 </div>
                 <main-edit-textarea ng-if="vm.isComment"></main-edit-textarea>
