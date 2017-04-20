@@ -1,9 +1,9 @@
 ﻿angular
     .module('readApp')
-    .controller('discussCtrl', discussCtrl);
-discussCtrl.$inject = ['talksData', '$location', 'authentication'];
+    .controller('talksCtrl', talksCtrl);
+talksCtrl.$inject = ['talksData', '$location', 'authentication'];
 
-function discussCtrl(talksData, $location, authentication) {
+function talksCtrl(talksData, $location, authentication) {
     var vm = this;
     vm.message = "loading...";
     talksData.getTalks.success(function (data) {

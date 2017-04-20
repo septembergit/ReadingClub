@@ -33,10 +33,7 @@ var bookSchema = new Schema({
 });
 
 var userSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
+    name: String,
     password: {      // 测试添加
         type: String,
         required: true
@@ -110,7 +107,10 @@ var topicSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    img: String,
+    user_img: {
+        type: String,
+        default: '../../public/imgs/user.jpg'
+    },
     author: String,
     content: String,
     comments: [commentSchema],         // 一个schema可以包含另外的schema或者数组
@@ -145,10 +145,11 @@ var talkSchema = new Schema({
         type: String,
         required: true
     },
-    img: {
+    user_img: {
         type: String,
         required: true
     },
+    talk_img: String,
     brief: {
         type: String,
         required: true

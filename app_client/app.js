@@ -7,9 +7,15 @@ function config($routeProvider) {
             controller: 'homeCtrl',
             controllerAs: 'vm'
         })
-        .when('/discuss', {
-            templateUrl: 'discuss/discuss.html',
-            controller: 'discussCtrl',
+        .when('/talks', {
+            templateUrl: 'talks/talks.html',
+            controller: 'talksCtrl',
+            caseInsensitiveMatch: true,
+            controllerAs: 'vm'
+        })
+        .when('/talks/:talkid', {
+            templateUrl: 'talkDetail/talkDetail.html',
+            controller: 'talkDetailCtrl',
             caseInsensitiveMatch: true,
             controllerAs: 'vm'
         })

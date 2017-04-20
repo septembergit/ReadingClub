@@ -1,0 +1,30 @@
+﻿<main-header></main-header>
+<div class="row">
+    <div class="col-md-8 col-xs-12">
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Welcome</h3>
+            </div>
+            <div class="box-body">
+                <div class="error">{{vm.message}}</div>
+                <div class="row talks-item" ng-repeat="item in vm.talksList">
+                    <div class="col-md-1">
+                        <img ng-src='{{item.user_img}}'>
+                    </div>
+                    <div class="col-md-9">
+                        <p style="font-size: 16px;"><b><a style="color: #212121;" href="/">{{item.User}}</a></b>的话题</p>
+                        <p>{{item.createdOn}}</p>
+                        <div class="talk-item-txt">
+                            <a href="#/talks/{{item._id}}">{{item.title}}</a>
+                            <p>{{item.brief}}</p>
+                            <!--<p>{{item.content}}</p>-->
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <img src="{{item.talk_img}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
