@@ -16,11 +16,11 @@ router.post('/login', authCtrl.login);
 
 router.get('/books', bookCtrl.getBooks);
 router.post('/book', auth, bookCtrl.CreateOneBook);
-router.get('/book/:bookid', bookCtrl.getOneBook);
+router.get('/book/:book', bookCtrl.getOneBook);
 router.put('/books/:bookid', auth, bookCtrl.UpdateOneBook);
 router.delete('/book/:bookid', auth, bookCtrl.DeleteOneBook);
 
-router.get('/topics', topicCtrl.getTopics);
+router.get('/topics/:topicType', topicCtrl.getTopics);
 router.get('/talks', talkCtrl.getTalks);
 router.post('/uploadImg', bookCtrl.uploadImg);
 

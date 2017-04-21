@@ -64,14 +64,15 @@ module.exports.CreateOneBook = function (req, res) {
 };
 
 module.exports.getOneBook = function (req, res) {
-    var bookId = req.params.bookid;
-    if (!bookId) {
+    var _book = req.params.book;
+    console.log(_book);
+    if (!_book) {
         sendJSONresponse(res, 404, {
             "message": "Not found, bookid is required"
         });
         return;
     }
-    BookModel.findById(bookId).exec(function (err, book) {
+    BookModel.findOne({book_title: _book}).exec(function (err, book) {
         if (!book) {
             sendJSONresponse(res, 404, {
                 "message": "bookid not found"

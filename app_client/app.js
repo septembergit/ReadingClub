@@ -31,7 +31,7 @@ function config($routeProvider) {
             caseInsensitiveMatch: true,
             controllerAs: 'vm'
         })
-        .when('/book/:bookid', {
+        .when('/book/:book', {
             templateUrl: 'bookDetail/bookDetail.html',
             controller: 'bookDetailCtrl',
             caseInsensitiveMatch: true,

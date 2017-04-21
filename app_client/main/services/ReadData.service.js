@@ -9,12 +9,17 @@ booksData.$inject = ['$http', 'authentication'];
 talksData.$inject = ['$http'];
 
 function topicData($http) {
-    return $http.get('/api/topics');
+    var getByType = function (param) {
+        return $http.get('/api/topics/ ' + param);
+    }
+    return {
+        getByType: getByType
+    };
 };
 
 function booksData($http, authentication) {
     var getBooks = $http.get('/api/books');
-    var getbookById = function (param) {
+    var getTheBook = function (param) {
         return $http.get('/api/book/' + param);
     };
     var addBook = function (data) {
@@ -31,7 +36,7 @@ function booksData($http, authentication) {
     };
     return {
         getBooks: getBooks,
-        getbookById: getbookById,
+        getTheBook: getTheBook,
         addBook: addBook,
         removeBookById: removeBookById
     };

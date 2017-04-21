@@ -2,6 +2,7 @@ require('./schemas.js');
 var mongoose = require('mongoose'),
     db = mongoose.connection,       // 连接状态
     dbUrl = 'mongodb://localhost/test';
+    // dbUrl = 'mongodb://reader:loveReading@ds021343.mlab.com:21343/readingdb';
 mongoose.connect(dbUrl);      // 连接数据库
 mongoose.Promise = global.Promise;      // resolve the promise problem
 

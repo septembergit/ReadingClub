@@ -5,10 +5,10 @@ bookDetailCtrl.$inject = ['$routeParams', 'booksData'];
 
 function bookDetailCtrl($routeParams, booksData) {
     var vm = this,
-        bookId = $routeParams.bookid;
+        theBook = $routeParams.book;
     vm.message = 'Loading...';
     vm.isComment = false;
-    booksData.getbookById(bookId).success(function (data) {
+    booksData.getTheBook(theBook).success(function (data) {
         if (typeof data === 'object' && data.title === 'undefined') {
             vm.message = '暂无数据';
         } else {

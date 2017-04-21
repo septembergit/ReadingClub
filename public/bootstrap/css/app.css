@@ -1,6 +1,6 @@
 ﻿body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    /*background: gainsboro;*/
+    background: #f1f1f1;
 }
 
 a {
@@ -259,7 +259,7 @@ a.navbar-brand {
 }
 
 /*文本编辑器*/
-.editBox{
+.editBox {
     margin-top: 7px;
 }
 
