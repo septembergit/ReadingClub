@@ -162,8 +162,8 @@ a.navbar-brand {
 /*导航*/
 .container .user-menu .dropdown-menu {
     position: absolute;
-    width: 170px;
-    left: -35px;
+    width: 193px;
+    left: -46px;
     top: 51px;
     padding: 10px;
     border-radius: 4px;
@@ -184,13 +184,14 @@ a.navbar-brand {
 
 .container .rc-btn {
     display: block;
+    width: 149px;
     height: 28px;
-    line-height: 28px;
-    background: #3c8dbc;
+    line-height: 14px;
     border-radius: 2px;
     font-size: 14px;
     color: #fff;
     text-align: center;
+    margin-top: 15px;
 }
 
 .container .user-menu .dropdown-menu:after {

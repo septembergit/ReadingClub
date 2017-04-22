@@ -5,10 +5,11 @@ headerCtrl.$inject = ['$location', 'authentication'];
 
 function headerCtrl($location, authentication) {
     var vm = this;
-    vm.currentPath = $location.path();
     vm.isLoggedIn = authentication.isLoggedIn();
-    vm.currentUser = authentication.currentUser();
+    // vm.currentUser = authentication.currentUser();
+
     vm.logout = function () {
+        console.log('11111111');
         authentication.logout();
         $location.path('/');
     };

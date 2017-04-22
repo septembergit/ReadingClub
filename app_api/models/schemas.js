@@ -33,7 +33,11 @@ var bookSchema = new Schema({
 });
 
 var userSchema = new Schema({
-    name: String,
+    name: {
+        type: String,
+        unique: true,
+        required: true
+    },
     password: {      // 测试添加
         type: String,
         required: true
@@ -44,7 +48,7 @@ var userSchema = new Schema({
         required: true
     },
     hash: String,
-    salt: String,                     // 引入一个salt值
+    salt: String,
     createdOn: {
         type: Date,
         default: Date.now
@@ -57,10 +61,10 @@ var userSchema = new Schema({
     mobile: String
 });
 
-
+// 设置密码
 userSchema.methods.setPassword = function (password) {
     this.salt = crypto.randomBytes(16).toString('hex');        // 生成一个16位的随机字符串作为salt
-    this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');   // 生成哈希值
+    this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');   // 用户密码加盐值再进行加密得到哈希值
 };
 
 // 验证方法
@@ -76,7 +80,7 @@ userSchema.methods.generateJwt = function () {
         _id: this._id,
         email: this.email,
         name: this.name,
-        exp: parseInt(expiry.getTime() / 1000)
+        exp: parseInt(expiry.getTime() / 1000)      // 过期时间
     }, process.env.JWT_SECRET);
 };
 

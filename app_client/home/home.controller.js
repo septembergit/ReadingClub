@@ -16,12 +16,11 @@ function homeCtrl(topicData) {
             vm.message = "Sorry, something's gone wrong ";
         });
     };
+
     vm.selectTypeFn = function (item) {
         vm._selected = item;
         vm.initTopicList();
     };
-    vm.getTheUser = function () {
 
-    };
     vm.initTopicList();
 }

@@ -9,7 +9,6 @@ function loginCtrl($location, authentication) {
         email: '',
         password: ''
     };
-    vm.returnPage = $location.search().page || '/';
     vm.onSubmit = function () {
         vm.formError = "";
         if (!vm.params.email || !vm.params.password) {
@@ -21,11 +20,10 @@ function loginCtrl($location, authentication) {
     };
     vm.doLogin = function () {
         vm.formError = "";
-        authentication.login(vm.params).error(function (err) {
-            vm.formError = err.message;
+        authentication.login(vm.params).error(function () {
+            vm.formError = '登录出错了！';
         }).then(function () {
-            $location.search('page', null);
-            $location.path(vm.returnPage);
+            $location.path('/books');
         });
     };
 }

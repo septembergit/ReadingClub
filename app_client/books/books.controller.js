@@ -33,16 +33,20 @@ function booksCtrl(booksData, $modal, $location, authentication) {
             vm.bookList.push(data);
         });
     };
+    // 更新某一个书籍信息
+    vm.updateBook = function (bookId) {
 
+    };
     // 删除某一个读物
-    vm.removeBook = function (id) {
+    vm.removeBook = function (bookId) {
         if (confirm("确定删除？")) {
-            booksData.removeBookById(id).success(function () {
+            booksData.removeBookById(bookId).success(function () {
                 for (var i = 0; i < vm.bookList.length; i++) {
-                    if (vm.bookList[i]._id == id) {
+                    if (vm.bookList[i]._id == bookId) {
                         vm.bookList.splice(vm.bookList.indexOf(vm.bookList[i]), 1);
                     }
                 }
+                console.log(vm.bookList);
             });
         }
     };

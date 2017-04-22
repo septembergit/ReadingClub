@@ -33,10 +33,9 @@ module.exports.login = function (req, res) {
         return;
     }
     passport.authenticate('local', function (err, user, info) {
-        console.log('来，我们看看是否进来了这里');
         var token;
         if (err) {
-            sendJSONresponse(err, 404, err);
+            sendJSONresponse(res, 404, err);
             return;
         }
         if (user) {
@@ -47,6 +46,7 @@ module.exports.login = function (req, res) {
         }
 
     })(req, res);
+
 };
 module.exports.getThePerson = function (req, res) {
     var _person = req.params.person;

@@ -32,7 +32,7 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
             tags: params.tags,
             rating: params.rating,
             brief: params.brief,
-            img: params.img
+            // img: params.img
         }).success(function (data) {
             vm.modal.close(data);
         }).error(function () {

@@ -25,13 +25,17 @@ function booksData($http, authentication) {
     var addBook = function (data) {
         return $http.post("/api/book", data, {
             headers: {
+
+                // 如果这个令牌被设置，为每个发出请求设置Authorization 头部，值部分使用Bearer<token>
                 Authorization: 'Bearer ' + authentication.getToken()
             }
         });
     };
     var removeBookById = function (bookId) {
         return $http.delete('/api/book/' + bookId, {
-            Authorization: 'Bearer ' + authentication.getToken()
+            headers: {
+                Authorization: 'Bearer ' + authentication.getToken()
+            }
         });
     };
     return {

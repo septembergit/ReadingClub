@@ -5,16 +5,17 @@ authentication.$inject = ['$window', '$http'];
 
 function authentication($window, $http) {
     var saveToken = function (token) {
-        $window.localStorage['read-token'] = token;
+        $window.sessionStorage['read-token'] = token;
     };
 
     var getToken = function () {
-        return $window.localStorage['read-token'];
+        return $window.sessionStorage['read-token'];
     };
     var register = function (params) {
         return $http.post('/api/register', params)
             .success(function (data) {
                 saveToken(data.token);
+
             });
     };
 
@@ -26,14 +27,17 @@ function authentication($window, $http) {
     };
 
     var logout = function () {
-        $window.localStorage.removeItem('read-token');
+        $window.sessionStorage.removeItem('read-token');
+        console.log('现在看看' + $window.sessionStorage['read-token'])
     };
 
     var isLoggedIn = function () {
         var token = getToken();
         if (token) {
-            var payload = JSON.parse($window.atob(token.split('.')[1]));
-            return payload.exp > Date.now() / 1000;
+            // 现代的浏览器有一个atob()的方法来解码Base64的字符串, token的第二段是令牌数据
+            // var payload = JSON.parse($window.atob(token.split('.')[1]));
+            // return payload.exp > Date.now() / 1000;
+            return true;
         } else {
             return false;
         }
@@ -43,12 +47,17 @@ function authentication($window, $http) {
     };
     var currentUser = function () {
         if (isLoggedIn()) {
-            var token = getToken(),
-                payload = JSON.parse($window.atob(token.split('.')[1]));
+            // var token = getToken(),
+            //     payload = JSON.parse($window.atob(token.split('.')[1]));
+            // return {
+            //     email: payload.email,
+            //     name: payload.name,
+            // };
+
             return {
-                email: payload.email,
-                name: payload.name,
-            };
+                email: 'Sarah_mailbox@163.com',
+                name: 'Sarah'
+            }
         }
     };
 

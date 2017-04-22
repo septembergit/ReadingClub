@@ -42,7 +42,6 @@ module.exports.getBooks = function (req, res) {
 
 module.exports.CreateOneBook = function (req, res) {
     getAuthor(req, res, function (req, res, user) {
-        console.log("imgurl:", req.body.img);
         BookModel.create({
             title: req.body.title,
             info: req.body.info,
@@ -118,20 +117,18 @@ module.exports.UpdateOneBook = function (req, res) {
 };
 
 module.exports.DeleteOneBook = function (req, res) {
-    var bookid = req.params.bookid;
-    if (bookid) {
-        BookModel.findByIdAndRemove(bookid)
+    var bookId = req.params.bookid;
+    if (bookId) {
+        BookModel.findByIdAndRemove(bookId)
             .exec(function (err) {
                 if (err) {
-                    console.log(err);
                     sendJSONresponse(res, 404, err);
                     return;
                 }
-                console.log("book id :" + bookid + "deleted");
                 sendJSONresponse(res, 204, null);
             });
     } else {
-        sendJSONresponse(res, 404, {message: "No bookid"});
+        sendJSONresponse(res, 404, {message: "No bookId"});
     }
 };
 
