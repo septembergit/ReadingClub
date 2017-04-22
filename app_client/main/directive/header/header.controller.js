@@ -9,7 +9,6 @@ function headerCtrl($location, authentication) {
     // vm.currentUser = authentication.currentUser();
 
     vm.logout = function () {
-        console.log('11111111');
         authentication.logout();
         $location.path('/');
     };

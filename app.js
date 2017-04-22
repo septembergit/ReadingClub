@@ -12,6 +12,7 @@ var express = require('express'),
 
 var appClientFiles = [
     'app_client/app.js',
+    'app_client/main/services/$_ui.notify.js',
     'app_client/main/services/ReadData.service.js',
     'app_client/main/services/authentication.service.js',
     'app_client/main/filters/formatDate.filter.js',

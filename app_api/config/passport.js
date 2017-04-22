@@ -7,7 +7,6 @@
 // options参数设置要验证的字段名称
 passport.use(new LocalStrategy({usernameField: 'email'}, function (username, password, done) {   // 验证回调
     UserModel.findOne({email: username}, function (err, user) {
-        console.log(user);
         if (err) {
             return done(err);
         }

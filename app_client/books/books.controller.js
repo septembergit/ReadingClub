@@ -1,14 +1,15 @@
 ﻿angular
     .module('readApp')
     .controller('booksCtrl', booksCtrl);
-booksCtrl.$inject = ['booksData', '$modal', '$location', 'authentication'];
+booksCtrl.$inject = ['booksData', '$modal', '$location', 'authentication', '$_uiNotify'];
 
-function booksCtrl(booksData, $modal, $location, authentication) {
+function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
     var vm = this;
     vm.message = "loading...";
     booksData.getBooks.success(function (data) {
         vm.message = data.length > 0 ? "" : "暂无数据";
         vm.bookList = data;
+        // $_uiNotify('数据展示成功！');
     }).error(function () {
         vm.message = "Sorry, something's gone wrong ";
     });
@@ -46,7 +47,6 @@ function booksCtrl(booksData, $modal, $location, authentication) {
                         vm.bookList.splice(vm.bookList.indexOf(vm.bookList[i]), 1);
                     }
                 }
-                console.log(vm.bookList);
             });
         }
     };

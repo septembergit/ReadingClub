@@ -6,7 +6,7 @@ function editTextCtrl() {
     var vm = this;
     vm.textArea = '';
     vm.toSubmitText = function () {
-        console.log('11111111');
+
     }
     $(function () {
         $('.editControls a').click(function () {

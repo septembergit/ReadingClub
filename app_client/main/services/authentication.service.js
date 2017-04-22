@@ -28,7 +28,6 @@ function authentication($window, $http) {
 
     var logout = function () {
         $window.sessionStorage.removeItem('read-token');
-        console.log('现在看看' + $window.sessionStorage['read-token'])
     };
 
     var isLoggedIn = function () {
