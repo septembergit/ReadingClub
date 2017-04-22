@@ -19,9 +19,15 @@ function config($routeProvider) {
             caseInsensitiveMatch: true,
             controllerAs: 'vm'
         })
-        .when('/personal', {
+        .when('/personal/:personal', {
             templateUrl: 'personal/personal.html',
             controller: 'personalCtrl',
+            controllerAs: 'vm',
+            caseInsensitiveMatch: true,
+        })
+        .when('/set/:user', {
+            templateUrl: 'set/set.html',
+            controller: 'setlCtrl',
             controllerAs: 'vm',
             caseInsensitiveMatch: true,
         })

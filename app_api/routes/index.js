@@ -13,6 +13,7 @@ var bookCtrl = require('../controllers/book'),
 
 router.post('/register', authCtrl.register);
 router.post('/login', authCtrl.login);
+router.get('/person/:person', authCtrl.getThePerson);
 
 router.get('/books', bookCtrl.getBooks);
 router.post('/book', auth, bookCtrl.CreateOneBook);

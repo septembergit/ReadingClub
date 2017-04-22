@@ -1,32 +1,75 @@
 <main-header></main-header>
-<div class="row">
+<div class="row personal">
     <div class="col-md-9 col-xs-12">
         <div class="box box-primary">
             <div class="box-header personaltype">
-                <img src="">
-                <h3 class="box-title">{{::vm.title}}</h3>
-                <div style="margin-top: 10px;">
-                    <a ng-repeat="item in vm.typeArr" ng-click="vm.selectTypeFn(item)"
-                       ng-class="{true: 'label label-info', false: ''}[vm._selected === item]">{{item}}</a>
-                </div>
+                <img src="{{vm.thePersonInfo.user_img}}">
+                <h3 class="box-title">{{vm.thePersonInfo.name}}</h3>
+                <!--<div style="margin-top: 10px;">-->
+                <!--<a ng-repeat="item in vm.typeArr" ng-click="vm.selectTypeFn(item)"-->
+                <!--ng-class="{true: 'label label-info', false: ''}[vm._selected === item]">{{item}}</a>-->
+                <!--</div>-->
             </div>
             <div class="box-body">
                 <p>当你对一本图书进行读过、在读、想读的操作之后，这本书会出现在这里。</p>
+                <div class="personal-talks">
+                    <h2>{{vm.thePersonInfo.name}}的想说......<span><a href="#">(更多)</a></span></h2>
+                    <div class="content">
+                        <div class="personal-talks-item">
+                            <div class="talks-header">
+                                <a>发布的题目</a>
+                                <br>
+                                <div>
+                                    <span>发布时间</span>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="talks">
+                                <div class="ll">
+                                    <img src="">
+                                </div>
+                                <span>发布的内容</span>
+                            </div>
+                        </div>
+                        <div class="personal-talks-item">
+                            <div class="talks-header">
+                                <a>发布的题目</a>
+                                <br>
+                                <div>
+                                    <span>发布时间</span>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="talks">
+                                <div class="ll">
+                                    <img src="">
+                                </div>
+                                <span>发布的内容</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="col-md-3 col-xs-12">
-        <div class="box box-primary">
-            <div class="row">
-                <div class="col-md-4">
+        <div class="infobox">
+            <div class="ex1"></div>
+            <div class="bd">
+                <div class="basic-info">
                     <img src="">
+                    <div class="user-info">
+                        <p>{{vm.thePersonInfo.name}}</p>
+                        <p>{{vm.thePersonInfo.createdOn | formatDate}}加入</p>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <p>{{::vm.currentUser.name}}</p>
-                    <p>{{::vm.currentUser.email}}</p>
-                    <p>{{::vm.currentUser.date}}加入</p>
+                <div class="sep-line"></div>
+                <div class="user-intro">
+                    <p>爱好：</p>
+                    <p>游记：</p>
                 </div>
             </div>
+            <div class="ex2"></div>
         </div>
     </div>
 </div>

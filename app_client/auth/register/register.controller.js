@@ -8,7 +8,8 @@ function registerCtrl($location, authentication) {
         name: "",
         email: '',
         password: '',
-        confirm_password: ''
+        confirm_password: '',
+        user_img: ''
     };
     vm.formError = "";
     vm.returnPage = $location.search().page || '/';
@@ -31,5 +32,12 @@ function registerCtrl($location, authentication) {
                 $location.path(vm.returnPage);
             });
         }
+    };
+    vm.uploadImg = function () {
+        authentication.uploadImg.success(function (data) {
+            vm.params.user_img = data;
+        }).error(function () {
+            console.log('图片上传出错！');
+        });
     };
 }

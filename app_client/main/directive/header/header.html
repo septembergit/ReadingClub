@@ -6,7 +6,16 @@
                 <li class="active"><a href="#/">首页</a></li>
                 <li class=""><a href="#/books">读物</a></li>
                 <li class=""><a href="#/talks">想说</a></li>
-                <li class="" ng-if="vm.isLoggedIn"><a href="#/personal">我读</a></li>
+                <li class="dropdown user user-menu">
+                    <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;height: 50px;">
+                        个人中心
+                        <i class="fa fa-angle-down" style="margin-left: 5px;"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="geren"><a href="#/set/Sarah">设置</a></li>
+                        <li class="geren"><a href="#/personal/{{vm.currentUser.name}}">我读</a></li>
+                    </ul>
+                </li>
                 <li class="" ng-if="!vm.isLoggedIn"><a href="/#login?page={{nav.currentPath}}">登录</a></li>
                 <li class="dropdown user user-menu" ng-if="vm.isLoggedIn">
                     <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;height: 50px;">

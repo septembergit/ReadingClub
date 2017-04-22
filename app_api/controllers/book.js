@@ -65,17 +65,10 @@ module.exports.CreateOneBook = function (req, res) {
 
 module.exports.getOneBook = function (req, res) {
     var _book = req.params.book;
-    console.log(_book);
-    if (!_book) {
-        sendJSONresponse(res, 404, {
-            "message": "Not found, bookid is required"
-        });
-        return;
-    }
     BookModel.findOne({book_title: _book}).exec(function (err, book) {
         if (!book) {
             sendJSONresponse(res, 404, {
-                "message": "bookid not found"
+                "message": "book not found"
             });
             return;
         } else if (err) {
@@ -148,17 +141,15 @@ var fs = require('fs'),
 module.exports.uploadImg = function (req, res) {
     var form = new formidable.IncomingForm();
     form.encoding = 'utf-8';
-    form.uploadDir = './../public/upload/temp/';
-    form.keepExtensions = true;
+    form.uploadDir = './../public/upload/temp/';          // 设置上传文件存放的文件夹
+    form.keepExtensions = true;                           // 使得上传的文件保持原来的文件的扩展名
     form.maxFieldsSize = 3 * 1024 * 1024;
 
     form.parse(req, function (err, fields, files) {
-        console.log(files);
         if (err) {
             sendJSONresponse(res, 404, 0);
         }
         for (var key in files) {
-            console.log(files[key].path);
             var extName = '';
             switch (key.type) {
                 case 'image/pjpeg':
@@ -178,8 +169,6 @@ module.exports.uploadImg = function (req, res) {
 
             fs.renameSync(files[key].path, newPath);
             sendJSONresponse(res, 200, "/upload/temp/" + avatarName);
-
         }
     });
-
 };

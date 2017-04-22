@@ -9,11 +9,11 @@
             <div class="box-body">
                 <div class="error">{{vm.message}}</div>
                 <div class="row topiclist" ng-repeat='topic in vm.topicList'>
-                    <img data-ng-src='{{topic.user_img}}'><span class="count"><i
+                    <img ng-src='{{topic.user_img}}'><span class="count"><i
                         class="coment">{{topic.commentCount}}</i><i>/</i><i>{{topic.visitedCount}}</i></span>
                     <span class="label label-info">{{topic.type}}</span><a href="#/book/{{topic.book_title}}">{{topic.book_title}}</a>
                     <span class="pull-right">{{topic.createdOn | formatDate}}</span>
-                    <a ng-click="vm.getTheUser()" class="pull-right author">{{topic.User}}</a>
+                    <a href="#/personal/{{topic.User}}" class="pull-right author">{{topic.User}}</a>
                 </div>
             </div>
         </div>

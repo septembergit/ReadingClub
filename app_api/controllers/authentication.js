@@ -25,25 +25,21 @@ module.exports.register = function (req, res) {
             token = user.generateJwt();
             sendJSONresponse(res, 200, {'token': token});
         }
-
     });
 };
 module.exports.login = function (req, res) {
     if (!req.body.email || !req.body.password) {
-        console.log('没填写邮箱与密码！');
         sendJSONresponse(res, 400, {message: '请输入邮箱和密码!'});
         return;
     }
     passport.authenticate('local', function (err, user, info) {
-        console.log('进入密码验证！');
+        console.log('来，我们看看是否进来了这里');
         var token;
         if (err) {
-            console.log('出了错误！');
             sendJSONresponse(err, 404, err);
             return;
         }
         if (user) {
-            console.log('成功');
             token = user.generateJwt();
             sendJSONresponse(res, 200, {token: token});
         } else {
@@ -52,3 +48,19 @@ module.exports.login = function (req, res) {
 
     })(req, res);
 };
+module.exports.getThePerson = function (req, res) {
+    var _person = req.params.person;
+    UserModel.findOne({name: _person}).exec(function (err, book) {
+        if (!_person) {
+            sendJSONresponse(res, 404, {
+                "message": "person not found"
+            });
+            return;
+        } else if (err) {
+            sendJSONresponse(res, 400, err);
+            return;
+        }
+        sendJSONresponse(res, 200, book);
+
+    });
+}

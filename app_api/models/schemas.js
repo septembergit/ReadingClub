@@ -107,10 +107,7 @@ var topicSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    user_img: {
-        type: String,
-        default: '../../public/imgs/user.jpg'
-    },
+    user_img: String,
     author: String,
     content: String,
     comments: [commentSchema],         // 一个schema可以包含另外的schema或者数组

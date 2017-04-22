@@ -25,6 +25,7 @@ var appClientFiles = [
     'app_client/talks/talks.controller.js',
     'app_client/talkDetail/talkDetail.controller.js',
     'app_client/personal/personal.controller.js',
+    'app_client/set/set.controller.js',
     'app_client/books/books.controller.js',
     'app_client/bookDetail/bookDetail.controller.js',
     'app_client/bookModal/bookModal.controller.js',

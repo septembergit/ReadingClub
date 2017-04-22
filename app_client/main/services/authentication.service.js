@@ -38,7 +38,9 @@ function authentication($window, $http) {
             return false;
         }
     };
-
+    var getPersoninfo = function (param) {
+        return $http.get('/api/person/' + param);
+    };
     var currentUser = function () {
         if (isLoggedIn()) {
             var token = getToken(),
@@ -58,6 +60,7 @@ function authentication($window, $http) {
         logout: logout,
         isLoggedIn: isLoggedIn,
         currentUser: currentUser,
+        getPersoninfo: getPersoninfo
     };
 }
 

@@ -1,9 +1,9 @@
 ﻿angular
     .module('readApp')
     .controller('homeCtrl', homeCtrl);
-homeCtrl.$inject = ['topicData', 'booksData'];
+homeCtrl.$inject = ['topicData'];
 
-function homeCtrl(topicData, booksData) {
+function homeCtrl(topicData) {
     var vm = this;
     vm.typeArr = ['全部', '读书', '书评', '求书', '求索'];
     vm._selected = '全部';
@@ -20,14 +20,6 @@ function homeCtrl(topicData, booksData) {
         vm._selected = item;
         vm.initTopicList();
     };
-    // vm.getOneBook = function (param) {
-    //     booksData.getTheBook(param).success(function (data) {
-    //         vm.message = data.length > 0 ? "" : "暂无数据";
-    //         vm.topicList = data;
-    //     }).error(function () {
-    //         vm.message = "Sorry, something's gone wrong ";
-    //     });
-    // };
     vm.getTheUser = function () {
 
     };
