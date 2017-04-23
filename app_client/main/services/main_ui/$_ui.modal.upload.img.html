@@ -1,0 +1,55 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" ng-click="vm.handle.cancel()" class="close"><span>×</span></button>
+        <h4 class="modal-title">上传图片</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="modalUploadImage" class="btn btn-sm btn-warning">
+                选取本地图片
+                <input type="file" id="modalUploadImage" uploader="vm.modalUploadImg" nv-file-select="" accept="image/*"
+                       style="display: none">
+            </label>
+            <button ng-if="vm.config.isCrop" type="button" class="btn btn-sm btn-primary" ng-click="vm.initCrop = true"
+                    ng-disabled="!vm.modalUploadImg.getNotUploadedItems().length">裁剪图片
+            </button>
+            <button ng-if="vm.config.isCrop" type="button" class="btn btn-sm btn-success pull-right" ng-click="vm.imageCropStep = 2"
+                    ng-disabled="!vm.modalUploadImg.getNotUploadedItems().length">重新裁剪
+            </button>
+        </div>
+        <!--裁剪模块行为-->
+        <div class="row" ng-if="vm.config.isCrop">
+            <div ng-class="{'col-md-9': vm.config.width === 640, 'col-md-8': vm.config.width === 320}">
+                <image-crop
+                        data-height="{{::vm.config.height}}"
+                        data-width="{{::vm.config.width}}"
+                        data-shape="square"
+                        data-step="vm.imageCropStep"
+                        src="vm.imageDataURI"
+                        data-result="vm.resImageDataURI"
+                        padding="{{vm.WIDTH - vm.config.width}}"
+                        max-size="1024"
+                        crop="vm.initCrop"
+                        data-result-blob="resultBlob"
+                ></image-crop>
+            </div>
+            <div ng-class="{'col-md-3': vm.config.width === 640, 'col-md-4': vm.config.width < 500}">
+                <img style="width: 100%; border: 2px dashed #0a6aa1; min-height: 120px" ng-src="{{vm.resImageDataURI}}">
+                <h4 style="text-align: center">效果预览: {{::vm.config.width}} × {{::vm.config.height}}</h4>
+            </div>
+        </div>
+        <!--纯预览模块-->
+        <div class="form-group" ng-if="!vm.config.isCrop">
+            <div style="overflow: hidden; border: 1px dashed #0a6aa1">
+                <img style="display:block; max-width: 100%; min-height: 150px" ng-src="{{vm.imageDataURI}}">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="vm.handle.cancel()">取消 <i class="fa fa-times"></i></button>
+        <button type="button" class="btn btn-primary" ng-click="vm.handle.upload()"
+                ng-disabled="!vm.modalUploadImg.getNotUploadedItems().length || vm.btnName === '上传中...' || vm.imageCropStep !== 3">
+            {{::vm.btnName}} <i class="fa fa-check"></i>
+        </button>
+    </div>
+</div>

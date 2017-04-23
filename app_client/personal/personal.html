@@ -2,16 +2,12 @@
 <div class="row personal">
     <div class="col-md-9 col-xs-12">
         <div class="box box-primary">
-            <div class="box-header personaltype">
+            <div class="box-header personal-intro">
                 <img src="{{vm.thePersonInfo.user_img}}">
-                <h3 class="box-title">{{vm.thePersonInfo.name}}</h3>
-                <!--<div style="margin-top: 10px;">-->
-                <!--<a ng-repeat="item in vm.typeArr" ng-click="vm.selectTypeFn(item)"-->
-                <!--ng-class="{true: 'label label-info', false: ''}[vm._selected === item]">{{item}}</a>-->
-                <!--</div>-->
+                <h4>{{vm.thePersonInfo.name}}</h4>
+                <p>{{vm.thePersonInfo.per_signature}}</p>
             </div>
             <div class="box-body">
-                <p>当你对一本图书进行读过、在读、想读的操作之后，这本书会出现在这里。</p>
                 <div class="personal-talks">
                     <h2>{{vm.thePersonInfo.name}}的想说......<span><a href="#">(更多)</a></span></h2>
                     <div class="content">
@@ -57,7 +53,7 @@
             <div class="ex1"></div>
             <div class="bd">
                 <div class="basic-info">
-                    <img src="">
+                    <img src="{{vm.thePersonInfo.user_img}}">
                     <div class="user-info">
                         <p>{{vm.thePersonInfo.name}}</p>
                         <p>{{vm.thePersonInfo.createdOn}}加入</p>

@@ -81,12 +81,6 @@ module.exports.getOneBook = function (req, res) {
 
 module.exports.UpdateOneBook = function (req, res) {
     var bookid = req.params.bookid;
-    if (!bookid) {
-        sendJSONresponse(res, 404, {
-            "message": "Not found, bookid is required"
-        });
-        return;
-    }
     BookModel.findById(bookid).exec(function (err, book) {
         if (!book) {
             sendJSONresponse(res, 404, {

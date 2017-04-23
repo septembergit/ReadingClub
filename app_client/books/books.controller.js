@@ -36,7 +36,11 @@ function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
     };
     // 更新某一个书籍信息
     vm.updateBook = function (bookId) {
+        booksData.updateBookById(bookId).success(function (data) {
 
+        }).error(function () {
+            vm.message = "Sorry, something's gone wrong ";
+        });
     };
     // 删除某一个读物
     vm.removeBook = function (bookId) {

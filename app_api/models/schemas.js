@@ -53,10 +53,11 @@ var userSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    img: {
+    per_signature: {
         type: String,
-        default: '../../public/imgs/user.jpg'
+        default: '需要一个强势的签名'
     },
+    img: String,
     ip: String,
     mobile: String
 });

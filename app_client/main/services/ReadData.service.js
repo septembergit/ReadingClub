@@ -38,11 +38,19 @@ function booksData($http, authentication) {
             }
         });
     };
+    var updateBookById = function () {
+        return $http.put('/api/book/' + bookId, {
+            headers: {
+                Authorization: 'Bearer ' + authentication.getToken()
+            }
+        });
+    };
     return {
         getBooks: getBooks,
         getTheBook: getTheBook,
         addBook: addBook,
-        removeBookById: removeBookById
+        removeBookById: removeBookById,
+        updateBookById: updateBookById
     };
 };
 

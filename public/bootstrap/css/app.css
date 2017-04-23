@@ -50,12 +50,13 @@ a.navbar-brand {
     padding: 20px 0;
 }
 
-.booklist .col-md-2 {
+.booklist .book-img, .bookdetail .book-img {
     padding: 0;
 }
 
-.booklist .col-md-2 img {
-    box-shadow: 0 0 5px;
+.booklist .book-img img, .bookdetail .book-img img {
+    width: 185px;
+    height: 210px;
 }
 
 .booklist .glyphicon-star, .bookdetail .glyphicon-star, .topiclist .glyphicon-star {
@@ -72,19 +73,22 @@ a.navbar-brand {
 }
 
 /*talks*/
-.talks-item {
+.talklist {
     padding-bottom: 20px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
 }
 
-.talks-item .col-md-2 {
+.talklist .talk-img {
     padding: 0;
 }
 
-.talks-item .col-md-2 img {
-    box-shadow: 0 0 5px;
+.talklist .talk-img img {
+    width: 140px;
+    height: 140px;
+    border-radius: 70px;
+    padding: 10px;
 }
 
 .talk-item-txt {
@@ -140,7 +144,7 @@ a.navbar-brand {
     margin-right: 10px;
 }
 
-.topictype a, .personaltype a {
+.topictype a {
     font-size: medium;
     margin-right: 10px;
     display: inline-block;
@@ -322,6 +326,26 @@ a.navbar-brand {
 }
 
 /*我读*/
+.personal .personal-intro {
+    height: 70px;
+}
+
+.personal .personal-intro img {
+    width: 48px;
+    height: 48px;
+}
+
+.personal .personal-intro h4, .personal .personal-intro p {
+    position: relative;
+    top: -56px;
+    left: 60px;
+}
+
+.personal .personal-intro p {
+    font-size: 14px;
+    color: #bbb;
+}
+
 .personal-talks h2 {
     font-size: 15px;
     color: #072;
@@ -361,6 +385,15 @@ a.navbar-brand {
     border-radius: 10px;
 }
 
+.infobox .basic-info img {
+    width: 170px;
+    height: 170px;
+}
+
+.infobox .basic-info .user-info {
+    margin-top: 10px;
+}
+
 .infobox .bd {
     word-wrap: break-word;
     padding: 9px;
@@ -374,7 +407,6 @@ a.navbar-brand {
     font-size: 0;
     height: 0;
     border-bottom: 1px solid #f5e9db;
-    margin: 5px;
     overflow: hidden;
 }
 
@@ -450,7 +482,7 @@ a.navbar-brand {
 }
 
 .cb-slideshow li:nth-child(1) span {
-    background-image: url(../../imgs/index1.jpg)
+    background-image: url(../../imgs/bg-img.jpg)
 }
 
 .cb-slideshow li:nth-child(2) span {

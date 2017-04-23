@@ -8,13 +8,14 @@
             <div class="box-body">
                 <div class="error">{{vm.message}}</div>
                 <div class="row booklist" ng-repeat="book in vm.bookList|orderBy:'rating':true">
-                    <div class="col-md-2">
-                        <img data-ng-src='{{book.book_img}}'>
+                    <div class="col-md-3 book-img">
+                        <a href="#/book/{{book.book_title}}"><img src='{{book.book_img}}'></a>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <p>
                             <a href="#/book/{{book.book_title}}">{{book.book_title}}</a>
-                            <label class="btn btn-info" ng-click="vm.updateBook(book._id)">更新信息</label>
+                            <span style="color: #337ab7;cursor: pointer; "
+                                  ng-click="vm.updateBook(book._id)">更新信息</span>
                             <span class="close" ng-click="vm.removeBook(book._id)">&times;</span>
                         </p>
                         <p>{{book.info}}</p>
