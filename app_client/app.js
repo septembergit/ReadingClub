@@ -27,7 +27,7 @@ function config($routeProvider) {
         })
         .when('/set/:user', {
             templateUrl: 'set/set.html',
-            controller: 'setlCtrl',
+            controller: 'setCtrl',
             controllerAs: 'vm',
             caseInsensitiveMatch: true,
         })

@@ -13,7 +13,7 @@
                         <label class="col-sm-2 control-label">名号: </label>
                         <div class="col-sm-8">
                             <div class="form-control-static reset-info-item">
-                                <input type="text" class="form-control" ng-model="">
+                                <input type="text" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -21,14 +21,35 @@
                         <label class="col-sm-2 control-label">个性签名: </label>
                         <div class="col-sm-8">
                             <div class="form-control-static reset-info-item">
-                                <input type="text" class="form-control" ng-model="">
+                                <input type="text" class="form-control">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">登录密码: </label>
                         <div class="col-sm-8">
-                            <p class="form-control-static reset-info-item"><span>更改</span></p>
+                            <p class="form-control-static reset-info-item" ng-if="!vm.isPsw">
+                                <span ng-click="vm.resetPsw()">更改</span>
+                            </p>
+                            <p class="form-control-static reset-info-item" ng-if="vm.isPsw">
+                                <span ng-click="vm.resetPsw()">我不改了</span>
+                            </p>
+                            <div class="form-group" ng-if="vm.isPsw">
+                                <label class="col-sm-2 control-label">旧密码: </label>
+                                <div class="col-sm-8">
+                                    <div class="form-control-static reset-info-item">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-if="vm.isPsw">
+                                <label class="col-sm-2 control-label">新密码: </label>
+                                <div class="col-sm-8">
+                                    <div class="form-control-static reset-info-item">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">

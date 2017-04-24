@@ -38,8 +38,8 @@ function booksData($http, authentication) {
             }
         });
     };
-    var updateBookById = function () {
-        return $http.put('/api/book/' + bookId, {
+    var updateBookById = function (bookId, data) {
+        return $http.put('/api/book/' + bookId, data, {
             headers: {
                 Authorization: 'Bearer ' + authentication.getToken()
             }

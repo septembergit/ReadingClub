@@ -25,7 +25,7 @@ function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
             resolve: {
                 viewData: function () {
                     return {
-                        title: "新增推荐",
+                        title: "新增推荐"
                     };
                 }
             }
@@ -36,10 +36,17 @@ function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
     };
     // 更新某一个书籍信息
     vm.updateBook = function (bookId) {
-        booksData.updateBookById(bookId).success(function (data) {
-
-        }).error(function () {
-            vm.message = "Sorry, something's gone wrong ";
+        $modal.open({
+            templateUrl: '../bookModal/bookModal.html',
+            controller: 'bookModalCtrl as vm',
+            resolve: {
+                viewData: function () {
+                    return {
+                        title: "更新信息",
+                        upBookId: bookId
+                    };
+                }
+            }
         });
     };
     // 删除某一个读物

@@ -352,7 +352,7 @@ a.navbar-brand {
     color: #bbb;
 }
 
-.personal-talks h2 {
+.personal-talks h2, .personal-reading h2, .personal-toread h2 {
     font-size: 15px;
     color: #072;
     margin: 0 0 12px 0;
