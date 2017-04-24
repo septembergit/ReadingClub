@@ -7,9 +7,9 @@ var _require = require('../models/schemas'),
         res.json(content);
     };
 
-module.exports.getTopics = function (req, res, next) {
+module.exports.getTopics = function (req, res) {
     var _type = req.params.topicType;
-    if (_type) {
+    if (_type === '全部') {
         TopicModel.find({}, function (err, topics) {
             if (err) {
                 sendJSONresponse(res, 400, err);

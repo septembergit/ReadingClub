@@ -72,6 +72,12 @@ a.navbar-brand {
     color: gray;
 }
 
+.booklist .book-brief {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 /*talks*/
 .talklist {
     padding-bottom: 20px;

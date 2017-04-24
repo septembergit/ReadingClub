@@ -10,7 +10,7 @@ talksData.$inject = ['$http'];
 
 function topicData($http) {
     var getByType = function (param) {
-        return $http.get('/api/topics/ ' + param);
+        return $http.get('/api/topics/' + param);
     }
     return {
         getByType: getByType
@@ -23,7 +23,7 @@ function booksData($http, authentication) {
         return $http.get('/api/book/' + param);
     };
     var addBook = function (data) {
-        return $http.post("/api/book", data, {
+        return $http.post('/api/book', data, {
             headers: {
 
                 // 如果这个令牌被设置，为每个发出请求设置Authorization 头部，值部分使用Bearer<token>

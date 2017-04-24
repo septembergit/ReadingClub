@@ -6,6 +6,7 @@ authentication.$inject = ['$window', '$http'];
 function authentication($window, $http) {
     var saveToken = function (token) {
         $window.sessionStorage['read-token'] = token;
+        console.log($window.sessionStorage['read-token']);
     };
 
     var getToken = function () {
