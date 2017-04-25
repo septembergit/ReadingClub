@@ -16,13 +16,13 @@ module.exports.register = function (req, res) {
     var user = new UserModel();
     user.name = req.body.name;
     user.email = req.body.email;
-    user.setPassword(req.body.password);
+    user.password = req.body.password;
     user.save(function (err) {
-        var token;
         if (err) {
-            sendJSONresponse(res, 404, err);
+            sendJSONresponse(res, 404, '注册账号出错了');
+            return;
         } else {
-            token = user.generateJwt();
+            var token = user.generateJwt();
             sendJSONresponse(res, 200, {'token': token});
         }
     });
@@ -63,4 +63,22 @@ module.exports.getThePerson = function (req, res) {
         sendJSONresponse(res, 200, book);
 
     });
+};
+module.exports.UpdateOneUser = function (req, res) {
+
+}
+module.exports.DeleteOneUser = function (req, res) {
+    var userId = req.payload._id;
+    if (userId) {
+        UserModel.findByIdAndRemove(userId)
+            .exec(function (err) {
+                if (err) {
+                    sendJSONresponse(res, 404, err);
+                    return;
+                }
+                sendJSONresponse(res, 204, null);
+            });
+    } else {
+        sendJSONresponse(res, 404, {message: "No userId"});
+    }
 }

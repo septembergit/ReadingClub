@@ -15,7 +15,6 @@ function authentication($window, $http) {
         return $http.post('/api/register', params)
             .success(function (data) {
                 saveToken(data.token);
-
             });
     };
 
@@ -59,6 +58,20 @@ function authentication($window, $http) {
             }
         }
     };
+    var resetUserInfo = function () {
+        return $http.put('/api/user/', data, {
+            headers: {
+                Authorization: 'Bearer ' + getToken()
+            }
+        });
+    };
+    var removeUser = function (user) {
+        return $http.delete('/api/user/' + user, {
+            headers: {
+                Authorization: 'Bearer ' + getToken()
+            }
+        });
+    };
 
     return {
         saveToken: saveToken,
@@ -68,7 +81,9 @@ function authentication($window, $http) {
         logout: logout,
         isLoggedIn: isLoggedIn,
         currentUser: currentUser,
-        getPersoninfo: getPersoninfo
+        getPersoninfo: getPersoninfo,
+        resetUserInfo: resetUserInfo,
+        removeUser: removeUser
     };
 }
 

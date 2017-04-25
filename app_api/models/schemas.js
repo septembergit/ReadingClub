@@ -42,6 +42,7 @@ var userSchema = new Schema({
         type: String,
         required: true
     },
+    confirm_password: String,    // 是否是必须的
     email: {
         type: String,
         unique: true,
@@ -57,8 +58,7 @@ var userSchema = new Schema({
         type: String,
         default: '需要一个强势的签名'
     },
-    img: String,
-    ip: String
+    user_img: String
 });
 
 // 设置密码
