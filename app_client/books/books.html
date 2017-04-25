@@ -14,9 +14,12 @@
                     <div class="col-md-9">
                         <p>
                             <a href="#/book/{{book.title}}">{{book.title}}</a>
-                            <span style="color: #337ab7;cursor: pointer; "
-                                  ng-click="vm.updateBook(book._id)">更新信息</span>
-                            <span class="close" ng-click="vm.removeBook(book._id)">&times;</span>
+                            <label class="label label-info handle-book-label" ng-if="vm.user.name === book.username"
+                                   ng-click="vm.updateBook(book._id)">更新信息</label>
+                            <label class="label label-warning handle-book-label" ng-if="vm.isLoggedIn"
+                                   ng-click="vm.updateBook(book._id)">加入我的想读</label>
+                            <span class="close" ng-if="vm.user.name === book.username"
+                                  ng-click="vm.removeBook(book._id)">&times;</span>
                         </p>
                         <p>{{book.info}}</p>
                         <p rating-stars rating="book.rating"></p>

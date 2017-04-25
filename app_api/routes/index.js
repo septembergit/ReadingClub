@@ -23,6 +23,7 @@ router.delete('/book/:bookid', auth, bookCtrl.DeleteOneBook);
 
 router.get('/topics/:topicType', topicCtrl.getTopics);
 router.get('/talks', talkCtrl.getTalks);
+router.delete('/book/:talkid', auth, talkCtrl.DeleteOneTalk);
 router.post('/uploadImg', bookCtrl.uploadImg);
 
 module.exports = router;

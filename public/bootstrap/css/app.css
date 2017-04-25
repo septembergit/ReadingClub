@@ -59,6 +59,10 @@ a.navbar-brand {
     height: 210px;
 }
 
+.booklist .handle-book-label {
+    cursor: pointer;
+}
+
 .booklist .glyphicon-star, .bookdetail .glyphicon-star, .topiclist .glyphicon-star {
     color: gold
 }

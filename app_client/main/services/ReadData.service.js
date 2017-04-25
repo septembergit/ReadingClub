@@ -56,11 +56,15 @@ function booksData($http, authentication) {
 
 function talksData($http) {
     var getTalks = $http.get('/api/talks');
-    var removeDisById = function (id) {
-
+    var removeTalkById = function (talkId) {
+        return $http.delete('/api/talk/' + talkId, {
+            headers: {
+                Authorization: 'Bearer ' + authentication.getToken()
+            }
+        });
     };
     return {
         getTalks: getTalks,
-        removeDisById: removeDisById
+        removeTalkById: removeTalkById
     };
 };

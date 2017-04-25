@@ -7,6 +7,8 @@ var _require = require('../models/schemas'),
         res.status(status);
         res.json(content);
     };
+
+// 查询数据库确定是否登录拥有部分操作权限
 var getAuthor = function (req, res, callback) {
     if (req.payload && req.payload.email) {
         UserModel.findOne({email: req.payload.email})
@@ -64,7 +66,7 @@ module.exports.CreateOneBook = function (req, res) {
 
 module.exports.getOneBook = function (req, res) {
     var _book = req.params.book;
-    BookModel.findOne({book_title: _book}).exec(function (err, book) {
+    BookModel.findOne({title: _book}).exec(function (err, book) {
         if (!book) {
             sendJSONresponse(res, 404, {
                 "message": "book not found"

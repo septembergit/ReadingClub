@@ -9,11 +9,12 @@
                 <div class="error">{{vm.message}}</div>
                 <div class="row talklist" ng-repeat="item in vm.talksList">
                     <div class="col-md-2 talk-img">
-                        <a href="#/personal/{{item.User}}"><img ng-src='{{item.user_img}}'></a>
+                        <a href="#/personal/{{item.username}}"><img ng-src='{{item.user_img}}'></a>
                     </div>
                     <div class="col-md-8">
-                        <p style="font-size: 16px;"><b><a style="color: #212121;" href="#/personal/{{item.User}}">{{item.User}}</a></b>的话题</p>
-                        <p>{{item.createdOn}}</p>
+                        <p style="font-size: 16px;"><b><a style="color: #212121;" href="#/personal/{{item.username}}">{{item.username}}</a></b>的话题
+                        </p>
+                        <p>{{item.createdOn | formatDate}}</p>
                         <div class="talk-item-txt">
                             <a href="#/talks/{{item._id}}">{{item.title}}</a>
                             <p>{{item.brief}}</p>
@@ -21,6 +22,8 @@
                         </div>
                     </div>
                     <div class="col-md-2">
+                        <span class="close" ng-if="vm.user.name === item.username"
+                              ng-click="vm.removeTalk(item._id)">&times;</span>
                         <img src="{{item.talk_img}}">
                     </div>
                 </div>

@@ -16,3 +16,18 @@ module.exports.getTalks = function (req, res) {
         }
     })
 };
+module.exports.DeleteOneTalk = function () {
+    var talkId = req.params.talkid;
+    if (talkId) {
+        TalkModel.findByIdAndRemove(talkId)
+            .exec(function (err) {
+                if (err) {
+                    sendJSONresponse(res, 404, err);
+                    return;
+                }
+                sendJSONresponse(res, 204, null);
+            });
+    } else {
+        sendJSONresponse(res, 404, {message: "No talkId"});
+    }
+};

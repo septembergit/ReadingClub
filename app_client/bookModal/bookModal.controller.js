@@ -19,13 +19,12 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
         if (!vm.formData.title || !vm.formData.info || !vm.formData.ISBN || !vm.formData.tags || !vm.formData.rating || !vm.formData.brief) {
             vm.formError = "请完成所有栏目!";
             return false;
-        } else if (vm.viewData.title == '新增推荐') {
-            vm.doAddBook(vm.formData);
-            vm.modal.cancel();
-        } else {
+        } else if (vm.viewData.upBookId) {
             vm.doUpBook(vm.formData);
-            vm.modal.cancel();
+        } else {
+            vm.doAddBook(vm.formData);
         }
+        vm.modal.cancel();
     };
     vm.doAddBook = function (params) {
         booksData.addBook({

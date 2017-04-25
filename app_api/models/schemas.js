@@ -58,8 +58,7 @@ var userSchema = new Schema({
         default: '需要一个强势的签名'
     },
     img: String,
-    ip: String,
-    mobile: String
+    ip: String
 });
 
 // 设置密码
@@ -131,10 +130,11 @@ var topicSchema = new Schema({
 });
 
 var talkSchema = new Schema({
-    User: {
+    username: {
         type: String,
         required: true
     },
+    userId: String,
     title: {
         type: String,
         required: true

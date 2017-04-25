@@ -6,7 +6,7 @@
                 <li class=""><a href="#/">首页</a></li>
                 <li class=""><a href="#/books">读物</a></li>
                 <li class=""><a href="#/talks">想说</a></li>
-                <li class="dropdown user user-menu">
+                <li ng-if="navvm.isLoggedIn" class="dropdown user user-menu">
                     <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;height: 50px;">
                         个人中心
                         <i class="fa fa-angle-down" style="margin-left: 5px;"></i>
@@ -16,16 +16,16 @@
                         <li class="geren"><a href="#/personal/Sarah">我读</a></li>
                     </ul>
                 </li>
-                <li class="" ng-if="!vm.isLoggedIn"><a href="/#login?page={{nav.currentPath}}">登录</a></li>
-                <li class="dropdown user user-menu" ng-if="vm.isLoggedIn">
+                <li class="" ng-if="!navvm.isLoggedIn"><a href="/#login?page={{nav.currentPath}}">登录</a></li>
+                <li ng-if="navvm.isLoggedIn" class="dropdown user user-menu">
                     <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;height: 50px;">
                         Hi，<span class="hidden-xs">Sarah</span>
                     </a>
                     <ul class="dropdown-menu">
                         <h3>Sarah</h3>
                         <hr style="margin: 15px 0;">
-                        <span >Sarah_mailbox@163.com</span>
-                        <button type="button" class="btn btn-primary rc-btn" ng-click="vm.logout()">退出</button>
+                        <span>Sarah_mailbox@163.com</span>
+                        <button type="button" class="btn btn-primary rc-btn" ng-click="navvm.logout()">退出</button>
                     </ul>
                 </li>
             </ul>
