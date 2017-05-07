@@ -14,8 +14,8 @@ var bookCtrl = require('../controllers/book'),
 router.post('/register', authCtrl.register);
 router.post('/login', authCtrl.login);
 router.get('/person/:personId', authCtrl.getThePerson);
-router.put('/user/:userId', authCtrl.UpdateOneUser);
-router.delete('/user/:user', auth, authCtrl.DeleteOneUser);
+router.put('/user/:userId', auth, authCtrl.UpdateOneUser);
+router.delete('/user/:userId', auth, authCtrl.DeleteOneUser);
 
 router.get('/books', bookCtrl.getBooks);
 router.post('/book', auth, bookCtrl.CreateOneBook);

@@ -98,6 +98,7 @@ module.exports.DeleteOneBook = function (req, res) {
         sendJSONresponse(res, 404, {message: "No bookId"});
     }
 };
+
 module.exports.UpdateOneBook = function (req, res) {
     var _bookId = req.params.bookId;
     BookModel.findById(_bookId).exec(function (err, book) {
@@ -127,8 +128,6 @@ module.exports.UpdateOneBook = function (req, res) {
             }
         });
     });
-
-
 };
 
 module.exports.DeleteOneBook = function (req, res) {

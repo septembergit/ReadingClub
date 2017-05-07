@@ -5,8 +5,7 @@ authentication.$inject = ['$window', '$http'];
 
 function authentication($window, $http) {
     var saveToken = function (token) {
-        var _obj = JSON.stringify(token);
-        $window.sessionStorage['read-token'] = _obj;
+        $window.sessionStorage['read-token'] = token;
     };
 
     var getToken = function () {
@@ -33,10 +32,10 @@ function authentication($window, $http) {
     var isLoggedIn = function () {
         var token = getToken();
         if (token) {
+
             // 现代的浏览器有一个atob()的方法来解码Base64的字符串, token的第二段是令牌数据
-            // var payload = JSON.parse($window.atob(token.split('.')[1]));
-            // return payload.exp > Date.now() / 1000;
-            return true;
+            var payload = JSON.parse($window.atob(token.split('.')[1]));
+            return payload.exp > Date.now() / 1000;
         } else {
             return false;
         }
@@ -46,23 +45,24 @@ function authentication($window, $http) {
     };
     var currentUser = function () {
         if (isLoggedIn()) {
-            var _token = getToken(),
-                token = JSON.parse(_token);
+            var token = getToken(),
+                payload = JSON.parse($window.atob(token.split('.')[1]));
             return {
-                _id: token._id,
-                email: token.email,
-                name: token.name,
+                _id: payload._id,
+                email: payload.email,
+                name: payload.name,
             };
         }
     };
     var resetUserInfo = function (userId, data) {
-        return $http.put('/api/user/' + userId, data)
-            .success(function (data) {
-
-            });
+        return $http.put('/api/user/' + userId, data, {
+            headers: {
+                Authorization: 'Bearer ' + getToken()
+            }
+        });
     };
-    var removeUser = function (user) {
-        return $http.delete('/api/user/' + user, {
+    var removeUser = function (userId) {
+        return $http.delete('/api/user/' + userId, {
             headers: {
                 Authorization: 'Bearer ' + getToken()
             }

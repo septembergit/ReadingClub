@@ -1,9 +1,9 @@
 angular
     .module('readApp')
     .controller('setCtrl', setCtrl);
-setCtrl.$inject = ['authentication'];
+setCtrl.$inject = ['$location', 'authentication'];
 
-function setCtrl(authentication) {
+function setCtrl($location, authentication) {
     var vm = this;
     vm.isPsw = false;
     vm.user = authentication.currentUser();
@@ -24,8 +24,11 @@ function setCtrl(authentication) {
     };
     vm.removeUser = function () {
         if (confirm("确定删除账号？")) {
-            authentication.removeUser(vm.user.email).success(function () {
-                console.log('账号删除成功');
+            authentication.removeUser(vm.user._id).success(function () {
+
+                // 应该给个结果提示
+                authentication.logout();
+                $location.path('/');
             });
         }
     };

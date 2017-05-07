@@ -64,6 +64,7 @@ module.exports.getThePerson = function (req, res) {
 
     });
 };
+
 module.exports.UpdateOneUser = function (req, res) {
     var _userId = req.params.userId;
     UserModel.findById(_userId).exec(function (err, user) {
@@ -76,9 +77,9 @@ module.exports.UpdateOneUser = function (req, res) {
             sendJSONresponse(res, 400, err);
             return;
         }
-        user.name = req.body.name || user.name;
+        user.name = req.body.username || user.name;
         user.email = user.email;
-        user.password = req.body.password || user.password;
+        user.password = req.body.new_psw || user.password;
         user.per_signature = req.body.per_signature || user.per_signature;
         // user.img = req.body.img || user.img;
         user.createdOn = user.createdOn;
@@ -92,10 +93,11 @@ module.exports.UpdateOneUser = function (req, res) {
     });
 
 };
+
 module.exports.DeleteOneUser = function (req, res) {
-    var userId = req.payload._id;
-    if (userId) {
-        UserModel.findByIdAndRemove(userId)
+    var _userId = req.params.userId;
+    if (_userId) {
+        UserModel.findByIdAndRemove(_userId)
             .exec(function (err) {
                 if (err) {
                     sendJSONresponse(res, 404, err);
