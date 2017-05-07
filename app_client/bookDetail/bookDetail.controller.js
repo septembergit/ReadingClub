@@ -1,12 +1,13 @@
 ﻿angular
     .module('readApp')
     .controller('bookDetailCtrl', bookDetailCtrl);
-bookDetailCtrl.$inject = ['$routeParams', 'booksData'];
+bookDetailCtrl.$inject = ['$routeParams', 'booksData', 'authentication'];
 
-function bookDetailCtrl($routeParams, booksData) {
+function bookDetailCtrl($routeParams, booksData, authentication) {
     var vm = this,
         theBook = $routeParams.book;
     vm.message = 'Loading...';
+    vm.isLoggedIn = authentication.isLoggedIn();
     vm.isComment = false;
     booksData.getTheBook(theBook).success(function (data) {
         if (typeof data === 'object' && data.title === 'undefined') {

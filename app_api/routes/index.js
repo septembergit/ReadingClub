@@ -13,15 +13,15 @@ var bookCtrl = require('../controllers/book'),
 
 router.post('/register', authCtrl.register);
 router.post('/login', authCtrl.login);
-router.get('/person/:person', authCtrl.getThePerson);
-router.put('/user/', auth, authCtrl.UpdateOneUser);
+router.get('/person/:personId', authCtrl.getThePerson);
+router.put('/user/:userId', authCtrl.UpdateOneUser);
 router.delete('/user/:user', auth, authCtrl.DeleteOneUser);
 
 router.get('/books', bookCtrl.getBooks);
 router.post('/book', auth, bookCtrl.CreateOneBook);
-router.get('/book/:book', bookCtrl.getOneBook);
-router.put('/book/:bookid', auth, bookCtrl.UpdateOneBook);
-router.delete('/book/:bookid', auth, bookCtrl.DeleteOneBook);
+router.get('/book/:bookId', bookCtrl.getOneBook);
+router.put('/book/:bookId', auth, bookCtrl.UpdateOneBook);
+router.delete('/book/:bookId', auth, bookCtrl.DeleteOneBook);
 
 router.get('/topics/:topicType', topicCtrl.getTopics);
 router.get('/talks', talkCtrl.getTalks);

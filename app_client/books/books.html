@@ -13,18 +13,20 @@
                     </div>
                     <div class="col-md-9">
                         <p>
-                            <a href="#/book/{{book.title}}">{{book.title}}</a>
-                            <label class="label label-info handle-book-label" ng-if="vm.user.name === book.username"
+                            <span>书名:</span><a href="#/book/{{book._id}}">{{book.title}}</a>
+                            <label class="label label-info handle-book-label" ng-if="vm.user._id === book.userId"
                                    ng-click="vm.updateBook(book._id)">更新信息</label>
                             <label class="label label-warning handle-book-label" ng-if="vm.isLoggedIn"
                                    ng-click="vm.updateBook(book._id)">加入我的想读</label>
-                            <span class="close" ng-if="vm.user.name === book.username"
+                            <span class="close" ng-if="vm.user._id === book.userId"
                                   ng-click="vm.removeBook(book._id)">&times;</span>
                         </p>
-                        <p>{{book.info}}</p>
-                        <p rating-stars rating="book.rating"></p>
-                        <p class="tags">
-                            <span ng-repeat="tag in book.tags track by $index">{{tag}}&nbsp;&nbsp;&nbsp;</span>
+                        <p><span>作者:</span>{{book.auth}}</p>
+                        <p><span>出版社:</span>{{book.press}}</p>
+                        <p rating-stars rating="book.rating"><</p>
+                        <p><span>ISBN:</span>{{book.ISBN}}</p>
+                        <p class="book-tags">
+                            <span ng-repeat="tag in book.tags track by $index"><a class="tag">{{tag}}</a></span>
                         </p>
                         <p class="book-brief">{{book.brief}}</p>
                     </div>

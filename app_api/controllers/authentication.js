@@ -49,8 +49,8 @@ module.exports.login = function (req, res) {
 
 };
 module.exports.getThePerson = function (req, res) {
-    var _person = req.params.person;
-    UserModel.findOne({name: _person}).exec(function (err, book) {
+    var _person = req.params.personId;
+    UserModel.findOne({_id: _person}).exec(function (err, person) {
         if (!_person) {
             sendJSONresponse(res, 404, {
                 "message": "person not found"
@@ -60,13 +60,38 @@ module.exports.getThePerson = function (req, res) {
             sendJSONresponse(res, 400, err);
             return;
         }
-        sendJSONresponse(res, 200, book);
+        sendJSONresponse(res, 200, person);
 
     });
 };
 module.exports.UpdateOneUser = function (req, res) {
+    var _userId = req.params.userId;
+    UserModel.findById(_userId).exec(function (err, user) {
+        if (!user) {
+            sendJSONresponse(res, 404, {
+                "message": "userId not found"
+            });
+            return;
+        } else if (err) {
+            sendJSONresponse(res, 400, err);
+            return;
+        }
+        user.name = req.body.name || user.name;
+        user.email = user.email;
+        user.password = req.body.password || user.password;
+        user.per_signature = req.body.per_signature || user.per_signature;
+        // user.img = req.body.img || user.img;
+        user.createdOn = user.createdOn;
+        user.save(function (err, user) {
+            if (err) {
+                sendJSONresponse(res, 404, err);
+            } else {
+                sendJSONresponse(res, 200, user);
+            }
+        });
+    });
 
-}
+};
 module.exports.DeleteOneUser = function (req, res) {
     var userId = req.payload._id;
     if (userId) {

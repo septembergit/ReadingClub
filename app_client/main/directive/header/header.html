@@ -12,19 +12,19 @@
                         <i class="fa fa-angle-down" style="margin-left: 5px;"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="geren"><a href="#/set/Sarah">设置</a></li>
-                        <li class="geren"><a href="#/personal/Sarah">我读</a></li>
+                        <li class="geren"><a href="#/set/{{navvm.currentUser._id}}">设置</a></li>
+                        <li class="geren"><a href="#/personal/{{navvm.currentUser._id}}">我读</a></li>
                     </ul>
                 </li>
                 <li class="" ng-if="!navvm.isLoggedIn"><a href="/#login?page={{nav.currentPath}}">登录</a></li>
                 <li ng-if="navvm.isLoggedIn" class="dropdown user user-menu">
                     <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;height: 50px;">
-                        Hi，<span class="hidden-xs">Sarah</span>
+                        Hi，<span class="hidden-xs">{{navvm.currentUser.name}}</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <h3>Sarah</h3>
+                        <h3>{{navvm.currentUser.name}}</h3>
                         <hr style="margin: 15px 0;">
-                        <span>Sarah_mailbox@163.com</span>
+                        <span>{{navvm.currentUser.email}}</span>
                         <button type="button" class="btn btn-primary rc-btn" ng-click="navvm.logout()">退出</button>
                     </ul>
                 </li>

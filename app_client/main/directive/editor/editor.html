@@ -33,8 +33,11 @@
             <a class="btn" data-role='subscript' href='#'><i class='fa fa-subscript'></i></a>
             <a class="btn" data-role='superscript' href='#'><i class='fa fa-superscript'></i></a>
         </div>
+        <div class="btn-group">
+            <button class="btn btn-default" ng-click="txtvm.toSubCom()">提交</a>
+        </div>
     </div>
-    <div class="editText" contenteditable ng-model="vm.textArea"></div>
+    <textarea class="editText" ng-model="txtvm.textArea"></textarea>
 </div>
 <script src="../../../../public/assets/js/editor.min.js"></script>
 

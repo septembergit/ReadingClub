@@ -3,6 +3,7 @@ angular
     .directive('mainEditTextarea', function () {
         return {
             restrict: 'EA',
-            templateUrl: '/main/directive/editor/editor.html'
+            templateUrl: '/main/directive/editor/editor.html',
+            controller: 'editTextCtrl as txtvm'
         };
     });

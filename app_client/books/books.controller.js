@@ -7,7 +7,7 @@ function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
     var vm = this;
     vm.message = "loading...";
     booksData.getBooks.success(function (data) {
-        vm.message = data.length > 0 ? "" : "暂无数据";
+        vm.message = data.length > 0 ? "" : "这里空空如也~~~";
         vm.bookList = data;
         // $_uiNotify('数据展示成功！');
     }).error(function () {

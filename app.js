@@ -59,7 +59,7 @@ app.use(passport.initialize());
 
 app.use('/api', routesApi);
 app.use(function (req, res) {
-    res.sendfile(path.join(__dirname, 'app_client', 'index.html'));
+    res.sendfile(path.join(__dirname, 'app_client', 'index.html'));    // 直接对外输出HTML文件
 });
 
 // catch 404 and forward to error handler
@@ -76,6 +76,7 @@ app.use(function (err, req, res, next) {
         res.json({message: err.name + ":" + err.message});
     }
 });
+
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {

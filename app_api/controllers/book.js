@@ -43,12 +43,14 @@ module.exports.getBooks = function (req, res) {
 };
 
 module.exports.CreateOneBook = function (req, res) {
+    var _tags = req.body.tags.split('，');
     getAuthor(req, res, function (req, res, user) {
         BookModel.create({
             title: req.body.title,
-            info: req.body.info,
+            auth: req.body.auth,
+            press: req.body.press,
             img: req.body.img,
-            tags: req.body.tags,
+            tags: _tags,
             brief: req.body.brief,
             ISBN: req.body.ISBN,
             rating: req.body.rating,
@@ -65,8 +67,8 @@ module.exports.CreateOneBook = function (req, res) {
 };
 
 module.exports.getOneBook = function (req, res) {
-    var _book = req.params.book;
-    BookModel.findOne({title: _book}).exec(function (err, book) {
+    var _book = req.params.bookId;
+    BookModel.findOne({_id: _book}).exec(function (err, book) {
         if (!book) {
             sendJSONresponse(res, 404, {
                 "message": "book not found"
@@ -81,25 +83,42 @@ module.exports.getOneBook = function (req, res) {
     });
 };
 
+module.exports.DeleteOneBook = function (req, res) {
+    var _bookId = req.params.bookId;
+    if (_bookId) {
+        BookModel.findByIdAndRemove(_bookId)
+            .exec(function (err) {
+                if (err) {
+                    sendJSONresponse(res, 404, err);
+                    return;
+                }
+                sendJSONresponse(res, 204, null);
+            });
+    } else {
+        sendJSONresponse(res, 404, {message: "No bookId"});
+    }
+};
 module.exports.UpdateOneBook = function (req, res) {
-    var bookid = req.params.bookid;
-    BookModel.findById(bookid).exec(function (err, book) {
+    var _bookId = req.params.bookId;
+    BookModel.findById(_bookId).exec(function (err, book) {
         if (!book) {
             sendJSONresponse(res, 404, {
-                "message": "bookid not found"
+                "message": "bookId not found"
             });
             return;
         } else if (err) {
             sendJSONresponse(res, 400, err);
             return;
         }
-        book.title = req.body.title;
-        book.rating = req.body.rating;
-        book.info = req.body.info;
-        book.img = req.body.img;
-        book.tags = req.body.tags;
-        book.brief = req.body.brief;
-        book.ISBN = req.body.ISBN;
+        book.title = req.body.title || book.title;
+        book.rating = req.body.rating || book.rating;
+        book.auth = req.body.auth || book.auth;
+        book.press = req.body.press || book.press;
+        book.img = req.body.img || book.img;
+        book.tags = req.body.tags || book.tags;
+        book.brief = req.body.brief || book.brief;
+        book.ISBN = req.body.ISBN || book.ISBN;
+        book.comments.push(req.body.comment);
         book.save(function (err, book) {
             if (err) {
                 sendJSONresponse(res, 404, err);
@@ -113,9 +132,9 @@ module.exports.UpdateOneBook = function (req, res) {
 };
 
 module.exports.DeleteOneBook = function (req, res) {
-    var bookId = req.params.bookid;
-    if (bookId) {
-        BookModel.findByIdAndRemove(bookId)
+    var _bookId = req.params.bookId;
+    if (_bookId) {
+        BookModel.findByIdAndRemove(_bookId)
             .exec(function (err) {
                 if (err) {
                     sendJSONresponse(res, 404, err);

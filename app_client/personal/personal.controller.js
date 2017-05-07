@@ -6,7 +6,6 @@ personalCtrl.$inject = ['$routeParams', 'authentication'];
 function personalCtrl($routeParams, authentication) {
     var vm = this,
         thePerson = $routeParams.personal;
-    // vm.currentUser = authentication.currentUser();
     authentication.getPersoninfo(thePerson).success(function (data) {
         vm.thePersonInfo = data;
     }).error(function () {

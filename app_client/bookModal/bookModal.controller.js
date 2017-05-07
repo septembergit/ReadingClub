@@ -8,7 +8,8 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
     vm.viewData = viewData;
     vm.formData = {
         title: '',
-        info: '',
+        auth: '',
+        press: '',
         ISBN: '',
         tags: '',
         rating: '',
@@ -16,7 +17,7 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
     };
     vm.onSubmit = function () {
         vm.formError = "";
-        if (!vm.formData.title || !vm.formData.info || !vm.formData.ISBN || !vm.formData.tags || !vm.formData.rating || !vm.formData.brief) {
+        if (!vm.formData.title || !vm.formData.auth || !vm.formData.press || !vm.formData.ISBN || !vm.formData.tags || !vm.formData.rating || !vm.formData.brief) {
             vm.formError = "请完成所有栏目!";
             return false;
         } else if (vm.viewData.upBookId) {
@@ -29,7 +30,8 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
     vm.doAddBook = function (params) {
         booksData.addBook({
             title: params.title,
-            info: params.info,
+            auth: params.auth,
+            press: params.press,
             ISBN: params.ISBN,
             tags: params.tags,
             rating: params.rating,
@@ -44,7 +46,8 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
     vm.doUpBook = function (params) {
         booksData.updateBookById(vm.viewData.upBookId, {
             title: params.title,
-            info: params.info,
+            auth: params.auth,
+            press: params.press,
             ISBN: params.ISBN,
             tags: params.tags,
             rating: params.rating,

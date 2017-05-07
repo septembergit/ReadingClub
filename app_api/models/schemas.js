@@ -16,7 +16,11 @@ var bookSchema = new Schema({
         min: 0,
         max: 5
     },
-    info: {
+    auth: {
+        type: String,
+        required: true
+    },
+    press: {
         type: String,
         required: true
     },
@@ -42,7 +46,6 @@ var userSchema = new Schema({
         type: String,
         required: true
     },
-    confirm_password: String,    // 是否是必须的
     email: {
         type: String,
         unique: true,
@@ -76,13 +79,20 @@ userSchema.methods.validPassword = function (password) {
 userSchema.methods.generateJwt = function () {
     var expiry = new Date();
     expiry.setDate(expiry.getDate() + 7);
-    return jwt.sign({
+    // return jwt.sign({
+    //     _id: this._id,
+    //     email: this.email,
+    //     name: this.name,
+    //     exp: parseInt(expiry.getTime() / 1000)      // 过期时间
+    // }, process.env.JWT_SECRET);
+    return {
         _id: this._id,
         email: this.email,
         name: this.name,
         exp: parseInt(expiry.getTime() / 1000)      // 过期时间
-    }, process.env.JWT_SECRET);
+    }
 };
+
 
 var commentSchema = new Schema({
     user: userSchema,

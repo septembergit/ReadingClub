@@ -12,28 +12,30 @@
                         <img ng-src='{{vm.oneBookInfo.img}}'>
                     </div>
                     <div class="col-md-8">
-                        <p>{{vm.oneBookInfo.info}}</p>
+                        <p><span>作者:</span>{{vm.oneBookInfo.auth}}</p>
+                        <p><span>出版社:</span>{{vm.oneBookInfo.press}}</p>
                         <p rating-stars rating="vm.oneBookInfo.rating"></p>
                         <p class="book-tags">
-                            <span ng-repeat="tag in vm.oneBookInfo.tags">{{tag}}</span>
+                            <span ng-repeat="tag in vm.oneBookInfo.tags"><a class="tag">{{tag}}</a></span>
                         </p>
-                        <p>IBSN:{{vm.oneBookInfo.IBSN}}</p>
+                        <p><span>IBSN:</span>{{vm.oneBookInfo.ISBN}}</p>
                     </div>
                 </div>
                 <div class="row">
-                    <h4>内容简介:</h4>
+                    <h4 style="color: #007722;">内容简介· · · · · ·</h4>
                     <p>{{vm.oneBookInfo.brief}}</p>
                 </div>
             </div>
         </div>
         <div class="box box-primary">
-            <div class="box-header" style="padding-bottom: 0px;">
+            <div class="box-header" style="padding-bottom: 0px;" ng-if="vm.isLoggedIn">
                 <i class="fa fa-comment-o"></i><span style="color: #337ab7;cursor: pointer;" ng-click="vm.toComment()">我要评论</a>
             </div>
             <div class="box-body" style="padding-top: 0px;">
                 <main-edit-textarea ng-if="vm.isComment"></main-edit-textarea>
                 <div class="row booklist" ng-if="vm.oneBookInfo.comments" ng-repeat="item in vm.oneBookInfo.comments">
-                    <span>{{::item}}</span>
+                    <!--<a href="#/personal/{{vm.oneBookInfo.userId}}">{{vm.oneBookInfo.username}}</a>-->
+                    <p>{{::item}}</p>
                 </div>
             </div>
         </div>

@@ -5,7 +5,8 @@ authentication.$inject = ['$window', '$http'];
 
 function authentication($window, $http) {
     var saveToken = function (token) {
-        $window.sessionStorage['read-token'] = token;
+        var _obj = JSON.stringify(token);
+        $window.sessionStorage['read-token'] = _obj;
     };
 
     var getToken = function () {
@@ -45,25 +46,20 @@ function authentication($window, $http) {
     };
     var currentUser = function () {
         if (isLoggedIn()) {
-            // var token = getToken(),
-            //     payload = JSON.parse($window.atob(token.split('.')[1]));
-            // return {
-            //     email: payload.email,
-            //     name: payload.name,
-            // };
-
+            var _token = getToken(),
+                token = JSON.parse(_token);
             return {
-                email: 'Sarah_mailbox@163.com',
-                name: 'Sarah'
-            }
+                _id: token._id,
+                email: token.email,
+                name: token.name,
+            };
         }
     };
-    var resetUserInfo = function () {
-        return $http.put('/api/user/', data, {
-            headers: {
-                Authorization: 'Bearer ' + getToken()
-            }
-        });
+    var resetUserInfo = function (userId, data) {
+        return $http.put('/api/user/' + userId, data)
+            .success(function (data) {
+
+            });
     };
     var removeUser = function (user) {
         return $http.delete('/api/user/' + user, {
