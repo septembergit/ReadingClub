@@ -1,9 +1,44 @@
 ﻿<main-header></main-header>
-<div class="row">
+<div class="row talks">
     <div class="col-md-8 col-xs-12">
         <div class="box box-primary">
             <div class="box-header">
-                <h3 class="box-title">每个人的树洞</h3>
+                <ul>
+                    <li><i class="fa fa-comment-o"></i>说句话</li>
+                    <li><i class="fa fa-image"></i>发照片</li>
+                    <li><i class="fa fa-link"></i>推荐网页</li>
+                    <li><i class="fa fa-book"></i>写日记</li>
+                </ul>
+                <!--<input type="text" placeholder="记录生活的点滴" class="form-control" maxlength="100" ng-model="vm.params.lift_piece">-->
+                <div class="recommend-web">
+                    <div class="web-link">
+                        <input type="text" class="form-control" ng-model="vm.params.web_link" placeholder="在此处输入网址">
+                    </div>
+                    <div class="recommend-reason">
+                        <textarea placeholder="我的推荐理由...." rows="1" ng-model="vm.params.reason_txt"></textarea>
+                    </div>
+                    <div class="link-submit">
+                        <button class="btn btn-default" ng-click="vm.recommendWeb()">发布</button>
+                    </div>
+                </div>
+                <div class="write-diary">
+                    <div class="form-group">
+                        <label>题目: </label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>正文: </label>
+                        <textarea rows="1" cols="1" style="width: 500px;height:400px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>可见:</label>
+                        <input type="radio" ng-repeat="(k, v) in vm.config.auth_config">{{::k}}
+                    </div>
+                    <div class="form-group">
+                        <label>常用标签:</label>
+                        <input type="checkbox" ng-repeat="(k, v) in vm.config.tag_config">{{vm.config.tag_config}}
+                    </div>
+                </div>
             </div>
             <div class="box-body">
                 <div class="error">{{vm.message}}</div>

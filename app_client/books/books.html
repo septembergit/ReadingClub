@@ -43,7 +43,8 @@
             <div class="box-body">
                 <div class="userinfo">
                     <p>{{vm.user.name}}</p>
-                    <a ng-click="vm.popupForm()" ng-if="vm.isLoggedIn" class="btn btn-info">新增推荐</a>
+                    <label ng-click="vm.addBook()" ng-if="vm.isLoggedIn" class="btn btn-info">新增推荐</label>
+                    <!--<label ng-click="vm.createPost()" ng-if="vm.isLoggedIn" class="btn btn-info">发帖</label>-->
                 </div>
                 <div class="userinfo" ng-if="!vm.isLoggedIn">
                     <a href="/#/login?page={{vm.currentPath}}" class="btn btn-default">登录可推荐书籍</a>

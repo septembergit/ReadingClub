@@ -56,6 +56,13 @@ function booksData($http, authentication) {
 
 function talksData($http) {
     var getTalks = $http.get('/api/talks');
+    var addTalk = function (data) {
+        return $http.post('/api/talk', data, {
+            headers: {
+                Authorization: 'Bearer ' + authentication.getToken()
+            }
+        });
+    };
     var removeTalkById = function (talkId) {
         return $http.delete('/api/talk/' + talkId, {
             headers: {
@@ -65,6 +72,7 @@ function talksData($http) {
     };
     return {
         getTalks: getTalks,
+        addTalk: addTalk,
         removeTalkById: removeTalkById
     };
 };

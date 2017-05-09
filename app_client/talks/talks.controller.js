@@ -8,6 +8,24 @@ function talksCtrl(talksData, authentication) {
     vm.user = authentication.currentUser();
     vm.isLoggedIn = authentication.isLoggedIn();
     vm.message = "loading...";
+    vm.params = {
+        lift_piece: '',
+        web_link: '',
+        reason_txt: ''
+    };
+    vm.config = {
+        auth_config: {
+            '所有人可见': 0,
+            '仅自己可见': 1
+        },
+        tag_config: {
+            '电影': 1,
+            '艺术': 2,
+            '音乐': 3,
+            '读书': 4,
+            '时尚': 5
+        }
+    };
     talksData.getTalks.success(function (data) {
         vm.message = data.length > 0 ? "" : "暂无数据";
         vm.talksList = data;
@@ -15,6 +33,14 @@ function talksCtrl(talksData, authentication) {
         vm.message = "Sorry, something's gone wrong ";
     });
 
+    // 推荐网页
+    vm.recommendWeb = function () {
+        talksData.addTalk(vm.params).success(function (data) {
+
+        }).error(function () {
+
+        });
+    };
     // 删除某个想说
     vm.removeTalk = function (talkId) {
         if (confirm("确定删除？")) {

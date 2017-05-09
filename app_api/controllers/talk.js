@@ -16,8 +16,22 @@ module.exports.getTalks = function (req, res) {
         }
     })
 };
+module.exports.CreateOneTalk = function () {
+    TalkModel.create({
+        userName: req.body.userName,
+        userId: req.body.userId,
+        title: req.body.title,
+        content: req.body.content
+    }, function (err, talk) {
+        if (err) {
+            sendJSONresponse(res, 400, err);
+        } else {
+            sendJSONresponse(res, 200, talk);
+        }
+    });
+};
 module.exports.DeleteOneTalk = function () {
-    var talkId = req.params.talkid;
+    var talkId = req.params.talkId;
     if (talkId) {
         TalkModel.findByIdAndRemove(talkId)
             .exec(function (err) {

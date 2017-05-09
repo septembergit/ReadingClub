@@ -31,8 +31,7 @@ var bookSchema = new Schema({
         required: true
     },
     ISBN: String,
-    comments:[Schema.Types.Mixed],
-    // comments: [commentSchema],
+    comments: [Schema.Types.Mixed],
     username: String,
     userId: String
 });
@@ -135,32 +134,14 @@ var topicSchema = new Schema({
 });
 
 var talkSchema = new Schema({
-    username: {
-        type: String,
-        required: true
-    },
+    title: String,
+    type: String,
+    content: String,
+    talk_img: [String],
+    user_img: String,
+    userName: String,
     userId: String,
-    title: {
-        type: String,
-        required: true
-    },
-    type: {
-        type: String,
-        required: true
-    },
-    content: {
-        type: String,
-        required: true
-    },
-    user_img: {
-        type: String,
-        required: true
-    },
-    talk_img: String,
-    brief: {
-        type: String,
-        required: true
-    },
+    tags: [String],
     createdOn: {
         type: Date,
         default: Date.now

@@ -116,6 +116,39 @@ a.navbar-brand {
 }
 
 /*talks*/
+.talks ul {
+    list-style: none;
+    padding: 0;
+}
+
+.talks ul li {
+    float: left;
+    margin: 8px;
+}
+
+.talks ul li i {
+    margin-right: 3px;
+}
+
+.talks .recommend-web .web-link, .talks .recommend-web .recommend-reason, .talks .recommend-web .link-submit {
+    /*border: 1px solid #ccc;*/
+}
+
+.talks .recommend-web .web-link input {
+    margin: 8px 0;
+    border-radius: 0;
+}
+
+.talks .recommend-web .recommend-reason textarea {
+    width: 100%;
+    height: 70px;
+    border: none;
+}
+
+.talks .recommend-web .link-submit button {
+    margin: 4px;
+}
+
 .talklist {
     padding-bottom: 20px;
     margin-bottom: 20px;

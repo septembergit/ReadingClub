@@ -25,7 +25,8 @@ router.delete('/book/:bookId', auth, bookCtrl.DeleteOneBook);
 
 router.get('/topics/:topicType', topicCtrl.getTopics);
 router.get('/talks', talkCtrl.getTalks);
-router.delete('/book/:talkid', auth, talkCtrl.DeleteOneTalk);
+router.post('/talk', auth, talkCtrl.CreateOneTalk);
+router.delete('/talk/:talkId', auth, talkCtrl.DeleteOneTalk);
 router.post('/uploadImg', bookCtrl.uploadImg);
 
 module.exports = router;

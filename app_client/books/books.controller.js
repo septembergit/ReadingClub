@@ -18,7 +18,7 @@ function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
     vm.currentPath = $location.path();
 
     // 新增推荐读物
-    vm.popupForm = function () {
+    vm.addBook = function () {
         var modalInstance = $modal.open({
             templateUrl: '../bookModal/bookModal.html',
             controller: 'bookModalCtrl as vm',
