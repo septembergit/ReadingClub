@@ -100,6 +100,7 @@ module.exports.DeleteOneBook = function (req, res) {
 };
 
 module.exports.UpdateOneBook = function (req, res) {
+    console.log('现在现在现在', req.body);
     var _bookId = req.params.bookId;
     BookModel.findById(_bookId).exec(function (err, book) {
         if (!book) {
@@ -119,7 +120,11 @@ module.exports.UpdateOneBook = function (req, res) {
         book.tags = req.body.tags || book.tags;
         book.brief = req.body.brief || book.brief;
         book.ISBN = req.body.ISBN || book.ISBN;
-        book.comments.push(req.body.comment);
+        book.comments.push({
+            'comment': req.body.comment,
+            'commentUser': req.body.commentUser,
+            'commentUserId': req.body.commentUserId
+        });
         book.save(function (err, book) {
             if (err) {
                 sendJSONresponse(res, 404, err);

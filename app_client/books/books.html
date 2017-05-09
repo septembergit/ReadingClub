@@ -14,10 +14,6 @@
                     <div class="col-md-9">
                         <p>
                             <span>书名:</span><a href="#/book/{{book._id}}">{{book.title}}</a>
-                            <label class="label label-info handle-book-label" ng-if="vm.user._id === book.userId"
-                                   ng-click="vm.updateBook(book._id)">更新信息</label>
-                            <label class="label label-warning handle-book-label" ng-if="vm.isLoggedIn"
-                                   ng-click="vm.updateBook(book._id)">加入我的想读</label>
                             <span class="close" ng-if="vm.user._id === book.userId"
                                   ng-click="vm.removeBook(book._id)">&times;</span>
                         </p>
@@ -29,6 +25,14 @@
                             <span ng-repeat="tag in book.tags track by $index"><a class="tag">{{tag}}</a></span>
                         </p>
                         <p class="book-brief">{{book.brief}}</p>
+                    </div>
+                    <div class="col-md-6" style="padding: 15px 0 0;">
+                        <label class="label label-info handle-book-label" ng-if="vm.user._id === book.userId"
+                               ng-click="vm.updateBook(book._id)">更新信息</label>
+                        <label class="label label-warning handle-book-label" ng-if="vm.isLoggedIn"
+                               ng-click="vm.updateBook(book._id)">想读</label>
+                        <label class="label label-danger handle-book-label" ng-if="vm.isLoggedIn"
+                               ng-click="vm.updateBook(book._id)">读过</label>
                     </div>
                 </div>
             </div>

@@ -41,7 +41,6 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
         }).error(function () {
             vm.formError = "添加失败，请再试一次";
         });
-        return false;
     };
     vm.doUpBook = function (params) {
         booksData.updateBookById(vm.viewData.upBookId, {
@@ -57,7 +56,6 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
         }).error(function () {
             vm.formError = "更新失败，请再试一次";
         });
-        return false;
     };
     vm.modal = {
         close: function (result) {

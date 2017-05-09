@@ -22,20 +22,21 @@
                     </div>
                 </div>
                 <div class="row">
-                    <h4 style="color: #007722;">内容简介· · · · · ·</h4>
+                    <h4 class="text-orange">内容简介· · · · · ·</h4>
                     <p>{{vm.oneBookInfo.brief}}</p>
                 </div>
             </div>
         </div>
         <div class="box box-primary">
             <div class="box-header" style="padding-bottom: 0px;" ng-if="vm.isLoggedIn">
-                <i class="fa fa-comment-o"></i><span style="color: #337ab7;cursor: pointer;" ng-click="vm.toComment()">我要评论</a>
+                <span class="text-orange" style="cursor: pointer;" ng-click="vm.toComment()"><i class="fa fa-comment-o"></i>  我要评论</span>
             </div>
             <div class="box-body" style="padding-top: 0px;">
                 <main-edit-textarea ng-if="vm.isComment"></main-edit-textarea>
                 <div class="row booklist" ng-if="vm.oneBookInfo.comments" ng-repeat="item in vm.oneBookInfo.comments">
-                    <!--<a href="#/personal/{{vm.oneBookInfo.userId}}">{{vm.oneBookInfo.username}}</a>-->
-                    <p>{{::item}}</p>
+                    <h4><a href="#/personal/{{item.commentUserId}}">{{::item.commentUser}}</a>  的评论</h4>
+                    <p>{{::item.comment}}</p>
+                    <span ng-click="vm.likeComment()"><i class="fa fa-thumbs-o-up text-orange"></i></span>
                 </div>
             </div>
         </div>

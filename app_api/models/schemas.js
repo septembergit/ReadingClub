@@ -31,7 +31,8 @@ var bookSchema = new Schema({
         required: true
     },
     ISBN: String,
-    comments: [String],
+    comments:[Schema.Types.Mixed],
+    // comments: [commentSchema],
     username: String,
     userId: String
 });
@@ -89,12 +90,12 @@ userSchema.methods.generateJwt = function () {
 
 
 var commentSchema = new Schema({
-    user: userSchema,
-    createdOn: {
+    commentUser: userSchema,
+    commentDate: {
         type: Date,
         default: Date.now
     },
-    content: {
+    comment: {
         type: String,
         required: true
     }

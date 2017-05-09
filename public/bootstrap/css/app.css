@@ -3,6 +3,10 @@
     background: #f1f1f1;
 }
 
+i {
+    cursor: pointer;
+}
+
 a {
     cursor: pointer;
     text-decoration: none;
@@ -64,7 +68,7 @@ a.navbar-brand {
 /*books*/
 .booklist {
     border-bottom: 1px dotted darkcyan;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 .booklist .book-img, .bookdetail .book-img {

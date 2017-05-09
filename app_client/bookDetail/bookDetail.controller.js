@@ -8,6 +8,7 @@ function bookDetailCtrl($routeParams, booksData, authentication) {
         theBook = $routeParams.book;
     vm.message = 'Loading...';
     vm.isLoggedIn = authentication.isLoggedIn();
+    vm.currentUser = authentication.currentUser();
     vm.isComment = false;
     booksData.getTheBook(theBook).success(function (data) {
         if (typeof data === 'object' && data.title === 'undefined') {
@@ -22,5 +23,12 @@ function bookDetailCtrl($routeParams, booksData, authentication) {
 
     vm.toComment = function () {
         vm.isComment = !vm.isComment;
-    }
+    };
+    vm.likeComment = function () {
+        booksData.updateBookById(theBook, 1).success(function (data) {
+
+        }).error(function () {
+
+        });
+    };
 }
