@@ -116,6 +116,10 @@ a.navbar-brand {
 }
 
 /*talks*/
+.talks .submit-btn {
+    margin-top: 8px;
+}
+
 .talks ul {
     list-style: none;
     padding: 0;
@@ -150,7 +154,7 @@ a.navbar-brand {
 }
 
 .talklist {
-    padding-bottom: 20px;
+    padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
@@ -424,7 +428,6 @@ a.navbar-brand {
 
 .personal-talks h2, .personal-reading h2, .personal-toread h2 {
     font-size: 15px;
-    color: #072;
     margin: 0 0 12px 0;
     line-height: 150%;
 }
@@ -437,11 +440,6 @@ a.navbar-brand {
 .personal-talks-item {
     margin-bottom: 20px;
     overflow: hidden;
-}
-
-.personal-talks-item .talks-header a {
-    color: #37a;
-    text-decoration: none;
 }
 
 .personal-talks-item .clear {

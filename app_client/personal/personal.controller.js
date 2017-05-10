@@ -1,9 +1,9 @@
 angular
     .module('readApp')
     .controller('personalCtrl', personalCtrl);
-personalCtrl.$inject = ['$routeParams', 'authentication'];
+personalCtrl.$inject = ['$routeParams', 'authentication', 'talksData'];
 
-function personalCtrl($routeParams, authentication) {
+function personalCtrl($routeParams, authentication, talksData) {
     var vm = this,
         thePerson = $routeParams.personal;
     authentication.getPersoninfo(thePerson).success(function (data) {
@@ -11,8 +11,9 @@ function personalCtrl($routeParams, authentication) {
     }).error(function () {
         vm.message = "Sorry, something's gone wrong ";
     });
-
-    vm.selectTypeFn = function (item) {
-        vm._selected = item;
-    };
+    talksData.getTalks(thePerson).success(function (data) {
+        vm.per_talks = data;
+    }).error(function () {
+        vm.message = "Sorry, something's gone wrong ";
+    });
 }

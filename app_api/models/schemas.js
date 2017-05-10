@@ -87,7 +87,16 @@ userSchema.methods.generateJwt = function () {
     }, process.env.JWT_SECRET);
 };
 
-
+var collectionSchema = new Schema({
+    user_id: String,
+    recommend_book: [String],
+    want_book: [String],
+    // history_book: [String],
+    personal_share: [String],
+    personal_diary: [String],
+    personal_album: [String],
+    personal_link: [String]
+});
 var commentSchema = new Schema({
     commentUser: userSchema,
     commentDate: {
@@ -134,18 +143,22 @@ var topicSchema = new Schema({
 });
 
 var talkSchema = new Schema({
-    title: String,
-    type: String,
-    content: String,
+    lift_piece: String,
+    web_link: String,
+    web_reason: String,
+    diary_title: String,
+    diary_content: String,
     talk_img: [String],
     user_img: String,
     userName: String,
     userId: String,
-    tags: [String],
+    diary_auth: Number,
+    diary_tags: [String],
     createdOn: {
         type: Date,
         default: Date.now
     },
+    type: String
 });
 
 module.exports = {
@@ -153,7 +166,8 @@ module.exports = {
     topicSchema: topicSchema,
     userSchema: userSchema,
     commentSchema: commentSchema,
-    talkSchema: talkSchema
+    talkSchema: talkSchema,
+    collectionSchema: collectionSchema
 }
 
 

@@ -30,9 +30,9 @@
                         <label class="label label-info handle-book-label" ng-if="vm.user._id === book.userId"
                                ng-click="vm.updateBook(book._id)">更新信息</label>
                         <label class="label label-warning handle-book-label" ng-if="vm.isLoggedIn"
-                               ng-click="vm.updateBook(book._id)">想读</label>
-                        <label class="label label-danger handle-book-label" ng-if="vm.isLoggedIn"
-                               ng-click="vm.updateBook(book._id)">读过</label>
+                               ng-click="vm.handleStatus(book._id, '0')">想读</label>
+                        <!--<label class="label label-danger handle-book-label" ng-if="vm.isLoggedIn"-->
+                               <!--ng-click="vm.handleStatus(book._id, '1')">读过</label>-->
                     </div>
                 </div>
             </div>

@@ -9,31 +9,15 @@
             </div>
             <div class="box-body">
                 <div class="personal-talks">
-                    <h2>{{vm.thePersonInfo.name}}的想说......<span><a href="#">(更多)</a></span></h2>
+                    <h2>{{vm.thePersonInfo.name}}的想说<span><a href="#">(更多)</a></span></h2>
                     <div class="content">
-                        <div class="personal-talks-item">
+                        <div class="personal-talks-item" ng-repeat="item in vm.per_talks">
                             <div class="talks-header">
-                                <a>发布的题目</a>
-                                <br>
-                                <div>
-                                    <span>发布时间</span>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                            <div class="talks">
-                                <div class="ll">
-                                    <img src="">
-                                </div>
-                                <span>发布的内容</span>
-                            </div>
-                        </div>
-                        <div class="personal-talks-item">
-                            <div class="talks-header">
-                                <a>发布的题目</a>
-                                <br>
-                                <div>
-                                    <span>发布时间</span>
-                                </div>
+                                <h4 class="text-green" ng-if="item.type === 'word'">分享· · · · · ·</h4>
+                                <h4 class="text-green" ng-if="item.type === 'image'">相册· · · · · ·</h4>
+                                <h4 class="text-green" ng-if="item.type === 'link'">推荐网页· · · · · ·</h4>
+                                <h4 class="text-green" ng-if="item.type === 'diary'">日记· · · · · ·</h4>
+                                <span>{{item.createdOn | formatDate}}</span>
                             </div>
                             <div class="clear"></div>
                             <div class="talks">

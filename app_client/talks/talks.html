@@ -3,63 +3,100 @@
     <div class="col-md-8 col-xs-12">
         <div class="box box-primary">
             <div class="box-header">
-                <ul>
-                    <li><i class="fa fa-comment-o"></i>说句话</li>
-                    <li><i class="fa fa-image"></i>发照片</li>
-                    <li><i class="fa fa-link"></i>推荐网页</li>
-                    <li><i class="fa fa-book"></i>写日记</li>
+                <ul ng-click="vm.selectWhich()">
+                    <li><i class="fa fa-comment-o" id="word"></i>说句话</li>
+                    <li><i class="fa fa-image" id="image"></i>发照片</li>
+                    <li><i class="fa fa-link" id="link"></i>推荐网页</li>
+                    <li><i class="fa fa-book" id="diary"></i>写日记</li>
                 </ul>
-                <!--<input type="text" placeholder="记录生活的点滴" class="form-control" maxlength="100" ng-model="vm.params.lift_piece">-->
-                <div class="recommend-web">
+            </div>
+            <div class="box-header" style="border-top-color: #fff;">
+                <div class="share-life" ng-if="vm.nameType === 'word'">
+                    <div class="item">
+                        <input type="text" placeholder="记录生活的点滴" class="form-control"
+                               maxlength="100" ng-model="vm.params.lift_piece">
+                    </div>
+                    <div class="submit-btn">
+                        <button class="btn btn-default pull-right" ng-click="vm.submitText('word')">发布</button>
+                    </div>
+                </div>
+                <div class="recommend-web" ng-if="vm.nameType === 'link'">
                     <div class="web-link">
                         <input type="text" class="form-control" ng-model="vm.params.web_link" placeholder="在此处输入网址">
                     </div>
                     <div class="recommend-reason">
-                        <textarea placeholder="我的推荐理由...." rows="1" ng-model="vm.params.reason_txt"></textarea>
+                        <textarea placeholder="我的推荐理由...." rows="1" ng-model="vm.params.web_reason"></textarea>
                     </div>
-                    <div class="link-submit">
-                        <button class="btn btn-default" ng-click="vm.recommendWeb()">发布</button>
+                    <div class="submit-btn">
+                        <button class="btn btn-default pull-right" ng-click="vm.submitText('link')">发布</button>
                     </div>
                 </div>
-                <div class="write-diary">
+                <form class="write-diary" ng-if="vm.nameType === 'diary'">
                     <div class="form-group">
                         <label>题目: </label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" ng-model="vm.params.diary_title">
                     </div>
                     <div class="form-group">
                         <label>正文: </label>
-                        <textarea rows="1" cols="1" style="width: 500px;height:400px;"></textarea>
+                        <textarea class="form-control" rows="6" ng-model="vm.params.diary_content"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label>可见:</label>
-                        <input type="radio" ng-repeat="(k, v) in vm.config.auth_config">{{::k}}
-                    </div>
+                    <!--<div class="form-group">-->
+                    <!--<label>可见:</label>-->
+                    <!--<span ng-repeat="item in vm.auth_config" ng-click="vm.selectRadioFn($index);">-->
+                    <!--<i ng-class="{true: 'fa fa-dot-circle-o text-info',false: 'fa fa-circle-o'}[vm.params.radioModel === item.id]"></i>-->
+                    <!--{{::item.name}}-->
+                    <!--</span>-->
+                    <!--</div>-->
                     <div class="form-group">
                         <label>常用标签:</label>
-                        <input type="checkbox" ng-repeat="(k, v) in vm.config.tag_config">{{vm.config.tag_config}}
+                        <span ng-repeat="item in vm.tag_config" ng-click="vm.selectTagFn(item)">
+                                <i ng-class="{true: 'fa fa-check-square text-info',false: 'fa fa-square-o'}[vm.params.checkModel.indexOf(item.name) > -1]"></i>
+                                {{::item.name}}
+                        </span>
                     </div>
-                </div>
+                    <div class="submit-btn">
+                        <button class="btn btn-default pull-right" ng-click="vm.submitText('diary')">发布</button>
+                    </div>
+                </form>
             </div>
             <div class="box-body">
                 <div class="error">{{vm.message}}</div>
                 <div class="row talklist" ng-repeat="item in vm.talksList">
                     <div class="col-md-2 talk-img">
-                        <a href="#/personal/{{item.username}}"><img ng-src='{{item.user_img}}'></a>
+                        <img ng-src='{{item.user_img}}'></a>
                     </div>
                     <div class="col-md-8">
-                        <p style="font-size: 16px;"><b><a style="color: #212121;" href="#/personal/{{item.username}}">{{item.username}}</a></b>的话题
+                        <p style="font-size: 16px;"><b><a style="color: #212121;" href="#/personal/{{item.userId}}">{{item.userName}}</a></b>
+                            <span ng-if="item.type === 'word'">的分享</span>
+                            <span ng-if="item.type === 'image'">的相册</span>
+                            <span ng-if="item.type === 'link'">的推荐网页</span>
+                            <span ng-if="item.type === 'diary'">的日记</span>
+                            <span>&nbsp;&nbsp;{{item.createdOn | formatDate}}</span>
                         </p>
-                        <p>{{item.createdOn | formatDate}}</p>
                         <div class="talk-item-txt">
-                            <a href="#/talks/{{item._id}}">{{item.title}}</a>
-                            <p>{{item.brief}}</p>
-                            <!--<p>{{item.content}}</p>-->
+                            <div ng-if="item.type === 'word'">
+                                <p>{{item.lift_piece}}</p>
+                            </div>
+                            <div ng-if="item.type === 'image'">
+
+                            </div>
+                            <div ng-if="item.type === 'link'">
+                                <p>地址: <a href="{{item.web_link}}">{{item.web_link}}</a></p>
+                                <p>推荐理由: {{item.web_reason}}</p>
+                            </div>
+                            <div ng-if="item.type === 'diary'">
+                                <a href="#/talks/{{item._id}}">{{item.diary_title}}</a>
+                                <p>{{item.diary_content}}</p>
+                                <p><label ng-repeat="tag in item.diary_tags" class="label label-info"
+                                          style="margin-right: 8px;">{{tag}}</label>
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <span class="close" ng-if="vm.user.name === item.username"
+                        <span class="close" ng-if="vm.currentUser._id === item.userId"
                               ng-click="vm.removeTalk(item._id)">&times;</span>
-                        <img src="{{item.talk_img}}">
+                        <img ng-if="item.type === 'diary'" src="{{item.talk_img}}">
                     </div>
                 </div>
             </div>

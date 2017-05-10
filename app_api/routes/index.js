@@ -9,6 +9,7 @@ var express = require('express'),
 var bookCtrl = require('../controllers/book'),
     topicCtrl = require('../controllers/topic'),
     talkCtrl = require('../controllers/talk'),
+    collectCtrl = require('../controllers/collection'),
     authCtrl = require('../controllers/authentication');
 
 router.post('/register', authCtrl.register);
@@ -24,9 +25,10 @@ router.put('/book/:bookId', auth, bookCtrl.UpdateOneBook);
 router.delete('/book/:bookId', auth, bookCtrl.DeleteOneBook);
 
 router.get('/topics/:topicType', topicCtrl.getTopics);
-router.get('/talks', talkCtrl.getTalks);
+router.get('/talks/:personId', talkCtrl.getTalks);
 router.post('/talk', auth, talkCtrl.CreateOneTalk);
 router.delete('/talk/:talkId', auth, talkCtrl.DeleteOneTalk);
+router.post('/person', auth, collectCtrl.handleBook);
 router.post('/uploadImg', bookCtrl.uploadImg);
 
 module.exports = router;

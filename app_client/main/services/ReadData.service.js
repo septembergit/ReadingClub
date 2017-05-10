@@ -6,7 +6,7 @@
 
 topicData.$inject = ['$http'];
 booksData.$inject = ['$http', 'authentication'];
-talksData.$inject = ['$http'];
+talksData.$inject = ['$http', 'authentication'];
 
 function topicData($http) {
     var getByType = function (param) {
@@ -54,8 +54,10 @@ function booksData($http, authentication) {
     };
 };
 
-function talksData($http) {
-    var getTalks = $http.get('/api/talks');
+function talksData($http, authentication) {
+    var getTalks = function (param) {
+        return $http.get('/api/talks/' + param);
+    }
     var addTalk = function (data) {
         return $http.post('/api/talk', data, {
             headers: {

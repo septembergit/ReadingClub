@@ -35,7 +35,7 @@ function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
         });
     };
     // 更新某一个书籍信息
-    vm.updateBook = function (bookId) {
+    vm.updateBook = function (book_id) {
         $modal.open({
             templateUrl: '../bookModal/bookModal.html',
             controller: 'bookModalCtrl as vm',
@@ -43,23 +43,32 @@ function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
                 viewData: function () {
                     return {
                         title: "更新信息",
-                        upBookId: bookId
+                        upBookId: book_id
                     };
                 }
             }
         });
     };
     // 删除某一个读物
-    vm.removeBook = function (bookId) {
+    vm.removeBook = function (book_id) {
         if (confirm("确定删除？")) {
-            booksData.removeBookById(bookId).success(function () {
+            booksData.removeBookById(book_id).success(function () {
                 for (var i = 0; i < vm.bookList.length; i++) {
-                    if (vm.bookList[i]._id == bookId) {
+                    if (vm.bookList[i]._id == book_id) {
                         vm.bookList.splice(vm.bookList.indexOf(vm.bookList[i]), 1);
                     }
                 }
             });
         }
+    };
+
+    // 操作书籍的状态
+    vm.handleStatus = function (book_id) {
+        authentication.manageInfoList({userId: vm.user._id, bookId: book_id}).success(function () {
+
+        }).error(function () {
+
+        });
     };
 
 }

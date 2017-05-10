@@ -100,7 +100,6 @@ module.exports.DeleteOneBook = function (req, res) {
 };
 
 module.exports.UpdateOneBook = function (req, res) {
-    console.log(req.body);
     var _bookId = req.params.bookId;
     BookModel.findById(_bookId).exec(function (err, book) {
         if (!book) {
