@@ -58,11 +58,8 @@
         <div class="rc-form-item">
             <div class="item-name">上传图片：</div>
             <div class="item-value input-group input-group-sm">
-                <a class="btn btn-info" id="upload">点击上传</a>
-                <br>
-                <!--<img src="" id="img" alt="">-->
-                <!--<input type="hidden" id="imgvalue" name="" value="">-->
-                <input type="file">
+                <input type="file" ng-model="vm.formData.book_img">
+                <a class="btn btn-info" id="upload" ng-click="vm.uploadImg()">点击上传图片</a>
             </div>
         </div>
     </div>

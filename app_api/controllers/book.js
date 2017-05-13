@@ -55,7 +55,8 @@ module.exports.CreateOneBook = function (req, res) {
             ISBN: req.body.ISBN,
             rating: req.body.rating,
             username: user.name,
-            userId: user._id
+            userId: user._id,
+            book_img: req.body.book_img
         }, function (err, book) {
             if (err) {
                 sendJSONresponse(res, 400, err);
@@ -120,6 +121,7 @@ module.exports.UpdateOneBook = function (req, res) {
         book.brief = req.body.brief || book.brief;
         book.ISBN = req.body.ISBN || book.ISBN;
         book.comments.push({'comment': req.body.comment, 'commentUser': req.body.commentUser, 'commentUserId': req.body.commentUserId});
+        // book.book_img: req.body.book_img || book.book_img;
         book.save(function (err, book) {
             if (err) {
                 sendJSONresponse(res, 404, err);

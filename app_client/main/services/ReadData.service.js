@@ -45,12 +45,17 @@ function booksData($http, authentication) {
             }
         });
     };
+    var uploadImage = function (data) {
+        console.log(data);
+        return $http.post('/api/uploadImg', data);
+    };
     return {
         getBooks: getBooks,
         getTheBook: getTheBook,
         addBook: addBook,
         removeBookById: removeBookById,
-        updateBookById: updateBookById
+        updateBookById: updateBookById,
+        uploadImage: uploadImage
     };
 };
 

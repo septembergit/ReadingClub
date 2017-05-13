@@ -13,11 +13,12 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
         ISBN: '',
         tags: '',
         rating: '',
-        brief: ''
+        brief: '',
+        book_img: ''
     };
     vm.onSubmit = function () {
         vm.formError = "";
-        if (!vm.formData.title || !vm.formData.auth || !vm.formData.press || !vm.formData.ISBN || !vm.formData.tags || !vm.formData.rating || !vm.formData.brief) {
+        if (!vm.formData.title || !vm.formData.auth || !vm.formData.press || !vm.formData.ISBN || !vm.formData.tags || !vm.formData.rating || !vm.formData.brief || !vm.formData.book_img) {
             vm.formError = "请完成所有栏目!";
             return false;
         } else if (vm.viewData.upBookId) {
@@ -35,7 +36,8 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
             ISBN: params.ISBN,
             tags: params.tags,
             rating: params.rating,
-            brief: params.brief
+            brief: params.brief,
+            book_img: params.book_img
         }).success(function (data) {
             vm.modal.close(data);
         }).error(function () {
@@ -50,11 +52,19 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
             ISBN: params.ISBN,
             tags: params.tags,
             rating: params.rating,
-            brief: params.brief
+            brief: params.brief,
+            book_img: params.book_img
         }).success(function (data) {
             vm.modal.close(data);
         }).error(function () {
             vm.formError = "更新失败，请再试一次";
+        });
+    };
+    vm.uploadImg = function () {
+        booksData.uploadImage({book_img: vm.formData.book_img}).success(function () {
+
+        }).error(function () {
+
         });
     };
     vm.modal = {

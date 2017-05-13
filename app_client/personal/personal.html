@@ -10,17 +10,44 @@
             <div class="box-body">
                 <div class="personal-talks">
                     <h2>{{vm.thePersonInfo.name}}的想说<span><a href="#">(更多)</a></span></h2>
-                    <div class="content">
-                        <div class="personal-talks-item" ng-repeat="item in vm.per_talks">
+                    <div ng-repeat="item in vm.per_talks">
+                        <div class="item" ng-if="item.type === 'word'">
                             <div class="talks-header">
-                                <h4 class="text-green" ng-if="item.type === 'word'">分享· · · · · ·</h4>
-                                <h4 class="text-green" ng-if="item.type === 'image'">相册· · · · · ·</h4>
-                                <h4 class="text-green" ng-if="item.type === 'link'">推荐网页· · · · · ·</h4>
-                                <h4 class="text-green" ng-if="item.type === 'diary'">日记· · · · · ·</h4>
+                                <h4 class="text-green">分享· · · · · ·</h4>
                                 <span>{{item.createdOn | formatDate}}</span>
                             </div>
                             <div class="clear"></div>
-                            <div class="talks">
+                            <div class="item-content">
+                                <span>发布的内容</span>
+                            </div>
+                        </div>
+                        <div class="item" ng-if="item.type === 'image'">
+                            <div class="talks-header">
+                                <h4 class="text-green">相册· · · · · ·</h4>
+                                <span>{{item.createdOn | formatDate}}</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="item-content">
+                                <span>发布的内容</span>
+                            </div>
+                        </div>
+                        <div class="item" ng-if="item.type === 'link'">
+                            <div class="talks-header">
+                                <h4 class="text-green">推荐网页· · · · · ·</h4>
+                                <span>{{item.createdOn | formatDate}}</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="item-content">
+                                <span>发布的内容</span>
+                            </div>
+                        </div>
+                        <div class="item" ng-if="item.type === 'diary'">
+                            <div class="talks-header">
+                                <h4 class="text-green">日记· · · · · ·</h4>
+                                <span>{{item.createdOn | formatDate}}</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="item-content">
                                 <div class="ll">
                                     <img src="">
                                 </div>

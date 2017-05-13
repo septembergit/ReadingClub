@@ -24,7 +24,7 @@ var bookSchema = new Schema({
         type: String,
         required: true
     },
-    img: String,
+    book_img: String,
     tags: [String],
     brief: {
         type: String,
