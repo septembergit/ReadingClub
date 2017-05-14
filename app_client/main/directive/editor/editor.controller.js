@@ -23,6 +23,9 @@ function editTextCtrl($routeParams, booksData, authentication) {
             });
         }
     }
+    vm.cancelSubCom = function () {
+        
+    }
     // $(function () {
     //     $('.editControls a').click(function () {
     //         switch ($(this).data('role')) {

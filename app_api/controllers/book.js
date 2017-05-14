@@ -33,13 +33,25 @@ var getAuthor = function (req, res, callback) {
 };
 
 module.exports.getBooks = function (req, res) {
-    BookModel.find({}, function (err, books) {
-        if (err) {
-            sendJSONresponse(res, 400, err);
-            return;
-        }
-        sendJSONresponse(res, 200, books);
-    });
+    var _personId = req.params.personId;
+    if (_personId === 'all') {
+        BookModel.find({}, function (err, books) {
+            if (err) {
+                sendJSONresponse(res, 400, err);
+                return;
+            }
+            sendJSONresponse(res, 200, books);
+        });
+
+    } else {
+        BookModel.find({userId: _personId}, function (err, book) {
+            if (err) {
+                sendJSONresponse(res, 400, err);
+            } else {
+                sendJSONresponse(res, 200, book);
+            }
+        })
+    }
 };
 
 module.exports.CreateOneBook = function (req, res) {
@@ -69,7 +81,7 @@ module.exports.CreateOneBook = function (req, res) {
 
 module.exports.getOneBook = function (req, res) {
     var _book = req.params.bookId;
-    BookModel.findOne({_id: _book}).exec(function (err, book) {
+    BookModel.findById(_book).exec(function (err, book) {
         if (!book) {
             sendJSONresponse(res, 404, {
                 "message": "book not found"

@@ -1,0 +1,38 @@
+﻿<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true" ng-click="vm.modal.cancel()">×</span></button>
+        <h4 class="mox-title">{{::vm.viewData.title}}</h4>
+    </div>
+    <div class="modal-body">
+        <div role="alert" ng-if="vm.formError" class="alert alert-danger">{{::vm.formError}}</div>
+        <div class="rc-form-item">
+            <div class="item-name"><span>* </span>书名：</div>
+            <div class="item-value input-group input-group-sm">
+                <input required="required" ng-model="vm.param.bookTitle" class="form-control">
+            </div>
+        </div>
+        <div class="rc-form-item">
+            <div class="item-name"><span>* </span>内容：</div>
+            <div class="item-value input-group input-group-sm">
+                <textarea required="required" ng-model="vm.param.content" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="rc-form-item">
+            <div class="item-name"><span>* </span>标签：</div>
+            <div class="item-value input-group input-group-sm">
+                <span ng-repeat="item in vm.viewData.tags" ng-click="vm.selectTagFn(item)">
+                                <i ng-class="{true: 'fa fa-dot-circle-o text-info', false: 'fa fa-circle-o'}[vm.param.radioModel === item]"></i>
+                                {{::item}}
+                        </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <div class="pull-right">
+            <button type="button" ng-click="vm.modal.cancel()" class="btn btn-default">取消</button>
+            <button type="submit" ng-click="vm.onSubmit();" class="btn btn-primary">确定</button>
+        </div>
+    </div>
+</div>

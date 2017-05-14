@@ -4,21 +4,43 @@
     .service('booksData', booksData)
     .service('talksData', talksData);
 
-topicData.$inject = ['$http'];
+topicData.$inject = ['$http', 'authentication'];
 booksData.$inject = ['$http', 'authentication'];
 talksData.$inject = ['$http', 'authentication'];
 
-function topicData($http) {
+function topicData($http, authentication) {
     var getByType = function (param) {
         return $http.get('/api/topics/' + param);
-    }
+    };
+    var addPost = function (data) {
+        return $http.post('/api/topics', data, {
+            headers: {
+                Authorization: 'Bearer ' + authentication.getToken()
+            }
+        });
+    };
+    var getOneTopic = function (param) {
+        return $http.get('/api/topic/' + param);
+    };
+    var updateTopic = function (topicId, data) {
+        return $http.put('/api/topic/' + topicId, data, {
+            headers: {
+                Authorization: 'Bearer ' + authentication.getToken()
+            }
+        });
+    };
     return {
-        getByType: getByType
+        getByType: getByType,
+        addPost: addPost,
+        getOneTopic: getOneTopic,
+        updateTopic: updateTopic
     };
 };
 
 function booksData($http, authentication) {
-    var getBooks = $http.get('/api/books');
+    var getBooks = function (param) {
+        return $http.get('/api/books/' + param);
+    }
     var getTheBook = function (param) {
         return $http.get('/api/book/' + param);
     };
@@ -62,7 +84,7 @@ function booksData($http, authentication) {
 function talksData($http, authentication) {
     var getTalks = function (param) {
         return $http.get('/api/talks/' + param);
-    }
+    };
     var addTalk = function (data) {
         return $http.post('/api/talk', data, {
             headers: {
@@ -77,9 +99,13 @@ function talksData($http, authentication) {
             }
         });
     };
+    var getOneTalk = function (param) {
+        return $http.get('/api/talk/' + param);
+    };
     return {
         getTalks: getTalks,
         addTalk: addTalk,
-        removeTalkById: removeTalkById
+        removeTalkById: removeTalkById,
+        getOneTalk: getOneTalk
     };
 };

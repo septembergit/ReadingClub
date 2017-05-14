@@ -124,22 +124,23 @@ var topicSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    user_img: String,
-    author: String,
+    userImg: String,
+    userName: String,
+    userId: String,
     content: String,
-    comments: [commentSchema],         // 一个schema可以包含另外的schema或者数组
-    deleted: {
-        type: Boolean,
-        default: false
-    },
-    top: {
-        type: Boolean,
-        default: false
-    },
-    good: {
-        type: Boolean,
-        default: false
-    }
+    comments: [Schema.Types.Mixed],         // 一个schema可以包含另外的schema或者数组
+    // deleted: {
+    //     type: Boolean,
+    //     default: false
+    // },
+    // top: {
+    //     type: Boolean,
+    //     default: false
+    // },
+    // good: {
+    //     type: Boolean,
+    //     default: false
+    // }
 });
 
 var talkSchema = new Schema({

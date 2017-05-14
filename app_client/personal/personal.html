@@ -9,70 +9,72 @@
             </div>
             <div class="box-body">
                 <div class="personal-talks">
-                    <h2>{{vm.thePersonInfo.name}}的想说<span><a href="#">(更多)</a></span></h2>
-                    <div ng-repeat="item in vm.per_talks">
-                        <div class="item" ng-if="item.type === 'word'">
-                            <div class="talks-header">
-                                <h4 class="text-green">分享· · · · · ·</h4>
-                                <span>{{item.createdOn | formatDate}}</span>
-                            </div>
-                            <div class="clear"></div>
-                            <div class="item-content">
-                                <span>发布的内容</span>
+                    <h2>{{vm.thePersonInfo.name}}的想说· · · · · ·</h2>
+                    <div class="item">
+                        <div class="talks-header">
+                            <span>分享</span>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="item-content" ng-repeat="item in vm.arrWordTalks">
+                            <label class="label label-warning pull-right">{{item.createdOn | formatDate}}</label>
+                            <div class="item-content-detail">
+                                <p>{{item.lift_piece}}</p>
                             </div>
                         </div>
-                        <div class="item" ng-if="item.type === 'image'">
-                            <div class="talks-header">
-                                <h4 class="text-green">相册· · · · · ·</h4>
-                                <span>{{item.createdOn | formatDate}}</span>
-                            </div>
-                            <div class="clear"></div>
-                            <div class="item-content">
-                                <span>发布的内容</span>
-                            </div>
+                    </div>
+                    <div class="item">
+                        <div class="talks-header">
+                            <span>相册</span>
                         </div>
-                        <div class="item" ng-if="item.type === 'link'">
-                            <div class="talks-header">
-                                <h4 class="text-green">推荐网页· · · · · ·</h4>
-                                <span>{{item.createdOn | formatDate}}</span>
-                            </div>
-                            <div class="clear"></div>
-                            <div class="item-content">
-                                <span>发布的内容</span>
-                            </div>
-                        </div>
-                        <div class="item" ng-if="item.type === 'diary'">
-                            <div class="talks-header">
-                                <h4 class="text-green">日记· · · · · ·</h4>
-                                <span>{{item.createdOn | formatDate}}</span>
-                            </div>
-                            <div class="clear"></div>
-                            <div class="item-content">
-                                <div class="ll">
-                                    <img src="">
-                                </div>
+                        <div class="clear"></div>
+                        <div class="item-content" ng-repeat="item in vm.arrImgTalks">
+                            <label class="label label-warning pull-right">{{item.createdOn | formatDate}}</label>
+                            <div class="item-content-detail">
                                 <span>发布的内容</span>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="personal-reading">
-                    <h2>{{vm.thePersonInfo.name}}的在读......<span><a href="#">(更多)</a></span></h2>
-                    <div class="content">
-                        <div class="personal-reading-item">
-
+                    <div class="item">
+                        <div class="talks-header">
+                            <span>推荐网页</span>
                         </div>
-                        <div class="personal-reading-item">
-
+                        <div class="clear"></div>
+                        <div class="item-content" ng-repeat="item in vm.arrLinkTalks">
+                            <label class="label label-warning pull-right">{{item.createdOn | formatDate}}</label>
+                            <div class="item-content-detail">
+                                <h5>推荐的链接地址为: <a href="{{item.web_link}}" target="_blank">{{item.web_link}}</a></h5>
+                                <p>推荐理由为: {{item.web_content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="talks-header">
+                            <span>日记</h4>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="item-content" ng-repeat="item in vm.arrDiaryTalks">
+                            <label class="label label-warning pull-right">{{item.createdOn | formatDate}}</label>
+                            <div class="ll">
+                                <img src="">
+                            </div>
+                            <div class="item-content-detail">
+                                <h5>{{item.diary_title}}</h5>
+                                <p>{{item.diary_content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="personal-recommend">
+                    <h2>{{vm.thePersonInfo.name}}推荐过的书籍......({{vm.myBookLength}} 本)</h2>
+                    <div class="item-content">
+                        <div class="personal-recommend-item" ng-repeat="item in vm.myBookList">
+                            <a href="#/book/{{item._id}}"><img class="book-img" src=""></a>
                         </div>
                     </div>
                 </div>
                 <div class="personal-toread">
-                    <h2>{{vm.thePersonInfo.name}}的想读......<span><a href="#">(更多)</a></span></h2>
-                    <div class="content">
-                        <div class="personal-toread-item">
-
-                        </div>
+                    <h2>{{vm.thePersonInfo.name}}的想读......</h2>
+                    <div class="item-content">
                         <div class="personal-toread-item">
 
                         </div>

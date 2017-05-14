@@ -6,7 +6,7 @@ booksCtrl.$inject = ['booksData', '$modal', '$location', 'authentication', '$_ui
 function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
     var vm = this;
     vm.message = "loading...";
-    booksData.getBooks.success(function (data) {
+    booksData.getBooks('all').success(function (data) {
         vm.message = data.length > 0 ? "" : "这里空空如也~~~";
         vm.bookList = data;
         // $_uiNotify('数据展示成功！');
@@ -20,7 +20,7 @@ function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
     // 新增推荐读物
     vm.addBook = function () {
         var modalInstance = $modal.open({
-            templateUrl: '../bookModal/bookModal.html',
+            templateUrl: 'books/modal/bookModal.html',
             controller: 'bookModalCtrl as vm',
             resolve: {
                 viewData: function () {
@@ -37,7 +37,7 @@ function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
     // 更新某一个书籍信息
     vm.updateBook = function (book_id) {
         $modal.open({
-            templateUrl: '../bookModal/bookModal.html',
+            templateUrl: 'books/modal/bookModal.html',
             controller: 'bookModalCtrl as vm',
             resolve: {
                 viewData: function () {

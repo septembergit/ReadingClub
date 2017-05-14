@@ -1,0 +1,36 @@
+<main-header></main-header>
+<div class="row topic-detail">
+    <div class="col-md-12 col-xs-12">
+        <div class="box box-primary">
+            <div class="box-header">
+                <div class="error">{{vm.message}}</div>
+                <h3 class="box-title">{{vm.oneTopicData.userName}}&nbsp;&nbsp;在{{vm.oneTopicData.createdOn |
+                    formatDate}}发布了一个帖子</h3>
+                <h5 style="color: #ccc">关于《{{vm.oneTopicData.title}}》 这本书籍</h5>
+            </div>
+            <div class="box-header" style="padding-bottom: 0px;" ng-if="vm.isLoggedIn">
+                <div class="topic-detail-content">
+                    <p>{{vm.oneTopicData.content}}</p>
+                </div>
+                <span class="text-orange" style="cursor: pointer;" ng-click="vm.toComment()"><i
+                        class="fa fa-comment-o"></i>  我要评论</span>
+            </div>
+            <div class="box-body">
+                <div class="topic-detail-comment">
+                    <textarea ng-if="vm.isComment" rows="1" cols="1" ng-model="vm.param.comment"></textarea>
+                    <div class="pull-right">
+                        <button ng-if="vm.isComment" type="button" class="btn btn-sm btn-primary" ng-click="vm.addComments()">
+                            提交
+                        </button>
+                        <button ng-if="vm.isComment" type="button" class="btn btn-sm btn-default" ng-click="vm.cancelComments()">取消
+                        </button>
+                    </div>
+                </div>
+                <div class="row comment-list" ng-if="vm.oneTopicData.comments" ng-repeat="item in vm.oneTopicData.comments">
+                    <h4><a <a href="#/personal/{{item.commentUserId}}">{{::item.commentUser}}</a> 的评论</h4>
+                    <p class="pull-left">{{::item.comment}}</p>
+                    <span class="pull-right" ng-click="vm.likeComment()"><i class="fa fa-thumbs-o-up text-orange"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>

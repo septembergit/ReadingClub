@@ -27,6 +27,17 @@ module.exports.getTalks = function (req, res) {
         })
     }
 };
+module.exports.getOneTalk = function (req, res) {
+    var _talkId = req.params.talkId;
+    console.log(_talkId);
+    TalkModel.findById(_talkId, function (err, talk) {
+        if (err) {
+            sendJSONresponse(res, 400, err);
+        } else {
+            sendJSONresponse(res, 200, talk);
+        }
+    });
+};
 
 module.exports.CreateOneTalk = function (req, res) {
     TalkModel.create({

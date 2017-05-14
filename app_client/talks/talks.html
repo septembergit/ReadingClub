@@ -16,8 +16,9 @@
                         <input type="text" placeholder="记录生活的点滴" class="form-control"
                                maxlength="100" ng-model="vm.params.lift_piece">
                     </div>
-                    <div class="submit-btn">
-                        <button class="btn btn-default pull-right" ng-click="vm.submitText('word')">发布</button>
+                    <div class="submit-btn pull-right">
+                        <button class="btn btn-primary" ng-click="vm.submitText('word')">发布</button>
+                        <button class="btn btn-default" ng-click="vm.cancelSubmit()">取消</button>
                     </div>
                 </div>
                 <div class="recommend-web" ng-if="vm.nameType === 'link'">
@@ -27,8 +28,9 @@
                     <div class="recommend-reason">
                         <textarea placeholder="我的推荐理由...." rows="1" ng-model="vm.params.web_reason"></textarea>
                     </div>
-                    <div class="submit-btn">
-                        <button class="btn btn-default pull-right" ng-click="vm.submitText('link')">发布</button>
+                    <div class="submit-btn pull-right">
+                        <button class="btn btn-primary" ng-click="vm.submitText('link')">发布</button>
+                        <button class="btn btn-default" ng-click="vm.cancelSubmit()">取消</button>
                     </div>
                 </div>
                 <form class="write-diary" ng-if="vm.nameType === 'diary'">
@@ -54,8 +56,9 @@
                                 {{::item.name}}
                         </span>
                     </div>
-                    <div class="submit-btn">
-                        <button class="btn btn-default pull-right" ng-click="vm.submitText('diary')">发布</button>
+                    <div class="submit-btn pull-right">
+                        <button class="btn btn-primary" ng-click="vm.submitText('diary')">发布</button>
+                        <button class="btn btn-default" ng-click="vm.cancelSubmit()">取消</button>
                     </div>
                 </form>
             </div>

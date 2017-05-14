@@ -3,8 +3,14 @@
 function config($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'home/home.html',
-            controller: 'homeCtrl',
+            templateUrl: 'topic/topic.html',
+            controller: 'topicCtrl',
+            controllerAs: 'vm'
+        })
+        .when('/topic/:topicId', {
+            templateUrl: 'topic/detail/topicDetail.html',
+            controller: 'topicDetailCtrl',
+            caseInsensitiveMatch: true,
             controllerAs: 'vm'
         })
         .when('/talks', {
@@ -14,7 +20,7 @@ function config($routeProvider) {
             controllerAs: 'vm'
         })
         .when('/talks/:talkid', {
-            templateUrl: 'talkDetail/talkDetail.html',
+            templateUrl: 'talks/detail/talkDetail.html',
             controller: 'talkDetailCtrl',
             caseInsensitiveMatch: true,
             controllerAs: 'vm'
@@ -38,7 +44,7 @@ function config($routeProvider) {
             controllerAs: 'vm'
         })
         .when('/book/:book', {
-            templateUrl: 'bookDetail/bookDetail.html',
+            templateUrl: 'books/detail/bookDetail.html',
             controller: 'bookDetailCtrl',
             caseInsensitiveMatch: true,
             controllerAs: 'vm'

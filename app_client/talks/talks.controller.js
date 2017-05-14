@@ -82,6 +82,11 @@ function talksCtrl(talksData, authentication) {
 
         });
     };
+
+    // 取消发布
+    vm.cancelSubmit = function () {
+        vm.nameType = '';
+    };
     // 删除某个想说
     vm.removeTalk = function (talkId) {
         if (confirm("确定删除？")) {
