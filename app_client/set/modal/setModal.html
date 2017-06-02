@@ -1,0 +1,35 @@
+﻿<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true" ng-click="vm.modal.cancel()">×</span></button>
+        <h4 class="mox-title">补充更多的信息</h4>
+    </div>
+    <div class="modal-body">
+        <div role="alert" ng-if="vm.formError" class="alert alert-danger">{{::vm.formError}}</div>
+        <div class="rc-form-item">
+            <div class="item-name"><span>* </span>爱好：</div>
+            <div class="item-value input-group input-group-sm">
+                <input required="required" ng-model="vm.param.hobby" class="form-control">
+            </div>
+        </div>
+        <div class="rc-form-item">
+            <div class="item-name"><span>* </span>游记：</div>
+            <div class="item-value input-group input-group-sm">
+                <input required="required" ng-model="vm.param.travels" class="form-control">
+            </div>
+        </div>
+        <div class="rc-form-item">
+            <div class="item-name"><span>* </span>简介：</div>
+            <div class="item-value input-group input-group-sm">
+                <textarea style="height: 200px;" required="required" ng-model="vm.param.brief" class="form-control"
+                          placeholder="至多200字" maxlength="200"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="pull-right">
+            <button type="button" ng-click="vm.modal.cancel()" class="btn btn-default">取消</button>
+            <button type="submit" ng-click="vm.onSubmit();" class="btn btn-primary">确定</button>
+        </div>
+    </div>
+</div>

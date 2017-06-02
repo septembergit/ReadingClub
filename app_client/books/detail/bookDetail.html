@@ -9,7 +9,7 @@
             <div class="box-body">
                 <div class="row bookdetail">
                     <div class="col-md-2 book-img">
-                        <img ng-src='{{vm.oneBookInfo.img}}'>
+                        <img ng-src='{{vm.oneBookInfo.book_img}}'>
                     </div>
                     <div class="col-md-8">
                         <p><span>作者:</span>{{vm.oneBookInfo.auth}}</p>
@@ -29,14 +29,19 @@
         </div>
         <div class="box box-primary">
             <div class="box-header" style="padding-bottom: 0px;" ng-if="vm.isLoggedIn">
-                <span class="text-orange" style="cursor: pointer;" ng-click="vm.toComment()"><i class="fa fa-comment-o"></i>  我要评论</span>
+                <span class="text-orange" style="cursor: pointer;" ng-click="vm.toComment()"><i
+                        class="fa fa-comment-o"></i>  我要评论</span>
             </div>
             <div class="box-body" style="padding-top: 0px;">
                 <main-edit-textarea ng-if="vm.isComment"></main-edit-textarea>
                 <div class="row booklist" ng-if="vm.oneBookInfo.comments" ng-repeat="item in vm.oneBookInfo.comments">
-                    <h4><a href="#/personal/{{item.commentUserId}}">{{::item.commentUser}}</a>  的评论</h4>
+                    <h4><a href="#/personal/{{item.commentUserId}}">{{::item.commentUser}}</a> 的评论</h4>
                     <p>{{::item.comment}}</p>
-                    <span ng-click="vm.likeComment()"><i class="fa fa-thumbs-o-up text-orange"></i></span>
+                    <div class="pull-right">
+                        <span ng-click="vm.likeComment()"><i class="fa fa-thumbs-o-up"></i></span>
+                        <span style="margin-left: 10px;" ng-click="vm.disLikeComment()"><i
+                                class="fa fa-thumbs-o-down"></i></span>
+                    </div>
                 </div>
             </div>
         </div>

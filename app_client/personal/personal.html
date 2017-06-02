@@ -43,7 +43,7 @@
                             <label class="label label-warning pull-right">{{item.createdOn | formatDate}}</label>
                             <div class="item-content-detail">
                                 <h5>推荐的链接地址为: <a href="{{item.web_link}}" target="_blank">{{item.web_link}}</a></h5>
-                                <p>推荐理由为: {{item.web_content}}</p>
+                                <div>推荐理由为: {{item.web_content}}</div>
                             </div>
                         </div>
                     </div>
@@ -68,15 +68,15 @@
                     <h2>{{vm.thePersonInfo.name}}推荐过的书籍......({{vm.myBookLength}} 本)</h2>
                     <div class="item-content">
                         <div class="personal-recommend-item" ng-repeat="item in vm.myBookList">
-                            <a href="#/book/{{item._id}}"><img class="book-img" src=""></a>
+                            <a href="#/book/{{item._id}}"><img class="book-img" src={{item.book_img}}></a>
                         </div>
                     </div>
                 </div>
                 <div class="personal-toread">
-                    <h2>{{vm.thePersonInfo.name}}的想读......</h2>
+                    <h2>{{vm.thePersonInfo.name}}的想读......({{vm.w_BookLength}} 本)</h2>
                     <div class="item-content">
-                        <div class="personal-toread-item">
-
+                        <div class="personal-toread-item" ng-repeat="item in vm.w_BookList">
+                            <a href="#/book/{{item.book_id}}"><img class="book-img" src="{{item.book_img}}"></a>
                         </div>
                     </div>
                 </div>
@@ -96,8 +96,9 @@
                 </div>
                 <div class="sep-line"></div>
                 <div class="user-intro">
-                    <p>爱好：</p>
-                    <p>游记：</p>
+                    <p>爱好：<span>{{vm.thePersonInfo.hobby}}</span></p>
+                    <p>游记：<span>{{vm.thePersonInfo.travels}}</span></p>
+                    <p>简介: <span>{{vm.thePersonInfo.brief}}</span></p>
                 </div>
             </div>
             <div class="ex2"></div>

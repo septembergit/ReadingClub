@@ -1,15 +1,14 @@
 ﻿angular
     .module('readApp')
     .controller('booksCtrl', booksCtrl);
-booksCtrl.$inject = ['booksData', '$modal', '$location', 'authentication', '$_uiNotify'];
+booksCtrl.$inject = ['booksData', '$modal', '$location', 'authentication'];
 
-function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
+function booksCtrl(booksData, $modal, $location, authentication) {
     var vm = this;
     vm.message = "loading...";
     booksData.getBooks('all').success(function (data) {
         vm.message = data.length > 0 ? "" : "这里空空如也~~~";
         vm.bookList = data;
-        // $_uiNotify('数据展示成功！');
     }).error(function () {
         vm.message = "Sorry, something's gone wrong ";
     });
@@ -63,10 +62,10 @@ function booksCtrl(booksData, $modal, $location, authentication, $_uiNotify) {
     };
 
     // 操作书籍的状态
-    vm.handleStatus = function (book_id) {
-        authentication.manageInfoList({userId: vm.user._id, bookId: book_id}).success(function () {
-
-        }).error(function () {
+    vm.handleStatus = function (book_id, book_img) {
+        booksData.manageBook({userId: vm.user._id, bookId: book_id, bookImg: book_img}).success(function (data) {
+            console.log(data.message);
+        }).error(function (error) {
 
         });
     };

@@ -96,22 +96,6 @@ module.exports.getOneBook = function (req, res) {
     });
 };
 
-module.exports.DeleteOneBook = function (req, res) {
-    var _bookId = req.params.bookId;
-    if (_bookId) {
-        BookModel.findByIdAndRemove(_bookId)
-            .exec(function (err) {
-                if (err) {
-                    sendJSONresponse(res, 404, err);
-                    return;
-                }
-                sendJSONresponse(res, 204, null);
-            });
-    } else {
-        sendJSONresponse(res, 404, {message: "No bookId"});
-    }
-};
-
 module.exports.UpdateOneBook = function (req, res) {
     var _bookId = req.params.bookId;
     BookModel.findById(_bookId).exec(function (err, book) {
@@ -128,12 +112,15 @@ module.exports.UpdateOneBook = function (req, res) {
         book.rating = req.body.rating || book.rating;
         book.auth = req.body.auth || book.auth;
         book.press = req.body.press || book.press;
-        book.img = req.body.img || book.img;
+        book.book_img = req.body.book_img || book.book_img;
         book.tags = req.body.tags || book.tags;
         book.brief = req.body.brief || book.brief;
         book.ISBN = req.body.ISBN || book.ISBN;
-        book.comments.push({'comment': req.body.comment, 'commentUser': req.body.commentUser, 'commentUserId': req.body.commentUserId});
-        // book.book_img: req.body.book_img || book.book_img;
+        book.comments.push({
+            'comment': req.body.comment,
+            'commentUser': req.body.commentUser,
+            'commentUserId': req.body.commentUserId
+        });
         book.save(function (err, book) {
             if (err) {
                 sendJSONresponse(res, 404, err);

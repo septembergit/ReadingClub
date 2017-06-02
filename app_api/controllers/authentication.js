@@ -61,7 +61,6 @@ module.exports.getThePerson = function (req, res) {
             return;
         }
         sendJSONresponse(res, 200, person);
-
     });
 };
 
@@ -78,11 +77,12 @@ module.exports.UpdateOneUser = function (req, res) {
             return;
         }
         user.name = req.body.username || user.name;
-        user.email = user.email;
         user.password = req.body.new_psw || user.password;
         user.per_signature = req.body.per_signature || user.per_signature;
-        // user.img = req.body.img || user.img;
-        user.createdOn = user.createdOn;
+        user.img = req.body.img || user.img;
+        user.hobby = req.body.hobby;
+        user.travels = req.body.travels;
+        user.brief = req.body.brief;
         user.save(function (err, user) {
             if (err) {
                 sendJSONresponse(res, 404, err);
@@ -93,19 +93,3 @@ module.exports.UpdateOneUser = function (req, res) {
     });
 
 };
-
-module.exports.DeleteOneUser = function (req, res) {
-    var _userId = req.params.userId;
-    if (_userId) {
-        UserModel.findByIdAndRemove(_userId)
-            .exec(function (err) {
-                if (err) {
-                    sendJSONresponse(res, 404, err);
-                    return;
-                }
-                sendJSONresponse(res, 204, null);
-            });
-    } else {
-        sendJSONresponse(res, 404, {message: "No userId"});
-    }
-}

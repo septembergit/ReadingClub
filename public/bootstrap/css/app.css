@@ -7,6 +7,14 @@ i {
     cursor: pointer;
 }
 
+p {
+    text-indent: 2em;
+}
+
+textarea {
+    resize: none;
+}
+
 a {
     cursor: pointer;
     text-decoration: none;
@@ -89,11 +97,13 @@ a.navbar-brand {
 }
 
 .booklist .glyphicon-star, .bookdetail .glyphicon-star, .topiclist .glyphicon-star {
-    color: gold
+    color: gold;
+    text-indent: 0em;
 }
 
 .booklist .glyphicon-star-empty, .bookdetail .glyphicon-star-empty, .topiclist .glyphicon-star-empty {
-    color: gray
+    color: gray;
+    text-indent: 0em;
 }
 
 .book-tags .tag {
@@ -107,6 +117,7 @@ a.navbar-brand {
     display: inline-block;
     margin: 0 5px 5px 0;
     line-height: 20px;
+    text-indent: 0em;
 }
 
 .booklist .book-brief {
@@ -135,7 +146,7 @@ a.navbar-brand {
 }
 
 .talks .recommend-web .web-link, .talks .recommend-web .recommend-reason, .talks .recommend-web .link-submit {
-    /*border: 1px solid #ccc;*/
+    border: 1px solid #ccc;
 }
 
 .talks .recommend-web .web-link input {
@@ -180,7 +191,7 @@ a.navbar-brand {
 .talk-item-txt p {
     overflow: hidden;
     word-wrap: break-word;
-    margin: 10px 0 0;
+    margin: 10px 0;
     padding: 0;
 }
 
@@ -434,6 +445,7 @@ a.navbar-brand {
 .personal .personal-intro p {
     font-size: 14px;
     color: #bbb;
+    text-indent: 0em;
 }
 
 .personal-talks h2, .personal-recommend h2, .personal-toread h2 {
@@ -496,6 +508,10 @@ a.navbar-brand {
     margin-top: 10px;
 }
 
+.infobox .basic-info .user-info p {
+    text-indent: 0em;
+}
+
 .infobox .bd {
     word-wrap: break-word;
     padding: 9px;
@@ -521,4 +537,5 @@ a.navbar-brand {
 
 .infobox .bd .user-intro p {
     line-height: 150%;
+    text-indent: 0em;
 }

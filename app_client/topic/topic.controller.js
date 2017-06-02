@@ -44,6 +44,5 @@ function topicCtrl(topicData, authentication, $modal) {
         vm._selected = item;
         vm.initTopicList();
     };
-
     vm.initTopicList();
 }

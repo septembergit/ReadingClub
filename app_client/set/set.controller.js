@@ -1,9 +1,9 @@
 angular
     .module('readApp')
     .controller('setCtrl', setCtrl);
-setCtrl.$inject = ['$location', 'authentication'];
+setCtrl.$inject = ['authentication', '$modal'];
 
-function setCtrl($location, authentication) {
+function setCtrl(authentication, $modal) {
     var vm = this;
     vm.isPsw = false;
     vm.user = authentication.currentUser();
@@ -22,14 +22,17 @@ function setCtrl($location, authentication) {
             // 应该给个结果提示
         });
     };
-    vm.removeUser = function () {
-        if (confirm("确定删除账号？")) {
-            authentication.removeUser(vm.user._id).success(function () {
-
-                // 应该给个结果提示
-                authentication.logout();
-                $location.path('/');
-            });
-        }
+    vm.setMoreInfo = function () {
+        $modal.open({
+            templateUrl: 'set/modal/setModal.html',
+            controller: 'setModalCtrl as vm',
+            resolve: {
+                viewData: function () {
+                    return {
+                        userId: vm.user._id
+                    };
+                }
+            }
+        });
     };
 }

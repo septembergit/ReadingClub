@@ -29,10 +29,12 @@ var appClientFiles = [
     'app_client/talks/detail/talkDetail.controller.js',
     'app_client/personal/personal.controller.js',
     'app_client/set/set.controller.js',
+    'app_client/set/modal/setModal.controller.js',
     'app_client/books/books.controller.js',
     'app_client/books/detail/bookDetail.controller.js',
     'app_client/books/modal/bookModal.controller.js',
     'app_client/auth/register/register.controller.js',
+    'app_client/auth/login/login.controller.js',
     'app_client/auth/login/login.controller.js'
 ];
 

@@ -61,7 +61,11 @@ var userSchema = new Schema({
         type: String,
         default: '需要一个强势的签名'
     },
-    user_img: String
+    user_img: String,
+    want_book: [Schema.Types.Mixed],
+    hobby: String,
+    travels: String,
+    brief: String
 });
 
 // 设置密码
@@ -87,16 +91,6 @@ userSchema.methods.generateJwt = function () {
     }, process.env.JWT_SECRET);
 };
 
-var collectionSchema = new Schema({
-    user_id: String,
-    recommend_book: [String],
-    want_book: [String],
-    // history_book: [String],
-    personal_share: [String],
-    personal_diary: [String],
-    personal_album: [String],
-    personal_link: [String]
-});
 var commentSchema = new Schema({
     commentUser: userSchema,
     commentDate: {
@@ -128,19 +122,7 @@ var topicSchema = new Schema({
     userName: String,
     userId: String,
     content: String,
-    comments: [Schema.Types.Mixed],         // 一个schema可以包含另外的schema或者数组
-    // deleted: {
-    //     type: Boolean,
-    //     default: false
-    // },
-    // top: {
-    //     type: Boolean,
-    //     default: false
-    // },
-    // good: {
-    //     type: Boolean,
-    //     default: false
-    // }
+    comments: [Schema.Types.Mixed]         // 一个schema可以包含另外的schema或者数组
 });
 
 var talkSchema = new Schema({
@@ -167,8 +149,7 @@ module.exports = {
     topicSchema: topicSchema,
     userSchema: userSchema,
     commentSchema: commentSchema,
-    talkSchema: talkSchema,
-    collectionSchema: collectionSchema
+    talkSchema: talkSchema
 }
 
 

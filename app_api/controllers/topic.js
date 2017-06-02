@@ -45,7 +45,7 @@ module.exports.CreateOnePost = function (req, res) {
         title: req.body.bookTitle,
         type: req.body.radioModel,
         content: req.body.content,
-        userImg: '',
+        userImg: req.body.userImg,
         userName: req.body.userName,
         userId: req.body.userId,
         comments: []
@@ -58,9 +58,8 @@ module.exports.CreateOnePost = function (req, res) {
     });
 };
 
-module.exports.UpdateOneTopic = function (req, res) {
+module.exports.addComments = function (req, res) {
     var _topicId = req.params.topicId;
-    console.log(req.body);
     TopicModel.findById(_topicId, function (err, topic) {
         if (!topic) {
             sendJSONresponse(res, 404, {
@@ -73,14 +72,18 @@ module.exports.UpdateOneTopic = function (req, res) {
         }
         topic.title = topic.title;
         topic.type = topic.type;
-        topic.visitedCount = topic.visitedCount;
-        topic.commentCount = topic.commentCount;
+        topic.visitedCount += 1;
+        topic.commentCount += 1;
         topic.createdOn = topic.createdOn;
-        topic.userImg = '';
+        topic.userImg = topic.userImg;
         topic.userName = topic.userName;
         topic.userId = topic.userId;
         topic.content = topic.content;
-        topic.comments.push({'comment': req.body.comment, 'commentUser': req.body.commentUser, 'commentUserId': req.body.commentUserId});
+        topic.comments.push({
+            'comment': req.body.comment,
+            'commentUser': req.body.commentUser,
+            'commentUserId': req.body.commentUserId
+        });
         topic.save(function (err, topic) {
             if (err) {
                 sendJSONresponse(res, 404, err);

@@ -1,20 +1,15 @@
 angular
     .module('readApp')
     .controller('personalCtrl', personalCtrl);
-personalCtrl.$inject = ['$routeParams', 'authentication', 'talksData', 'booksData'];
+personalCtrl.$inject = ['$routeParams', 'talksData', 'booksData'];
 
-function personalCtrl($routeParams, authentication, talksData, booksData) {
+function personalCtrl($routeParams, talksData, booksData) {
     var vm = this,
         thePerson = $routeParams.personal;
     vm.arrWordTalks = [];
     vm.arrImgTalks = [];
     vm.arrLinkTalks = [];
     vm.arrDiaryTalks = [];
-    authentication.getPersoninfo(thePerson).success(function (data) {
-        vm.thePersonInfo = data;
-    }).error(function () {
-        vm.message = "Sorry, something's gone wrong ";
-    });
     talksData.getTalks(thePerson).success(function (data) {
         data.map(function (item) {
             switch (item.type) {
@@ -38,7 +33,13 @@ function personalCtrl($routeParams, authentication, talksData, booksData) {
     booksData.getBooks(thePerson).success(function (data) {
         vm.myBookLength = data.length;
         vm.myBookList = data;
-        // $_uiNotify('数据展示成功！');
+    }).error(function () {
+
+    });
+    booksData.getCollections(thePerson).success(function (data) {
+        vm.thePersonInfo = data;
+        vm.w_BookLength = data.want_book.length;
+        vm.w_BookList = data.want_book;
     }).error(function () {
 
     });

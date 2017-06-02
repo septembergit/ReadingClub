@@ -19,17 +19,24 @@
                 <div class="topic-detail-comment">
                     <textarea ng-if="vm.isComment" rows="1" cols="1" ng-model="vm.param.comment"></textarea>
                     <div class="pull-right">
-                        <button ng-if="vm.isComment" type="button" class="btn btn-sm btn-primary" ng-click="vm.addComments()">
+                        <button ng-if="vm.isComment" type="button" class="btn btn-sm btn-primary"
+                                ng-click="vm.addComments()">
                             提交
                         </button>
-                        <button ng-if="vm.isComment" type="button" class="btn btn-sm btn-default" ng-click="vm.cancelComments()">取消
+                        <button ng-if="vm.isComment" type="button" class="btn btn-sm btn-default"
+                                ng-click="vm.cancelComments()">取消
                         </button>
                     </div>
                 </div>
-                <div class="row comment-list" ng-if="vm.oneTopicData.comments" ng-repeat="item in vm.oneTopicData.comments">
+                <div class="row comment-list" ng-if="vm.oneTopicData.comments"
+                     ng-repeat="item in vm.oneTopicData.comments">
                     <h4><a <a href="#/personal/{{item.commentUserId}}">{{::item.commentUser}}</a> 的评论</h4>
-                    <p class="pull-left">{{::item.comment}}</p>
-                    <span class="pull-right" ng-click="vm.likeComment()"><i class="fa fa-thumbs-o-up text-orange"></i></span>
+                    <p>{{::item.comment}}</p>
+                    <div class="pull-right">
+                        <span ng-click="vm.likeComment()"><i class="fa fa-thumbs-o-up"></i></span>
+                        <span style="margin-left: 10px;" ng-click="vm.disLikeComment()"><i
+                                class="fa fa-thumbs-o-down"></i></span>
+                    </div>
                 </div>
             </div>
         </div>

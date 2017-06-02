@@ -22,8 +22,8 @@ function topicData($http, authentication) {
     var getOneTopic = function (param) {
         return $http.get('/api/topic/' + param);
     };
-    var updateTopic = function (topicId, data) {
-        return $http.put('/api/topic/' + topicId, data, {
+    var addComments = function (topicId, data) {
+        return $http.put('/api/c_onetopic/' + topicId, data, {
             headers: {
                 Authorization: 'Bearer ' + authentication.getToken()
             }
@@ -33,7 +33,7 @@ function topicData($http, authentication) {
         getByType: getByType,
         addPost: addPost,
         getOneTopic: getOneTopic,
-        updateTopic: updateTopic
+        addComments: addComments
     };
 };
 
@@ -67,8 +67,17 @@ function booksData($http, authentication) {
             }
         });
     };
+    var manageBook = function (params) {
+        return $http.put('/api/h_book/', params, {
+            headers: {
+                Authorization: 'Bearer ' + authentication.getToken()
+            }
+        });
+    };
+    var getCollections = function (param) {
+        return $http.get('/api/collections/' + param);
+    }
     var uploadImage = function (data) {
-        console.log(data);
         return $http.post('/api/uploadImg', data);
     };
     return {
@@ -77,6 +86,8 @@ function booksData($http, authentication) {
         addBook: addBook,
         removeBookById: removeBookById,
         updateBookById: updateBookById,
+        manageBook: manageBook,
+        getCollections: getCollections,
         uploadImage: uploadImage
     };
 };

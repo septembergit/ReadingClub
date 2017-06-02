@@ -25,7 +25,7 @@ function topicDetailCtrl($routeParams, topicData, authentication) {
 
     });
     vm.addComments = function () {
-        topicData.updateTopic(topicId, vm.param).success(function (data) {
+        topicData.addComments(topicId, vm.param).success(function () {
             vm.isComment = false;
         }).error(function () {
 
@@ -33,5 +33,11 @@ function topicDetailCtrl($routeParams, topicData, authentication) {
     };
     vm.cancelComments = function () {
         vm.isComment = false;
+    };
+    vm.likeComment = function () {
+
+    };
+    vm.disLikeComment = function () {
+
     };
 }

@@ -61,14 +61,6 @@ function authentication($window, $http) {
             }
         });
     };
-    var removeUser = function (userId) {
-        return $http.delete('/api/user/' + userId, {
-            headers: {
-                Authorization: 'Bearer ' + getToken()
-            }
-        });
-    };
-
     return {
         saveToken: saveToken,
         getToken: getToken,
@@ -78,8 +70,7 @@ function authentication($window, $http) {
         isLoggedIn: isLoggedIn,
         currentUser: currentUser,
         getPersoninfo: getPersoninfo,
-        resetUserInfo: resetUserInfo,
-        removeUser: removeUser
+        resetUserInfo: resetUserInfo
     };
 }
 

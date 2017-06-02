@@ -20,16 +20,6 @@ function talksCtrl(talksData, authentication) {
         checkModel: [],
         type: ''
     };
-    vm.auth_config = [
-        {
-            name: '所有人可见',
-            id: 0
-        },
-        {
-            name: '仅自己可见',
-            id: 1
-        }
-    ];
     vm.tag_config = [
         {
             name: '电影',
@@ -55,7 +45,7 @@ function talksCtrl(talksData, authentication) {
         vm.message = "Sorry, something's gone wrong ";
     });
 
-    // 复选，单选
+    // 复选
     vm.selectTagFn = function (item) {
         var _index = vm.params.checkModel.indexOf(item.name);
         if (_index > -1) {
@@ -65,10 +55,6 @@ function talksCtrl(talksData, authentication) {
         }
     };
 
-    vm.selectRadioFn = function (index) {
-        vm.params.radioModel = vm.tag_config[index].id;
-    };
-
     vm.selectWhich = function (event) {
         vm.nameType = window.event.target.id;
     };
@@ -76,7 +62,7 @@ function talksCtrl(talksData, authentication) {
     // 发布内容
     vm.submitText = function (type) {
         vm.params.type = type;
-        talksData.addTalk(vm.params).success(function (data) {
+        talksData.addTalk(vm.params).success(function () {
             vm.nameType = '';
         }).error(function () {
 
