@@ -195,6 +195,12 @@ a.navbar-brand {
     padding: 0;
 }
 
+.talk-item-txt .diary-content, .item-content-detail .diary-content{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 /*topic*/
 .topiclist {
     margin: 20px 0;
@@ -485,11 +491,20 @@ a.navbar-brand {
     padding: 10px 0;
 }
 
-.personal-recommend .book-img, .personal-toread .book-img {
-    margin: 0 16px 16px 0;
+.personal-toread {
+    clear: both;
+}
+
+.personal-recommend-item, personal-toread-item {
     width: 67px;
     height: 97px;
-    border: 1px solid #eee;
+    float: left;
+    margin: 0 20px 16px 0;
+}
+
+.personal-recommend .book-img, .personal-toread .book-img {
+    width: 67px;
+    height: 97px;
 }
 
 .infobox {

@@ -43,7 +43,7 @@
                             <label class="label label-warning pull-right">{{item.createdOn | formatDate}}</label>
                             <div class="item-content-detail">
                                 <h5>推荐的链接地址为: <a href="{{item.web_link}}" target="_blank">{{item.web_link}}</a></h5>
-                                <div>推荐理由为: {{item.web_content}}</div>
+                                <div>推荐理由为: {{item.web_reason}}</div>
                             </div>
                         </div>
                     </div>
@@ -58,8 +58,8 @@
                                 <img src="">
                             </div>
                             <div class="item-content-detail">
-                                <h5>{{item.diary_title}}</h5>
-                                <p>{{item.diary_content}}</p>
+                                <h5><a href="#/talks/{{item._id}}">{{item.diary_title}}</a></h5>
+                                <p class="diary-content">{{item.diary_content}}</p>
                             </div>
                         </div>
                     </div>

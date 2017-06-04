@@ -9,6 +9,6 @@ function headerCtrl($location, authentication) {
     vm.currentUser = authentication.currentUser();
     vm.logout = function () {
         authentication.logout();
-        $location.path('/');
+        $location.path('/login');
     };
 };

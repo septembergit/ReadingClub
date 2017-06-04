@@ -62,13 +62,14 @@
                         <img ng-src='{{item.user_img}}'></a>
                     </div>
                     <div class="col-md-8">
-                        <p style="font-size: 16px;"><b><a style="color: #212121;" href="#/personal/{{item.userId}}">{{item.userName}}</a></b>
+                        <div style="font-size: 16px;margin-bottom:16px;">
+                            <b><a style="color: #212121;" href="#/personal/{{item.userId}}">{{item.userName}}</a></b>
                             <span ng-if="item.type === 'word'">的分享</span>
                             <span ng-if="item.type === 'image'">的相册</span>
                             <span ng-if="item.type === 'link'">的推荐网页</span>
                             <span ng-if="item.type === 'diary'">的日记</span>
                             <span>&nbsp;&nbsp;{{item.createdOn | formatDate}}</span>
-                        </p>
+                        </div>
                         <div class="talk-item-txt">
                             <div ng-if="item.type === 'word'">
                                 <p>{{item.lift_piece}}</p>
@@ -77,12 +78,12 @@
 
                             </div>
                             <div ng-if="item.type === 'link'">
-                                <p>地址: <a href="{{item.web_link}}">{{item.web_link}}</a></p>
+                                <p>地址: <a href="{{item.web_link}}" target="_blank">{{item.web_link}}</a></p>
                                 <p>推荐理由: {{item.web_reason}}</p>
                             </div>
                             <div ng-if="item.type === 'diary'">
                                 <a href="#/talks/{{item._id}}">{{item.diary_title}}</a>
-                                <p>{{item.diary_content}}</p>
+                                <p class="diary-content">{{item.diary_content}}</p>
                                 <div><label ng-repeat="tag in item.diary_tags" class="label label-info"
                                             style="margin-right:8px;">{{tag}}</label>
                                 </div>
@@ -92,7 +93,7 @@
                     <div class="col-md-2">
                         <span class="close" ng-if="vm.currentUser._id === item.userId"
                               ng-click="vm.removeTalk(item._id)">&times;</span>
-                        <img ng-if="item.type === 'diary'" src="{{item.talk_img}}">
+                        <!--<img ng-if="item.type === 'diary'" src="{{item.talk_img}}">-->
                     </div>
                 </div>
             </div>

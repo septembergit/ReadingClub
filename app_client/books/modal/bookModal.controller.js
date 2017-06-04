@@ -16,10 +16,10 @@ function bookModalCtrl($modalInstance, viewData, booksData) {
         brief: '',
         book_img: ''
     };
-    vm.onSubmit = function () {
+    vm.save = function () {
         vm.formError = "";
         if (!vm.formData.title || !vm.formData.auth || !vm.formData.press || !vm.formData.ISBN || !vm.formData.tags || !vm.formData.rating || !vm.formData.brief || !vm.formData.book_img) {
-            vm.formError = "请完成所有栏目!";
+            vm.formError = "请完成必需的栏目内容!!";
             return false;
         } else if (vm.viewData.upBookId) {
             vm.doUpBook(vm.formData);
