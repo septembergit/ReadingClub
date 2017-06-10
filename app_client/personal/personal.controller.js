@@ -37,6 +37,7 @@ function personalCtrl($routeParams, talksData, booksData) {
 
     });
     booksData.getCollections(thePerson).success(function (data) {
+        data.createdOn = data.createdOn.substr(0, 10);
         vm.thePersonInfo = data;
         vm.w_BookLength = data.want_book.length;
         vm.w_BookList = data.want_book;

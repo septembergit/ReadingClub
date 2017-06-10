@@ -51,7 +51,7 @@ function booksCtrl(booksData, $modal, $location, authentication) {
     // 删除某一个读物
     vm.removeBook = function (book_id) {
         if (confirm("确定删除？")) {
-            booksData.removeBookById(book_id).success(function () {
+            booksData.removeBookById(book_id).success(function (data) {
                 for (var i = 0; i < vm.bookList.length; i++) {
                     if (vm.bookList[i]._id == book_id) {
                         vm.bookList.splice(vm.bookList.indexOf(vm.bookList[i]), 1);

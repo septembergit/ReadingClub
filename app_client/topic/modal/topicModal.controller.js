@@ -13,7 +13,7 @@ function topicModalCtrl(topicData, $modalInstance, viewData) {
         userName: vm.viewData.userName,
         userId: vm.viewData.userId,
     };
-    vm.onSubmit = function () {
+    vm.save = function () {
         topicData.addPost(vm.param).success(function () {
 
         }).error(function () {

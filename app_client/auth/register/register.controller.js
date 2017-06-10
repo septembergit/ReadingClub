@@ -12,7 +12,6 @@ function registerCtrl($location, authentication) {
         user_img: ''
     };
     vm.formError = "";
-    vm.returnPage = $location.search().page || '/';
     vm.onSubmit = function () {
         if (!vm.params.name || !vm.params.email || !vm.params.password || !vm.params.confirm_password) {
             vm.formError = "需要填完所有字段!";
@@ -29,7 +28,7 @@ function registerCtrl($location, authentication) {
                 vm.formError = err;
             }).then(function () {
                 $location.search('page', null);
-                $location.path(vm.returnPage);
+                $location.path('/login');
             });
         }
     };

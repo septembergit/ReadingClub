@@ -18,7 +18,7 @@
                 <div class="error">{{vm.message}}</div>
                 <div class="row topiclist" ng-repeat='topic in vm.topicList'>
                     <img ng-src='{{topic.userImg}}'><span class="count">{{topic.commentCount}}/{{topic.visitedCount}}</span>
-                    <a class="label label-info" href="#/topic/{{topic._id}}">{{topic.type}}</a>&nbsp;&nbsp;{{topic.title}}
+                    <a class="label label-info" href="#/topic/{{topic._id}}">{{topic.type}}</a>&nbsp;&nbsp;《{{topic.title}}》
                     <span class="pull-right">{{topic.createdOn | formatDate}}</span>
                     <a href="#/personal/{{topic.userId}}" class="pull-right author">{{topic.userName}}</a>
                 </div>

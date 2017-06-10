@@ -135,7 +135,6 @@ var talkSchema = new Schema({
     user_img: String,
     userName: String,
     userId: String,
-    diary_auth: Number,
     diary_tags: [String],
     createdOn: {
         type: Date,

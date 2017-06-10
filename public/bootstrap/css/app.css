@@ -195,7 +195,7 @@ a.navbar-brand {
     padding: 0;
 }
 
-.talk-item-txt .diary-content, .item-content-detail .diary-content{
+.talk-item-txt .diary-content, .item-content-detail .diary-content {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -553,4 +553,11 @@ a.navbar-brand {
 .infobox .bd .user-intro p {
     line-height: 150%;
     text-indent: 0em;
+}
+
+footer {
+    background: #fff;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
 }

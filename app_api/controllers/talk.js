@@ -50,7 +50,6 @@ module.exports.CreateOneTalk = function (req, res) {
         user_img: req.body.user_img || '',
         userName: req.body.userName || '',
         userId: req.body.userId || '',
-        diary_auth: 0,
         diary_tags: req.body.checkModel || '',
         type: req.body.type
     }, function (err, talk) {

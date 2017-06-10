@@ -30,7 +30,8 @@ function topicCtrl(topicData, authentication, $modal) {
                         title: "发布帖子",
                         tags: vm.typeArr,
                         userName: theCurrentUser.name,
-                        userId: theCurrentUser._id
+                        userId: theCurrentUser._id,
+                        userImg: theCurrentUser.user_img
                     };
                 }
             }
